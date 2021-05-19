@@ -1,0 +1,28 @@
+* {margin: 0; padding: 0}
+
+a {
+    text-decoration: none;
+    margin: 1em;
+}
+
+.container {
+    background-color: green;
+    margin: 0 auto;
+    width: 80%;
+    position: relative;
+}
+
+.session {
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #a3e4c4;
+}
+
+.text-right {text-align: right}
+.text-center {text-align: center}
+
+.inline-block {
+    display: inline-block;
+    padding: 0.8em;
+}
