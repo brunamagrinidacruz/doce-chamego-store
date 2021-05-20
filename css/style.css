@@ -1,15 +1,28 @@
 * {margin: 0; padding: 0}
 
+.text-right {text-align: right}
+.text-center {text-align: center}
+.inline-block {display: inline-block}
+
 a {
     text-decoration: none;
     margin: 1em;
+    color: rgb(110, 103, 103);
+}
+
+a:hover {
+    background-color: rgb(206, 201, 201);
+    padding: 0.5em;
+    margin: 0.5em;
 }
 
 .container {
     background-color: green;
-    margin: 0 auto;
-    width: 80%;
+    margin: auto;
+    width: 90%;
     position: relative;
+    font-family: Arial;
+    color: rgb(110, 103, 103);
 }
 
 .session {
@@ -19,10 +32,33 @@ a {
     background-color: #a3e4c4;
 }
 
-.text-right {text-align: right}
-.text-center {text-align: center}
+.cardapio {
+    position: relative;
+    padding: 0.9em;
+    margin: 0.2em;
+    width: 15em;
+    height: 16em;
+    background-color: yellow;
+}
 
-.inline-block {
-    display: inline-block;
-    padding: 0.8em;
+.cardapio > p {
+    margin-top: 13.5em;
+}
+
+#cabecalho {
+    height: 4em;
+    border: solid 1px rgb(182, 176, 176);
+}
+
+#sobre {
+    height: 14em;
+    border: solid 1px rgb(182, 176, 176);
+    margin-bottom: 0;
+}
+
+#contato {
+    height: 10em;
+    border: solid 1px rgb(182, 176, 176);
+    border-top: 0;
+    margin-top: 0;
 }
