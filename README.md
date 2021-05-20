@@ -49,10 +49,12 @@ A partir dessa tela, o usuário consegue visualizar os produtos à venda. Além 
 Utilizando o menu do sistema, o usuário consegue realizar login na plataforma e, quando logado, consegue acessar seu carrinho se cliente.
 
 **Tela de login**  
-Na tela de login, o usuário consegue se cadastrar ou entrar na plataforma.   
-O cadastro na tela de login é realizado por usuários do tipo cliente. 
-Para acessar a plataforma, o usuário deve informar o *e-mail* e *senha* cadastrados.  
-Após o acesso a plaltaforma, clientes e administradores possuem acesso a funcionalidades distintas.
+Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *e-mail* e *senha* cadastrados.   
+Após o acesso a plaltaforma, clientes e administradores possuem acesso a funcionalidades distintas.  
+Além disso, através da tela de login, o usuário consegue acessar a tela de cadastro.
+
+**Tela de cadastro** 
+O cadastro na tela de cadastro é realizado por usuários do tipo cliente. 
 
 ## Comentários Sobre o Código
 
