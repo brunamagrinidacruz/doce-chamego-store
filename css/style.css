@@ -17,7 +17,7 @@ a:hover {
 }
 
 .container {
-    /*background-color: green;*/
+    background-color: green;
     margin: auto;
     width: 90%;
     position: relative;
@@ -29,16 +29,20 @@ a:hover {
     padding: 1em;
     margin-top: 1em;
     margin-bottom: 1em;
-    /*background-color: #a3e4c4; */ 
+    background-color: #a3e4c4;
 }
 
 .cardapio {
     position: relative;
-    padding: 0.8em;
+    padding: 0.9em;
     margin: 0.2em;
     width: 15em;
-    height: 15em;
-    /*background-color: yellow;*/
+    height: 16em;
+    background-color: yellow;
+}
+
+.cardapio > p {
+    margin-top: 13.5em;
 }
 
 #cabecalho {

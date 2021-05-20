@@ -1,13 +1,12 @@
 Bruna Magrini da Cruz, 11218813  
 Marlon José Martins, 10249010  
-Wellington Matos Amaral, 11315054   dddddddd
+Wellington Matos Amaral, 11315054  
 
 Projeto para matéria de Introdução ao Desenvolvimento Web (SCC0219) para o curso de Ciências de Computação da USP São Carlos.
 
-# Loja da Doce Chamego 
+# Loja da Doce Chamego
 
-O sistema é um site para venda de cones trufados e festas na caixa. Os cones trufados são vendidos em diferentes formatos: cone simples, cone cascão, cone na caixa e cone comemorativo (páscoa, natalino e dia das crianças). As festas na caixa são produtos com  tema pré-definido (café da manhã, quitutes, caixa bar, vinho e petiscos) ou podem ser montadas pelo cliente, escolhendo assim seus itens e decoração.   
-A plataforma foi implementada com HTML5 e CSS3.
+O sistema é um site para venda de cones trufados, festas na caixa e outros doces. Os cones trufados são vendidos em diferentes formatos: cone simples, cone cascão, cone na caixa e cone comemorativo (páscoa, natalino, dia das crianças, entre outros). As festas na caixa são produtos com  tema pré-definido (café da manhã, quitutes, caixa bar, vinho, petiscos, entre outros) ou podem ser montadas pelo cliente, escolhendo assim seus itens e decoração. Além disso a empresa vende doces diversificados em datas específicas do ano.  
 
 ## Requisitos
 
@@ -28,18 +27,32 @@ A plataforma foi implementada com HTML5 e CSS3.
 
 ## Descrição 
 
-O sistema conta com dois tipos de usuários: administrador e cliente. 
-![MER do Produto](./img/documentacao/mer-produto.jpeg)
+A plataforma foi implementada com HTML5 e CSS3.
+
+O sistema conta com dois tipos de usuários: administrador e cliente.   
+![MER dos Usuarios](./img/documentacao/mer-usuario.jpeg)  
+Com a classificação de níveis hierárquicos é possível definir quais operações um determinado usuário pode realizar.  
+Além disso, o sistema conta com o "usuário" não cadastrado, que representa um cliente que não possui associação com a plataforma e não pode realizar as operações de um cliente.
+
+O sistema permite a venda de 3 modalidades de produtos: cones, festas na caixa e outros.
+![MER dos Produtos](./img/documentacao/mer-produto.jpeg)
+
 
 ## Comentários Sobre o Código
 
 ## Teste
+
+[?] Os testes da aplicação front-end serão realizados utilizando `Jest` (https://pt-br.reactjs.org/docs/testing.html).
+
+Os testes da aplicação back-end serão realizados utilizado `Postman`, `curl` e/ou `REST Client for Visual Studio Code`.
 
 ### Plano de Teste
 
 ### Resultados dos Testes
 
 ## Processo de Execução
+
+Para a execução do sistema é necessário abrir o arquivo `index.html` no navegador.
 
 ## Problemas
 
