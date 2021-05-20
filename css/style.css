@@ -1,5 +1,9 @@
 * {margin: 0; padding: 0}
 
+.text-right {text-align: right}
+.text-center {text-align: center}
+.inline-block {display: inline-block}
+
 a {
     text-decoration: none;
     margin: 1em;
@@ -8,8 +12,9 @@ a {
 .container {
     background-color: green;
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
     position: relative;
+    font-family: Arial;
 }
 
 .session {
@@ -19,10 +24,11 @@ a {
     background-color: #a3e4c4;
 }
 
-.text-right {text-align: right}
-.text-center {text-align: center}
-
-.inline-block {
-    display: inline-block;
+.cardapio {
+    position: relative;
     padding: 0.8em;
+    margin: 0.2em;
+    width: 15em;
+    height: 15em;
+    background-color: yellow;
 }
