@@ -6,7 +6,7 @@ Projeto para matéria de Introdução ao Desenvolvimento Web (SCC0219) para o cu
 
 # Loja da Doce Chamego
 
-O sistema é um site para venda de cones trufados, festas na caixa e outros doces. Os cones trufados são vendidos em diferentes formatos: cone simples, cone cascão, cone na caixa e cone comemorativo (páscoa, natalino, dia das crianças, entre outros). As festas na caixa são produtos com  tema pré-definido (café da manhã, quitutes, caixa bar, vinho, petiscos, entre outros) ou podem ser montadas pelo cliente, escolhendo assim seus itens e decoração. Além disso a empresa vende doces diversificados em datas específicas do ano.  
+O sistema é um site para venda de cones trufados, festas na caixa e outros doces. Os cones trufados são vendidos em diferentes formatos: cone simples, cone cascão, cone na caixa e cone comemorativo (páscoa, natalino, dia das crianças, entre outros). As festas na caixa são produtos com  tema pré-definido (café da manhã, quitutes, caixa bar, vinho, petiscos, entre outros) ou podem ser montadas pelo cliente, escolhendo assim seus itens e decoração. Além disso, a empresa vende doces diversificados em datas específicas do ano.  
 
 ## Requisitos
 
