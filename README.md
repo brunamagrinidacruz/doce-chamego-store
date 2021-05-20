@@ -50,7 +50,7 @@ Utilizando o menu do sistema, o usuário consegue realizar login na plataforma e
 
 **Tela de login**  
 Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *e-mail* e *senha* cadastrados.   
-Após o acesso a plaltaforma, clientes e administradores possuem acesso a funcionalidades distintas.  
+Após o acesso, clientes e administradores possuem acesso a funcionalidades distintas.  
 Além disso, através da tela de login, o usuário consegue acessar a tela de cadastro.
 
 **Tela de cadastro**   
