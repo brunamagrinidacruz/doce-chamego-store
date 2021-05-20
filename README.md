@@ -53,7 +53,7 @@ Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plata
 Após o acesso a plaltaforma, clientes e administradores possuem acesso a funcionalidades distintas.  
 Além disso, através da tela de login, o usuário consegue acessar a tela de cadastro.
 
-**Tela de cadastro** 
+**Tela de cadastro**   
 O cadastro na tela de cadastro é realizado por usuários do tipo cliente. 
 
 ## Comentários Sobre o Código
