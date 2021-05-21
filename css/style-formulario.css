@@ -1,0 +1,44 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+footer{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 80px;
+    padding: 0px 25px 0px 25px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: flex-end;
+
+    background-color: floralwhite;
+}
+header{
+    box-sizing: border-box;
+    width: 50vw;
+    height: 100px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    background-color: floralwhite;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url("../img/cone-trufado1.jpeg");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
