@@ -3,37 +3,52 @@
     <head>
         <title>Doce Chamego</title>
         <meta charset="utf-8">
+        <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
         <link href="css/style-cadastro.css" rel="stylesheet">
         <link href="css/style-formulario.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
             <header class="brand">
-                <h1>Doce Chamego</h1>
+                <a href="index.html"><img src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego" with="160em" height="140em"></a> 
             </header>
+        
             <div class="informations">
                 <div class="forms">
                     <h2>Cadastre-se</h2>
                     <form>
-                        <h3>Nome</h3>
-                        <input type="text" id="nome" name="email" autofocus autocomplete="off" required>
-                        <h3>CPF</h3>
-                        <input type="text" id="cpf" placeholder="12345678909" autocomplete="off" maxlength="11" required><br>
-                        <h3>Email</h3>
-                        <input type="email" id="email" placeholder="seuemail@dominio" autocomplete="off" required><br>
-                        <h3>Endereço</h3>
-                        <input type="text" id="endereco" autocomplete="off" required><br>
-                        <h3>Telefone</h3>
-                        <input type="tel" id="telefone" placeholder="+12 (34) 5678-9101" autocomplete="off" required><br>
-                        <h3>Senha</h3>
-                        <input type="password" id="senha" autocomplete="off" required><br>
+                        <div class="field">
+                            <h3>Nome</h3>
+                            <input type="text" id="nome" name="email" autofocus autocomplete="off" required>
+                        </div>
+                        <div class="field">
+                            <h3>CPF</h3>
+                            <input type="text" id="cpf" placeholder="12345678909" autocomplete="off" maxlength="11" required><br>
+                        </div>
+                        <div class="field">
+                            <h3>Email</h3>
+                            <input type="email" id="email" placeholder="seuemail@dominio" autocomplete="off" required><br>
+                        </div>
+                        <div class="field">
+                            <h3>Endereço</h3>
+                            <input type="text" id="endereco" autocomplete="off" required><br>
+                        </div>
+                        <div class="field">
+                            <h3>Telefone</h3>
+                            <input type="tel" id="telefone" placeholder="+12 (34) 5678-9101" autocomplete="off" required><br>
+                        </div>
+                        <div class="field">
+                            <h3>Senha</h3>
+                            <input type="password" id="senha" autocomplete="off" required><br>
+                        </div>
                         <div id="botao"><input type="submit" name="cadastrar" value="Cadastrar"></div> 
                     </form> 
-                </div>
+                </div> 
             </div>
+
             <footer>
                 <p class="itens">Informacoes</p>
-                <p class="  ">Contato</p>
+                <p class="itens">Contato</p>
                 <p class="itens">Ajuda</p>
             </footer>
         </div>

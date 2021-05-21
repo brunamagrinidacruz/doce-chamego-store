@@ -1,0 +1,85 @@
+* {margin: 0; padding: 0}
+
+.text-right {text-align: right}
+.text-center {text-align: center}
+.inline-block {display: inline-block}
+
+a {
+    text-decoration: none;
+    margin: 1em;
+    color: rgb(110, 103, 103);
+}
+a:hover {
+    background-color: rgb(206, 201, 201);
+    padding: 0.5em;
+    margin: 0.5em;
+}
+.container {
+    /*background-color: green;*/
+    margin: auto;
+    width: 90%;
+    position: relative;
+    font-family: Arial;
+    color: rgb(110, 103, 103);
+}
+.session {
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /*background-color: #a3e4c4;*/
+}
+
+
+.cardapio {
+    position: relative;
+    padding: 0.9em;
+    margin: 0.2em;
+    width: 15em;
+    height: 16em;
+   /*background-color: yellow;*/
+}
+
+.cardapio > p {
+    margin-top: 13.5em;
+}
+#cabecalho {
+    height: 4em;
+    border: solid 1px rgb(182, 176, 176);
+}
+#contato {
+    height: 10em;
+    border: solid 1px rgb(182, 176, 176);
+    border-top: 0;
+    margin-top: 0;
+}
+.Carrinho{
+    height: 32em;   
+    width: 69%; 
+    border: solid 1px rgb(182, 176, 176);
+    margin: -1em;
+}
+.valoresESugestoes{
+    float: right;
+    box-sizing: border-box;
+    height: 32em;
+    width: 30%;
+    border: solid 1px rgb(182, 176, 176);
+    margin-right: -1em;
+}
+.valor{
+    float: right;
+    box-sizing: border-box;
+    height: 14em;
+    width: 100%;
+    border-bottom: solid 1px rgb(182, 176, 176);
+}
+.sugestoes{
+    float: right;
+    box-sizing: border-box;
+    height: 17em;
+    width: 100%;
+}
+.foto{
+    width: 8em;
+    height: 8em;
+}
