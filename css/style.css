@@ -48,6 +48,7 @@ a:hover {
 #cabecalho {
     height: 4em;
     border: solid 1px rgb(182, 176, 176);
+    background-color: #ffd5d6;
 }
 
 #sobre {
