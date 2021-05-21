@@ -15,7 +15,7 @@ O sistema é um site para venda de cones trufados, festas na caixa e outros doce
     - Os clientes são usuários que acessam o sistema para comprar produtos;
 - O sistema deve permitir que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *telefone*, *e-mail*, *cargo* (podendo ser dono ou vendedor) e *senha*;
 - O sistema deve permitir que um cliente se cadastre no mesmo. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
-- O sistema deve permitir que o administrador cadastre, consulte, atualize e remova produtos. As informações armazenadas sobre um produto são: *id*, *nome*, *foto*, *descrição*, *preço*, *quantidade em estoque* e *quantidade vendida*. O sistema possui dois tipos de produto: cones trufados e festas na caixa;
+- O sistema deve permitir que o administrador cadastre, consulte, atualize e remova produtos. As informações armazenadas sobre um produto são: *id*, *nome*, *foto*, *descrição*, *preço*, *quantidade em estoque* e *quantidade vendida*. O sistema possui três tipos de produto: cones trufados, festas na caixa e outros;
     - Cada cone trufado cadastrado possui diferentes sabores associados. Tais sabores devem ser cadastrados previamente no sistema (leite ninho, nutella, brigadeiro, maracujá, sensação, ovomaltine, limão, paçoca, prestígio, entre outros);
     - Cada festa na caixa possui diferentes itens associados. Tais itens devem ser cadastrados previamente no sistema (refrigerante, suco, doces, bolos, salgados, entre outros). Além disso, a festa na caixa possui um *tamanho* (pequeno, médio ou grande); 
 - O sistema deve permitir a venda dos produtos. Para cada produto vendido, a *quantidade vendida* deve ser incrementada e *quantidade em estoque* decrementada conforme a quantidade vendida. Uma venda não pode ser realizada caso não haja a quantidade em estoque necessária;
@@ -29,14 +29,17 @@ O sistema é um site para venda de cones trufados, festas na caixa e outros doce
 
 A plataforma foi implementada com HTML5 e CSS3.
 
-### Usuários
+### Armazenamento de Dados
+
+Serão armazenadas na base de dados as informações de usuários e produtos.
+
+**Usuários**
 
 O sistema conta com dois tipos de usuários: administrador e cliente.   
 <img alt="MER dos Usuarios" src="./img/documentacao/mer-usuario.jpeg" width="300">  
-Com a classificação de níveis hierárquicos é possível definir quais operações um determinado usuário pode realizar.  
-Além disso, o sistema conta com o "usuário" não cadastrado, que representa um usuário que não possui associação com a plataforma e não pode realizar operações além de consulta de produtos na plataforma.
+Além disso, o sistema conta com o "usuário" não cadastrado, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
 
-### Produtos
+**Produtos**
 
 O sistema permite a venda de 3 modalidades de produtos: cones, festas na caixa e outros.  
 <img alt="MER dos Produtos" src="./img/documentacao/mer-produto.jpeg" width="300">  
@@ -46,13 +49,15 @@ O sistema permite a venda de 3 modalidades de produtos: cones, festas na caixa e
 **Tela inicial**  
 Ao acessar a plataforma, o usuário é levado para a tela inicial.   
 A partir dessa tela, o usuário consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre a empresa (descrição e contato).  
-Utilizando o menu do sistema, o usuário consegue realizar login na plataforma e, quando logado, consegue acessar seu carrinho se cliente.
+Utilizando o menu do sistema, o usuário consegue realizar login na plataforma.
 
 **Tela de login**  
-Na tela de login, o usuário consegue se cadastrar ou entrar na plataforma.   
-O cadastro na tela de login é realizado por usuários do tipo cliente. 
-Para acessar a plataforma, o usuário deve informar o *e-mail* e *senha* cadastrados.  
-Após o acesso a plaltaforma, clientes e administradores possuem acesso a funcionalidades distintas.
+Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *e-mail* e *senha* cadastrados.   
+Após o acesso, clientes e administradores possuem acesso a funcionalidades distintas.  
+Além disso, através da tela de login, o usuário consegue acessar a tela de cadastro.
+
+**Tela de cadastro**   
+O cadastro na tela de cadastro é realizado por usuários do tipo cliente. 
 
 ## Comentários Sobre o Código
 
