@@ -8,6 +8,10 @@ body {
     background-color: #ffbbbc;
 }
 
+p {
+    text-align: justify;
+}
+
 a {
     text-decoration: none;
     margin: 1em;
