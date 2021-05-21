@@ -1,0 +1,37 @@
+.informations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px;
+    padding: 10px;
+    width: 350px;
+    /* height: 350px; */
+
+    border: solid #ccc;
+    border-radius: 0.2em;
+
+    background-color: floralwhite;
+
+} 
+.forms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.itens{
+    width: 80px;
+}
+
+#botao{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+    width: 100%;
+}
