@@ -10,6 +10,42 @@
     filter: blur(5px)
 } */
 
+.text-right {text-align: right}
+
+#cabecalho > a {
+    text-decoration: none;
+    margin: 0.5em;
+    padding: 0.5em;
+    color: #000;
+    background-color: #ffd5d6;
+    margin-left: 3em;
+}
+
+#cabecalho > a:hover {
+    background-color: #ff9b9b;
+    /*padding: 0.5em;
+    margin: 0.5em;*/
+}
+
+#cabecalho {
+    height: 5em;
+    /*border: solid 1px rgb(182, 176, 176);*/
+    background-color: #fff;
+}
+
+#cabecalho > img {
+    height: 5em;
+    width: 8em;
+    margin-right: 3em;
+}
+
+.session {
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    /*background-color: #a3e4c4;*/
+}
+
 .container{
     margin-top: 30px;
 
