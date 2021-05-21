@@ -4,14 +4,22 @@
 .text-center {text-align: center}
 .inline-block {display: inline-block}
 
+body {
+    background-color: #ffbbbc;
+}
+
 a {
     text-decoration: none;
     margin: 1em;
-    color: rgb(110, 103, 103);
+    color: #000;
+}
+
+h2 {
+    font-weight: normal;
 }
 
 a:hover {
-    background-color: rgb(206, 201, 201);
+    background-color: #ffd5d6;
     padding: 0.5em;
     margin: 0.5em;
 }
@@ -22,7 +30,7 @@ a:hover {
     width: 90%;
     position: relative;
     font-family: Arial;
-    color: rgb(110, 103, 103);
+    color: #000;
 }
 
 .session {
@@ -46,19 +54,32 @@ a:hover {
 }
 
 #cabecalho {
-    height: 4em;
-    border: solid 1px rgb(182, 176, 176);
+    height: 5em;
+    /*border: solid 1px rgb(182, 176, 176);*/
+    background-color: #fff;
+}
+
+#header-image {
+    float: left;
+    width: 8em;
+    height: 5em;
+    margin-left: 1em;
+}
+
+#itens {
+    background-color: #ffd5d6;
 }
 
 #sobre {
     height: 14em;
-    border: solid 1px rgb(182, 176, 176);
+    /*border: solid 1px rgb(182, 176, 176);*/
+    background-color: #fff;
     margin-bottom: 0;
 }
 
 #contato {
     height: 10em;
-    border: solid 1px rgb(182, 176, 176);
-    border-top: 0;
-    margin-top: 0;
+    /*border: solid 1px rgb(182, 176, 176);*/
+    background-color: #fff;
+    margin-top: 1px;
 }
