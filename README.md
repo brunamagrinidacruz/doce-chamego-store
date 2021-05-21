@@ -29,14 +29,17 @@ O sistema é um site para venda de cones trufados, festas na caixa e outros doce
 
 A plataforma foi implementada com HTML5 e CSS3.
 
-### Usuários
+### Armazenamento de Dados
+
+Serão armazenadas na base de dados as informações de usuários e produtos.
+
+**Usuários**
 
 O sistema conta com dois tipos de usuários: administrador e cliente.   
 <img alt="MER dos Usuarios" src="./img/documentacao/mer-usuario.jpeg" width="300">  
-Com a classificação de níveis hierárquicos é possível definir quais operações um determinado usuário pode realizar.  
 Além disso, o sistema conta com o "usuário" não cadastrado, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
 
-### Produtos
+**Produtos**
 
 O sistema permite a venda de 3 modalidades de produtos: cones, festas na caixa e outros.  
 <img alt="MER dos Produtos" src="./img/documentacao/mer-produto.jpeg" width="300">  
