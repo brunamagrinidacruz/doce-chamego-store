@@ -4,8 +4,8 @@
         <title>Doce Chamego</title>
         <meta charset="utf-8">
         <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
-        <link href="css/style-login.css" rel="stylesheet">
         <link href="css/style-formulario.css" rel="stylesheet">
+        <link href="css/style-login.css" rel="stylesheet">
     </head>
     <body>
         <!--<img id="img-background" src="img/cone-trufado1.jpeg" width="100%" height="100%">-->
@@ -17,20 +17,27 @@
             <div class="informations">
                 <div class="forms">
                     <h2>Entrar</h2>
+
                     <form>
-                        <h3>E-mail</h3>
-                        <input type="email" id="email" name="email" autofocus autocomplete="off" required><br><br>
-                        <h3>Senha</h3>
-                        <input type="password" id="password" name="password" autocomplete="off" required><br>
-                        <div id="botao" ><input type="submit" name="entrar" value="Entrar"></div> 
+                        <div class="field">
+                            <h3>E-mail</h3>
+                            <input type="email" id="email" name="email" autofocus autocomplete="off" required><br>
+                        </div>
+                        <div class="field">
+                            <h3>Senha</h3>
+                            <input type="password" id="password" name="password" autocomplete="off" required><br>
+                        </div>
+
+                        <div class="field">
+                            <a href="#">Esqueci a senha</a>
+                        </div>
+
+                        <div id="botao">
+                            <a href="cadastro.html"><button type="button">Criar conta</button></a>
+                            <input type="submit" name="entrar" value="Entrar">
+                        </div> 
                     </form>
-                    <div class="logInfo forgot">
-                        <p>Esqueceu sua senha? Clique <a href="esqueceu.html">aqui.</a></p>
-                    </div>
-                    <div class="logInfo newAccount">
-                        <p>Novo por aqui?</p><br><br><br><br>
-                        <button type="button">Criar conta</button> 
-                    </div>
+
                 </div>
             </div>
 

@@ -80,6 +80,15 @@ footer{
     /*background-color: floralwhite;*/
 }
 
+h2 {
+    text-align: center;
+}
+
+.field {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
 #botao{
     display: flex;
     flex-direction: row;
