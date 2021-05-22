@@ -59,6 +59,10 @@ Além disso, através da tela de login, o usuário consegue acessar a tela de ca
 **Tela de cadastro**   
 O cadastro na tela de cadastro é realizado por usuários do tipo cliente. 
 
+### Diagrama de Navegação
+
+![Diagrama de Navegação](img/documentacao/diagrama-de-navegacao.jpg)
+
 ## Comentários Sobre o Código
 
 ## Teste
