@@ -14,6 +14,9 @@ p {
 
 a {
     text-decoration: none;
+}
+
+#cabecalho > a {
     margin: 1em;
     color: #000;
 }
@@ -22,7 +25,7 @@ h2 {
     font-weight: normal;
 }
 
-a:hover {
+#cabecalho > a:hover {
     background-color: #ffd5d6;
     padding: 0.5em;
     margin: 0.5em;
@@ -62,8 +65,13 @@ a:hover {
 }
 
 #contato {
-    height: 10em;
+    /*height: 10em;
     /*border: solid 1px rgb(182, 176, 176);*/
     background-color: #fff;
-    margin-top: 1px;
+    /*margin-top: 1px;*/
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.7em;
 }
