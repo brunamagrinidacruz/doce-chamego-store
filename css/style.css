@@ -44,19 +44,6 @@ a:hover {
     /*background-color: #a3e4c4;*/
 }
 
-.cardapio {
-    position: relative;
-    padding: 0.9em;
-    margin: 0.2em;
-    width: 15em;
-    height: 16em;
-   /*background-color: yellow;*/
-}
-
-.cardapio > p {
-    margin-top: 13.5em;
-}
-
 #cabecalho {
     height: 5em;
     /*border: solid 1px rgb(182, 176, 176);*/
@@ -70,15 +57,8 @@ a:hover {
     margin-left: 1em;
 }
 
-#itens {
+#conteudo {
     background-color: #ffd5d6;
-}
-
-#sobre {
-    height: 14em;
-    /*border: solid 1px rgb(182, 176, 176);*/
-    background-color: #fff;
-    margin-bottom: 0;
 }
 
 #contato {

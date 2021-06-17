@@ -58,3 +58,16 @@
     visibility: visible;
     z-index: 10;
 }
+
+.cardapio {
+    position: relative;
+    padding: 0.9em;
+    margin: 0.2em;
+    width: 15em;
+    height: 16em;
+   /*background-color: yellow;*/
+}
+
+.cardapio > p {
+    margin-top: 13.5em;
+}
