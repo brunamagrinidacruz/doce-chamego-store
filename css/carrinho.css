@@ -24,7 +24,7 @@ a:hover {
 
 .carrinho{
     height: 32em;   
-    width: 69%; 
+    width: 65%; 
     border: solid 1px rgb(182, 176, 176);
     border-radius: 5px;
     background-color: white;
@@ -43,7 +43,13 @@ a:hover {
     text-align: start;
     padding: 20px;
     margin: 10px;
-    border: solid 1px rgb(182, 176, 176);
+    border-bottom: solid 1px rgb(182, 176, 176);
+    border-top: solid 1px rgb(182, 176, 176);
+}
+
+.preco{
+    width: 90%;
+    margin: 10px;
 }
 
 .prodCarrinho{
@@ -58,7 +64,7 @@ a:hover {
 .valor{
     float: right;
     box-sizing: border-box;
-    height: 14em;
+    height: 9em;
     width: 100%;
     border-bottom: solid 1px rgb(182, 176, 176);
 }
