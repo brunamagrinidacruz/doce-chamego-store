@@ -3,72 +3,80 @@
     <head>
         <title>Doce Chamego</title>
         <meta charset="utf-8">
-        <link href="css/style-carrinho.css" rel="stylesheet">
-        <link href="css/slider.css" rel="stylesheet">
+        <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/carrinho.css" rel="stylesheet">
     </head>
-    <body>
-        <div class="container">
-            <header id="cabecalho" class="session text-right">
-                <a href="index.html">Tela inicial</a>
-                <a href="#">Perfil</a>
-                <a href="#">Sair</a>
-            </header>
-            <div class="session">
-                <div class="Carrinho inline-block">
-                    <h2>Carrinho de compras</h2>
-                    <p>Total</p>
-                    <div class="itens ">
-                        <div class="foto inline-block">
 
-                        </div>
-                        <div class="prodInfo inline-block">
-                            <h3>NomeDoProduto</h3>
-                            <p>InformacoesImportante</p>
-                            <p>Estimativa de Envio</p>
-                            <form>
-                                <label for="name">Quantidade:</label>
-                                <input type="text" id="nProdutos" name="nProdutos" required minlength="4" maxlength="8" size="10">
-                            </form>
-                        </div>
-                        <div class="preco inline-block">
-                            <p>R$ 20,00</p>
+    <body>  
+        <div id="container" class="container">
+            <header id="cabecalho" class="session text-right">
+                <img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego">
+                <a href="index.html">Continuar comprando</a>
+                <a href="login.html">Sair</a>
+                <!--<a href="carrinho.html">Carrinho</a>-->
+                <!--<a href="#contato">Sair</a>-->               
+            </header>
+            
+            <div id="conteudo" class="session text-center">
+                <div class="session">
+                    <div class="carrinho inline-block">
+                        <h2>Carrinho de compras</h2>
+                        <div class="itens">
+                            <div class="inline-block">
+                                <img class="prodCarrinho"src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                            </div>
+                            <div class="prodInfo inline-block">
+                                <h3>NomeDoProduto</h3>
+                                <p>InformacoesImportante</p>
+                                <p>Estimativa de Envio</p>
+                                <form>
+                                    <label for="name">Quantidade:</label>
+                                    <input type="text" id="nProdutos" name="nProdutos" required minlength="4" maxlength="8" size="10">
+                                </form>
+                            </div>
+                            <div class="preco inline-block">
+                                <p>Total</p>
+                                <p>R$ 20,00</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="valoresESugestoes inline-block">
-                    <div class="valor">
-                    <h3>Subtotal (6 itens): <b>R$ 100,00</b></h3>
-                    <h4>Frete: R$20,00</h4>
-                    <form>
-                        <input type="checkbox" id="presente" name="presente">
-                        <label for="presente">Este pedido contem um presente</label>
-                    </form>
-                    <button type="button">Fechar pedido</button> 
-                    </div>
-                    <div class="sugestoes">
-                        <div id="cones-trufados" class="cardapio inline-block">
-                            <h4>Recomendacoes de Produtos da nossa loja</h4>
-                            <ul class="slider">
-                                <li>
-                                    <input type="radio" id="slide1" name="cones-trufados" checked>
-                                    <label for="slide1"></label>
-                                    <img src="img/cone-trufado1.jpeg" alt="cone-trufado1">
-                                </li>
-                                <li>
-                                    <input type="radio" id="slide2" name="cones-trufados">
-                                    <label for="slide2"></label>
-                                    <img src="img/cone-trufado2.jpeg" alt="cone-trufado2">
-                                </li>
-                                <li>
-                                    <input type="radio" id="slide3" name="cones-trufados">
-                                    <label for="slide3"></label>
-                                    <img src="img/cone-trufado3.jpeg" alt="cone-trufado3">
-                                </li>
-                            </ul>
+                    <div class="valoresESugestoes inline-block">
+                        <div class="valor">
+                        <h3>Subtotal (6 itens): <b>R$ 100,00</b></h3>
+                        <h4>Frete: R$20,00</h4>
+                        <form>
+                            <input type="checkbox" id="presente" name="presente">
+                            <label for="presente">Este pedido contem um presente</label>
+                        </form>
+                        <button type="button">Fechar pedido</button> 
                         </div>
+                        <!--<div class="sugestoes">
+                            <div id="cones-trufados" class="cardapio inline-block">
+                                <h4>Recomendacoes de Produtos da nossa loja</h4>
+                                <ul class="slider">
+                                    <li>
+                                        <input type="radio" id="slide1" name="cones-trufados" checked>
+                                        <label for="slide1"></label>
+                                        <img src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="slide2" name="cones-trufados">
+                                        <label for="slide2"></label>
+                                        <img src="img/cone-trufado2.jpeg" alt="cone-trufado2">
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="slide3" name="cones-trufados">
+                                        <label for="slide3"></label>
+                                        <img src="img/cone-trufado3.jpeg" alt="cone-trufado3">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <footer id="contato" class="session text-center">
                 <div class="img-rodape">
                     <img class="imagem-logo inline-block" src="img/logos/logo.jpeg" alt="logo doce chamego">
@@ -77,6 +85,17 @@
                     </a>
                     <a href="https://api.whatsapp.com/message/P7BERJIKVZHXC1 " target="_blank">
                         <img src="img/logo-whatsapp.png" alt="Whatsapp" width="37em" height="37em">
+=======
+
+            <footer id="contato" class="session text-center">
+                <br>Entre em contato conosco pelas redes socias
+                <div class="img-rodape">
+                    <a href="https://www.instagram.com/docechamegooficial/" target="_blank">
+                        <br><img src="img/logo-instagram.png" alt="Instagram" width="30em" height="30em">
+                    </a>
+                    <a href="https://api.whatsapp.com/message/P7BERJIKVZHXC1 " target="_blank">
+                        <img src="img/logo-whatsapp.png" alt="Whatsapp" width="35em" height="35em">
+>>>>>>> e9ff933c7f8322c059546ec95c6db820fdb796a0
                     </a>
                 </div>
                 <br><p class="copyright">© Doce Chamego 2021. Todos os direitos reservados.</p><br>
