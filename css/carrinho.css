@@ -1,9 +1,3 @@
-* {margin: 0; padding: 0}
-
-.text-right {text-align: right}
-.text-center {text-align: center}
-.inline-block {display: inline-block}
-
 a {
     text-decoration: none;
     margin: 1em;
@@ -14,21 +8,6 @@ a:hover {
     padding: 0.5em;
     margin: 0.5em;
 }
-.container {
-    /*background-color: green;*/
-    margin: auto;
-    width: 90%;
-    position: relative;
-    font-family: Arial;
-    color: rgb(110, 103, 103);
-}
-.session {
-    padding: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    /*background-color: #a3e4c4;*/
-}
-
 
 .cardapio {
     position: relative;
@@ -42,21 +21,13 @@ a:hover {
 .cardapio > p {
     margin-top: 13.5em;
 }
-#cabecalho {
-    height: 4em;
-    border: solid 1px rgb(182, 176, 176);
-}
-#contato {
-    height: 10em;
-    border: solid 1px rgb(182, 176, 176);
-    border-top: 0;
-    margin-top: 0;
-}
-.Carrinho{
+
+.carrinho{
     height: 32em;   
     width: 69%; 
     border: solid 1px rgb(182, 176, 176);
-    margin: -1em;
+    border-radius: 5px;
+    background-color: white;
 }
 .valoresESugestoes{
     float: right;
@@ -64,7 +35,25 @@ a:hover {
     height: 32em;
     width: 30%;
     border: solid 1px rgb(182, 176, 176);
-    margin-right: -1em;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.itens{
+    text-align: start;
+    padding: 20px;
+    margin: 10px;
+    border: solid 1px rgb(182, 176, 176);
+}
+
+.prodCarrinho{
+    width: 5em;
+    height: 5em;
+}
+
+.prodInfo{
+    width: 30em;
+    padding:  0px 20px 0px 20px;
 }
 .valor{
     float: right;
@@ -78,8 +67,4 @@ a:hover {
     box-sizing: border-box;
     height: 17em;
     width: 100%;
-}
-.foto{
-    width: 8em;
-    height: 8em;
 }
