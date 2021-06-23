@@ -53,6 +53,14 @@ h2 {
     background-color: #fff;
 }
 
+.imagem-logo {
+    /*float: left;*/
+    
+    width: 3em;
+    height: 2.5em;
+    margin-right: 1em;
+}
+
 #header-image {
     float: left;
     width: 8em;
