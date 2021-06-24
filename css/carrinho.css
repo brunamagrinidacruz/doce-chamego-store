@@ -1,21 +1,9 @@
-a {
-    text-decoration: none;
-    margin: 1em;
-    color: rgb(110, 103, 103);
-}
-a:hover {
-    background-color: rgb(206, 201, 201);
-    padding: 0.5em;
-    margin: 0.5em;
-}
-
 .cardapio {
     position: relative;
     padding: 0.9em;
     margin: 0.2em;
     width: 15em;
     height: 16em;
-   /*background-color: yellow;*/
 }
 
 .cardapio > p {
@@ -29,48 +17,56 @@ a:hover {
     border-radius: 5px;
     background-color: white;
 }
+
+.itens{
+    text-align: left;
+    height: 100%;
+}
+
+.preco{
+    width: 100%;
+}
+
+.imgCarrinho{
+    width: 5em;
+    height: 5em;
+}
+
+.itemUnico{
+    width: 100%;
+    border-bottom: solid 1px rgb(182, 176, 176);
+    border-top: solid 1px rgb(182, 176, 176);
+
+}
+
+.prodInfo{
+    width: calc(100% - 5em);
+}
+
 .valoresESugestoes{
     float: right;
     box-sizing: border-box;
     height: 32em;
     width: 30%;
+}
+.valor{
+    box-sizing: border-box;
+    height: 9em;
+    width: 100%;
+    padding: 20px;
     border: solid 1px rgb(182, 176, 176);
     border-radius: 5px;
     background-color: white;
 }
 
-.itens{
-    text-align: start;
-    padding: 20px;
-    margin: 10px;
-    border-bottom: solid 1px rgb(182, 176, 176);
-    border-top: solid 1px rgb(182, 176, 176);
-}
-
-.preco{
-    width: 90%;
-    margin: 10px;
-}
-
-.prodCarrinho{
-    width: 5em;
-    height: 5em;
-}
-
-.prodInfo{
-    width: 30em;
-    padding:  0px 20px 0px 20px;
-}
-.valor{
-    float: right;
-    box-sizing: border-box;
-    height: 9em;
+.nomePreco{
     width: 100%;
-    border-bottom: solid 1px rgb(182, 176, 176);
 }
+
 .sugestoes{
-    float: right;
-    box-sizing: border-box;
-    height: 17em;
-    width: 100%;
+    height: 21em;
+    margin-top: 2em;
+    background-color: white;
+    border: solid 1px rgb(182, 176, 176);
+    border-radius: 5px;
 }

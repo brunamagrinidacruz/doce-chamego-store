@@ -28,16 +28,3 @@ input[type=text], input[type=email], input[type=password], input[type=tel] {
       font-size: 16px;
 }
 
-.botoes {
-      margin-top: var(--margin-elementos);
-      display: flex;     
-      justify-content: space-between;
-}
-
-.multiplos-botoes {
-      width: 49%;
-}
-
-.botao-unico {
-      width: 100%;
-}

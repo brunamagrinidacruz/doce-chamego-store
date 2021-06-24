@@ -98,3 +98,25 @@ h2 {
     color: white;
     font-size: 16px;
 }
+
+.botoes {
+    margin-top: var(--margin-elementos);
+    display: flex;     
+    justify-content: space-between;
+}
+
+.multiplos-botoes {
+    width: 49%;
+}
+
+.botao-unico {
+    width: 100%;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
