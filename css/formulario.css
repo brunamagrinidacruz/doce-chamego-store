@@ -3,24 +3,26 @@
 }
 
 form {
-      /* margin-left: 20%;
-      margin-right: 20%; */
       margin-left: auto;
       margin-right: auto;
       width: 60%;
       max-width: 500px;
       min-width: 300px;
+      font-size: 16px;
 }
 
 .nome-campo {
+      font-size: 18px;
       margin-top: var(--margin-elementos);
+      margin-bottom: var(--margin-elementos);
 }
 
-input[type=text], input[type=email], input[type=password], input[type=tel] {
+input[type=text], input[type=email], input[type=password], input[type=tel],  input[type=number], input[type=radio], select {
       width: 100%;
       min-width: 200px;
       padding: 12px 20px;
-      margin: 8px 0;
+      margin: 2px 0;
+      margin-top: 0px;
       display: inline-block;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -28,3 +30,45 @@ input[type=text], input[type=email], input[type=password], input[type=tel] {
       font-size: 16px;
 }
 
+.botoes {
+      margin-top: var(--margin-elementos);
+      display: flex;     
+      justify-content: space-between;
+}
+
+.botao {
+      min-width: 5em;
+      background-color: #fe8081;
+      padding: 14px 0px; 
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+}
+
+.botao-texto {
+      color: white;
+      font-size: 16px;
+}
+
+.multiplos-botoes {
+      width: 49%;
+}
+
+.botao-unico {
+      width: 100%;
+}
+
+.produto-da-caixa {
+      border: 2px solid #fe8081;
+      border-radius: 8px;
+
+      margin-top: var(--margin-elementos);
+      margin-bottom: var(--margin-elementos);
+      padding: 0px var(--margin-elementos);
+      padding-bottom: var(--margin-elementos); 
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+}
