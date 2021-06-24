@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Doce Chamego</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/formulario.css" rel="stylesheet">
+    </head>
+
+    <body>  
+        <div id="container" class="container">
+            <header id="cabecalho" class="session text-right">
+                <img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego">
+                <a href="cadastro.html">Cadastre-se</a>
+                <a href="index.html">Tela inicial</a>    
+            </header>
+            
+            <div id="conteudo" class="session text-center">
+                <h2>Personalize sua caixa!</h2>
+                
+                <form method="POST">
+                    <div class="produto-da-caixa">
+                        <p class="nome-campo">Tipo de caixa</p>
+                        <select>
+                            <option value="festa-na-caixa">Festa na Caixa</option>
+                            <option value="cafe-da-manha">Café da Manhã</option>
+                            <option value="caixa-bar">Caixa Bar</option>
+                        </select>
+
+                        <p class="nome-campo">Descrição</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum lobortis lobortis. Phasellus fermentum libero eu velit maximus, commodo dignissim ex tincidunt.</p>
+                    </div>
+
+                    <p class="nome-campo">Tamanho</p>
+                    <select>
+                        <option value="pequena">Pequena</option>
+                        <option value="medio">Médio</option>
+                        <option value="grande">Grande</option>
+                    </select>
+
+                    <div class="produto-da-caixa">
+                        <p class="nome-campo">Bebida</p>
+                        <select>
+                            <option value="pequena">Água</option>
+                            <option value="medio">Suco</option>
+                            <option value="grande">Vinho</option>
+                            <option value="grande">Cerveja</option>
+                            <option value="grande">Outro</option>
+                        </select>
+
+                        <p class="nome-campo">Especifique a bebida</p>
+                        <input type="text" id="bebida" name="bebida" autocomplete="off">
+
+                        <p class="nome-campo">Quantidade de bebida</p>
+                        <input id="quantidade-bebida" type="number" value="2" min="1" max="5"> 
+                        
+                        <p class="nome-campo">Preço</p>
+                        <input id="preco-bebida" type="text" disabled value="0"> 
+                    </div>
+                    
+                    <!-- Festa na Caixa -->
+
+                    <div class="produto-da-caixa">
+                        <p class="nome-campo">Acompanhamento</p>
+                        <div> <input type="checkbox" name="acompanhamento" value="fini"> Fini <br/> </div>
+                        <div> <input type="checkbox" name="acompanhamento" value="brigadeiro"> Brigadeiro <br/> </div>
+                        <div> <input type="checkbox" name="acompanhamento" value="beijinho"> Beijinho <br/> </div>
+                        <div> <input type="checkbox" name="acompanhamento" value="nutella"> Nutella <br/> </div>
+                        <div> <input type="checkbox" name="acompanhamento" value="kitkat"> KitKat <br/> </div>
+                        <div> <input type="checkbox" name="acompanhamento" value="cones-trufados"> Cones Trufados <br/> </div>
+                        
+                        <p class="nome-campo">Preço</p>
+                        <input id="preco-acompanhamento-festa-na-caixa" type="text" disabled value="0"> 
+                    </div>
+
+                    <!-- Caixa Bar -->
+
+                    <div class="produto-da-caixa">
+                        <p class="nome-campo">Petiscos</p>
+                        <div> Queijo: <input type="checkbox" name="petisco" value="queijo"> <br/> </div>
+                        <div> Salame: <input type="checkbox" name="petisco" value="salame"> <br/> </div>
+                        <div> Amendoim: <input type="checkbox" name="petisco" value="amendoim"> <br/> </div>
+                        <div> Salgadinho: <input type="checkbox" name="petisco" value="salgadinho"> <br/> </div>
+
+                        <p class="nome-campo">Preço</p>
+                        <input id="preco-petisco" type="text" disabled value="0"> 
+                    </div>
+                    
+                    <div class="produto-da-caixa">
+                        <p class="nome-campo">Acompanhamento</p>
+                        <div> Maionese: <input type="checkbox" name="acompanhamento" value="maionese"> <br/> </div>
+                        <div> Limão: <input type="checkbox" name="acompanhamento" value="limao"> <br/> </div>
+                        <div> Ketchup: <input type="checkbox" name="acompanhamento" value="ketchup"> <br/> </div>
+                        <div> Mostarda: <input type="checkbox" name="acompanhamento" value="mostarda"> <br/> </div>
+                    
+                        <p class="nome-campo">Preço</p>
+                        <input id="preco-acompanhamento-caixa-bar" type="text" disabled value="0"> 
+                    </div>
+
+                    <!-- Café da Manhã -->
+                    
+                    <div class="produto-da-caixa">
+                        <p class="nome-campo">Salgados</p>
+                        <div> Fatias de frios: <input type="checkbox" name="salgado" value="fatias-de-frios"> <br/> </div>
+                        <div> Croissant: <input type="checkbox" name="salgado" value="croissant"> <br/> </div>
+                        <div> Queijo recheado: <input type="checkbox" name="salgado" value="queijo-recheado"> <br/> </div>
+                        <div> Torrada: <input type="checkbox" name="salgado" value="torrada"> <br/> </div>
+
+                        <p class="nome-campo">Preço</p>
+                        <input id="preco-salgado" type="text" disabled value="0"> 
+                    </div>
+
+                    <div class="produto-da-caixa">
+                        <p class="nome-campo">Acompanhamento</p>
+                        <div> Manteiga: <input type="checkbox" name="acompanhamento" value="manteiga"> <br/> </div>
+                        <div> Requeijão: <input type="checkbox" name="acompanhamento" value="requeijao"> <br/> </div>
+                        <div> Geleia: <input type="checkbox" name="acompanhamento" value="geleia"> <br/> </div>
+                        <div> Fruta: <input type="checkbox" name="acompanhamento" value="fruta"> <br/> </div>
+
+                        <p class="nome-campo">Preço</p>
+                        <input id="preco-acompanhamento-cafe-da-manha" type="text" disabled value="0"> 
+                    </div>
+
+                    <p class="nome-campo">Preço total</p>
+                    <input id="preco-acompanhamento-festa-na-caixa" type="text" disabled value="0"> 
+
+                    <div class="botoes">
+                        <input class="botao botao-texto botao-unico" type="submit" name="comprar" value="Comprar"/>
+                    </div> 
+                </form>
+
+            </div>
+
+            <footer id="contato" class="session text-center">
+                <div class="img-rodape">
+                    <img class="imagem-logo inline-block" src="img/logos/logo.jpeg" alt="logo doce chamego">
+                    <a href="https://www.instagram.com/docechamegooficial/" target="_blank">
+                        <img src="img/logo-instagram.png" alt="Instagram" width="37em" height="37em">
+                    </a>
+                    <a href="https://api.whatsapp.com/message/P7BERJIKVZHXC1 " target="_blank">
+                        <img src="img/logo-whatsapp.png" alt="Whatsapp" width="37em" height="37em">
+                    </a>
+                </div>
+                <br><p class="copyright">© Doce Chamego 2021. Todos os direitos reservados.</p><br>
+            </footer>
+        </div>
+    </body>
+</html>
