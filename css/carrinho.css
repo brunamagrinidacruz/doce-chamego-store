@@ -24,7 +24,8 @@
 }
 
 .preco{
-    width: 100%;
+    width: calc(100% - 30px);
+    padding: 15px;
 }
 
 .imgCarrinho{
@@ -33,14 +34,13 @@
 }
 
 .itemUnico{
-    width: 100%;
-    border-bottom: solid 1px rgb(182, 176, 176);
-    border-top: solid 1px rgb(182, 176, 176);
-
+    width: calc(100% - 30px);
+    margin: 15px;
 }
 
 .prodInfo{
-    width: calc(100% - 5em);
+    width: calc(100% - 5em - 30px);
+    padding: 0px 15px;
 }
 
 .valoresESugestoes{
@@ -69,4 +69,9 @@
     background-color: white;
     border: solid 1px rgb(182, 176, 176);
     border-radius: 5px;
+}
+
+hr.linha{
+    margin: 0px 15px 0px 15px;
+    border: solid 1px rgb(206, 206, 206);
 }
