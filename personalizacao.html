@@ -20,7 +20,7 @@
                 
                 <div id="conteudo" class="session text-center">
                     <h2>Personalize sua caixa!</h2>
-                    
+
                     <form method="POST">
                         <div class="produto-da-caixa">
                             <p class="nome-campo">Tipo de caixa</p>
@@ -34,10 +34,8 @@
                             <p>{{ tipo_de_caixa.descricao }}</p>
                         
                             <p class="nome-campo">Tamanho</p>
-                            <select v-model="tamanho">
-                                <option>Pequena</option>
-                                <option>Médio</option>
-                                <option>Grande</option>
+                            <select v-model="tamanho" v-on:change="selecionarTamanho()">
+                                <option v-for="(item, index) in tamanhos"> {{ item.nome }} </option>
                             </select>
 
                             <p class="nome-campo">Cor</p>
@@ -46,29 +44,29 @@
 
                         <div class="produto-da-caixa">
                             <p class="nome-campo">Bebida</p>
-                            <select>
+                            <select v-model="bebida" v-on:change="selecionarBebida()">
                                 <option v-for="(item, index) in bebidas"> {{ item.nome }} </option>
                             </select>
 
                             <p class="nome-campo">Especifique a bebida</p>
-                            <input type="text" id="bebida" name="bebida" autocomplete="off">
+                            <input type="text" autocomplete="off" v-model="especifiqueBebida">
 
                             <p class="nome-campo">Quantidade de bebida</p>
-                            <input id="quantidade-bebida" type="number" value="2" min="1" max="5"> 
+                            <input type="number" value="2" min="1" max="5" v-model="quantidadeDeBebida"> 
                             
                             <p class="nome-campo">Preço</p>
-                            <input id="preco-bebida" type="text" disabled value="0"> 
+                            <input type="text" disabled value="0" v-model="precoBebida"> 
                         </div>
                     
                         <!-- Café da Manhã e Caixa Bar -->
                         
-                        <div v-if="tipo_de_caixa == 'Café da Manhã' || tipo_de_caixa == 'Caixa Bar'">
+                        <div v-if="tipo_de_caixa.nome == 'Café da Manhã' || tipo_de_caixa.nome == 'Caixa Bar'">
                             <div class="produto-da-caixa">
                                 <p class="nome-campo">Aperitivos</p>
                                 <div v-for="(item, index) in aperitivos"> <input type="checkbox"> {{ item.nome }} <br/> </div>
 
                                 <p class="nome-campo">Preço</p>
-                                <input id="preco-salgado" type="text" disabled value="0"> 
+                                <input type="text" disabled value="0" v-model="precoAperitivo" v-model=> 
                             </div>
                         </div>
 
@@ -79,14 +77,14 @@
                             <div v-for="(item, index) in acompanhamentos"> <input type="checkbox"> {{ item.nome }} <br/> </div>
 
                             <p class="nome-campo">Preço</p>
-                            <input id="preco-acompanhamento-cafe-da-manha" type="text" disabled value="0"> 
+                            <input type="text" disabled value="0" v-model="precoAcompanhamento"> 
                         </div>
 
                         <p class="nome-campo">Preço total</p>
-                        <input id="preco-acompanhamento-festa-na-caixa" type="text" disabled value="0"> 
+                        <input type="text" disabled value="0" v-model="precoTotal"> 
 
                         <div class="botoes">
-                            <a href="carrinho.html"><div class="botao botao-texto botao-unico">Comprar</div></a>
+                            <a href="carrinho.html" v-on:click="comprar($event)"><div class="botao botao-texto botao-unico">Comprar</div></a>
                         </div> 
                     </form>
 
@@ -150,23 +148,120 @@
             var mocked_bebidas = [
                 { id: 22, nome: "Água", preco: 2 },
                 { id: 23, nome: "Suco", preco: 5 },
-                { id: 24, nome: "Vinho", preco: 3 },
-                { id: 25, nome: "Cerveja", preco: 5 }
+                { id: 24, nome: "Vinho", preco: 12 },
+                { id: 25, nome: "Cerveja", preco: 6 }
+            ]
+            var mockedQuantidadeDeBebida = 2;
+
+            var mocked_tamanho = [ 
+                { nome: "Pequena", preco: 20 },
+                { nome: "Médio", preco: 30 },
+                { nome: "Grande", preco: 50}
             ]
 
             var app = new Vue({
                 el: "#app",
+
                 data: {
+                    erros: [],
+
                     tipo_de_caixa: {
                         nome: "Festa na Caixa",
                         descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum lobortis lobortis. Phasellus fermentum libero eu velit maximus, commodo dignissim ex tincidunt."
                     },
-                    acompanhamentos: mocked_acompanhamentos_cafe_da_manha,
+
+                    acompanhamentos: mocked_acompanhamentos_festa_na_caixa,
+
                     aperitivos: mocked_aperitivos_cafe_da_manha,
+
                     bebidas: mocked_bebidas,
-                    tamanho: "Pequena",
-                    cor: ""
+                    bebida: mocked_bebidas[0].nome,
+                    bebidaData: mocked_bebidas[0],
+                    quantidadeDeBebida: mockedQuantidadeDeBebida,
+                    especifiqueBebida: "",
+
+                    tamanhos: mocked_tamanho,
+                    tamanho: mocked_tamanho[0].nome,
+                    tamanhoData: mocked_tamanho[0],
+
+                    cor: "",
+                },
+                
+                watch: {
+                    'tipo_de_caixa.nome': function (novoValor, valorAntigo) {
+                        if(novoValor === "Festa na Caixa") {
+                            this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
+                        } else if(novoValor === "Café da Manhã") {
+                            this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
+                            this.aperitivos = mocked_aperitivos_cafe_da_manha;
+                        } else if(novoValor === "Caixa Bar") {
+                            this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
+                            this.aperitivos = mocked_aperitivos_caixa_bar;
+                        } else {
+                            console.log("Um erro ocorreu!")
+                        }
+                    },
+
+                    quantidadeDeBebida(novoValor, valorAntigo) {
+                        if(novoValor < 0 || novoValor > 5 || novoValor === "") {
+                            this.quantidadeDeBebida = mockedQuantidadeDeBebida;
+                        }
+                    }
+                },
+
+                computed: {
+                    precoAcompanhamento() {
+                        return 0;
+                    },
+                    precoAperitivo() {
+                        return 0;
+                    },
+                    precoBebida() {
+                        return this.bebidaData.preco * this.quantidadeDeBebida;
+                    },
+                    precoTotal() {
+                        return this.precoAcompanhamento + this.precoAperitivo + this.precoBebida + this.tamanhoData.preco;
+                    }
+                },
+
+                methods: {
+                    selecionarTamanho() {
+                        this.tamanhos.map(item => {
+                            if(item.nome === this.tamanho) {
+                                this.tamanhoData = item;
+                            }
+                        }) 
+                    },
+
+                    selecionarBebida() {
+                        this.bebidas.map(item => {
+                            if(item.nome === this.bebida) {
+                                this.bebidaData = item;
+                            }
+                        }) 
+                    },
+
+                    comprar(e) {
+                        this.erros = [];
+
+                        if(!this.especifiqueBebida) {
+                            this.erros.push("Especifique a bebida.");
+                        }
+
+                        if(!this.cor) {
+                            this.erros.push("Cor é necessária.");
+                        }
+
+                        if(this.erros.length !== 0) {
+                            e.preventDefault();
+                            console.log(this.erros)
+                        } else {
+                            console.log("Comprando...")
+                        }
+                        
+                    }
                 }
+
             })
         </script>
     </body>
