@@ -9,42 +9,51 @@
     </head>
 
     <body>  
-        <div id="container" class="container">
-            <header id="cabecalho" class="session text-right">
-                <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
-                <a class="menu" href="cadastro.html">Cadastre-se</a>
-                <a class="menu" href="index.html">Tela inicial</a>    
-            </header>
-            
-            <div id="conteudo" class="session text-center">
-                <h2>Login</h2>
+        <div id="app">
+
+            <div id="container" class="container">
+                <header id="cabecalho" class="session text-right">
+                    <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
+                    <a class="menu" href="cadastro.html">Cadastre-se</a>
+                    <a class="menu" href="index.html">Tela inicial</a>    
+                </header>
                 
-                <form method="POST">
-                    <p class="nome-campo">E-mail</p>
-                    <input type="email" id="email" name="email" autofocus autocomplete="off" required><br>
-
-                    <p class="nome-campo">Senha</p>
-                    <input type="password" id="password" name="password" autocomplete="off" required><br>
+                <div id="conteudo" class="session text-center">
+                    <h2>Login</h2>
                     
-                    <div class="botoes">
-                        <input class="botao botao-texto botao-unico" type="submit" name="entrar" value="Entrar"/>
-                    </div> 
-                </form>
+                    <form method="POST">
+                        <p class="nome-campo">Usuário</p>
+                        <input type="text" autofocus autocomplete="off" required v-model="usuario"><br>
 
+                        <p class="nome-campo">Senha</p>
+                        <input type="password" autocomplete="off" required v-model="senha"><br>
+
+                        {{ erros }}
+                        
+                        <div class="botoes">
+                            <input class="botao botao-texto botao-unico" type="submit" name="entrar" value="Entrar" v-on:click.prevent.stop="entrar()"/>
+                        </div> 
+                    </form>
+
+                </div>
+
+                <footer id="contato" class="session text-center">
+                    <div class="img-rodape">
+                        <a href="index.html"><img class="imagem-logo inline-block" src="img/logos/logo.jpeg" alt="logo doce chamego"></a>
+                        <a href="https://www.instagram.com/docechamegooficial/" target="_blank">
+                            <img src="img/logo-instagram.png" alt="Instagram" width="37em" height="37em">
+                        </a>
+                        <a href="https://api.whatsapp.com/message/P7BERJIKVZHXC1 " target="_blank">
+                            <img src="img/logo-whatsapp.png" alt="Whatsapp" width="37em" height="37em">
+                        </a>
+                    </div>
+                    <br><p class="copyright">© Doce Chamego 2021. Todos os direitos reservados.</p>
+                </footer>
             </div>
 
-            <footer id="contato" class="session text-center">
-                <div class="img-rodape">
-                    <a href="index.html"><img class="imagem-logo inline-block" src="img/logos/logo.jpeg" alt="logo doce chamego"></a>
-                    <a href="https://www.instagram.com/docechamegooficial/" target="_blank">
-                        <img src="img/logo-instagram.png" alt="Instagram" width="37em" height="37em">
-                    </a>
-                    <a href="https://api.whatsapp.com/message/P7BERJIKVZHXC1 " target="_blank">
-                        <img src="img/logo-whatsapp.png" alt="Whatsapp" width="37em" height="37em">
-                    </a>
-                </div>
-                <br><p class="copyright">© Doce Chamego 2021. Todos os direitos reservados.</p>
-            </footer>
         </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="vue/login.js"></script>
     </body>
 </html>
