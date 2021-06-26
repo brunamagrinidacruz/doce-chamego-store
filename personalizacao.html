@@ -13,14 +13,14 @@
 
             <div id="container" class="container">
                 <header id="cabecalho" class="session text-right">
-                    <img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego">
-                    <a href="cadastro.html">Cadastre-se</a>
-                    <a href="index.html">Tela inicial</a>    
-                </header>
+                <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
+                <a class="menu" href="cadastro.html">Cadastre-se</a>
+                <a class="menu" href="login.html">Login</a>
+            </header>
                 
                 <div id="conteudo" class="session text-center">
                     <h2>Personalize sua caixa!</h2>
-                    
+
                     <form method="POST">
                         <div class="produto-da-caixa">
                             <p class="nome-campo">Tipo de caixa</p>
@@ -34,10 +34,8 @@
                             <p>{{ tipo_de_caixa.descricao }}</p>
                         
                             <p class="nome-campo">Tamanho</p>
-                            <select v-model="tamanho">
-                                <option>Pequena</option>
-                                <option>Médio</option>
-                                <option>Grande</option>
+                            <select v-model="tamanho" v-on:change="selecionarTamanho()">
+                                <option v-for="(item, index) in tamanhos"> {{ item.nome }} </option>
                             </select>
 
                             <p class="nome-campo">Cor</p>
@@ -46,29 +44,29 @@
 
                         <div class="produto-da-caixa">
                             <p class="nome-campo">Bebida</p>
-                            <select>
+                            <select v-model="bebida" v-on:change="selecionarBebida()">
                                 <option v-for="(item, index) in bebidas"> {{ item.nome }} </option>
                             </select>
 
                             <p class="nome-campo">Especifique a bebida</p>
-                            <input type="text" id="bebida" name="bebida" autocomplete="off">
+                            <input type="text" autocomplete="off" v-model="especifiqueBebida">
 
                             <p class="nome-campo">Quantidade de bebida</p>
-                            <input id="quantidade-bebida" type="number" value="2" min="1" max="5"> 
+                            <input type="number" value="2" min="1" max="5" v-model="quantidadeDeBebida"> 
                             
                             <p class="nome-campo">Preço</p>
-                            <input id="preco-bebida" type="text" disabled value="0"> 
+                            <input type="text" disabled value="0" v-model="precoBebida"> 
                         </div>
                     
                         <!-- Café da Manhã e Caixa Bar -->
                         
-                        <div v-if="tipo_de_caixa == 'Café da Manhã' || tipo_de_caixa == 'Caixa Bar'">
+                        <div v-if="tipo_de_caixa.nome == 'Café da Manhã' || tipo_de_caixa.nome == 'Caixa Bar'">
                             <div class="produto-da-caixa">
                                 <p class="nome-campo">Aperitivos</p>
                                 <div v-for="(item, index) in aperitivos"> <input type="checkbox"> {{ item.nome }} <br/> </div>
 
                                 <p class="nome-campo">Preço</p>
-                                <input id="preco-salgado" type="text" disabled value="0"> 
+                                <input type="text" disabled value="0" v-model="precoAperitivo" v-model=> 
                             </div>
                         </div>
 
@@ -79,14 +77,14 @@
                             <div v-for="(item, index) in acompanhamentos"> <input type="checkbox"> {{ item.nome }} <br/> </div>
 
                             <p class="nome-campo">Preço</p>
-                            <input id="preco-acompanhamento-cafe-da-manha" type="text" disabled value="0"> 
+                            <input type="text" disabled value="0" v-model="precoAcompanhamento"> 
                         </div>
 
                         <p class="nome-campo">Preço total</p>
-                        <input id="preco-acompanhamento-festa-na-caixa" type="text" disabled value="0"> 
+                        <input type="text" disabled value="0" v-model="precoTotal"> 
 
                         <div class="botoes">
-                            <a href="carrinho.html"><div class="botao botao-texto botao-unico">Comprar</div></a>
+                            <a href="carrinho.html" v-on:click="comprar($event)"><div class="botao botao-texto botao-unico">Comprar</div></a>
                         </div> 
                     </form>
 
@@ -109,65 +107,6 @@
         </div>
 
         <script src="https://unpkg.com/vue"></script>
-        <script>
-            var mocked_acompanhamentos_festa_na_caixa = [
-                { id: 1, nome: "Fini", preco: 3 },
-                { id: 2, nome: "Brigadeiro", preco: 4 },
-                { id: 3, nome: "Beijinho", preco: 4 },
-                { id: 4, nome: "Nutella", preco: 6 },
-                { id: 5, nome: "KitKat", preco: 3 },
-                { id: 6, nome: "Cones Trufados", preco: 15 }
-            ]
-
-            var mocked_acompanhamentos_cafe_da_manha = [
-                { id: 7, nome: "Manteiga", preco: 1 },
-                { id: 8, nome: "Requeijão", preco: 1 },
-                { id: 9, nome: "Geleia", preco: 1 },
-                { id: 10, nome: "Fruta", preco: 5 },
-            ]
-
-            var mocked_acompanhamentos_caixa_bar = [
-                { id: 11, nome: "Maionese", preco: 1 },
-                { id: 12, nome: "Limão", preco: 3 },
-                { id: 13, nome: "Ketchup", preco: 1 },
-                { id: 14, nome: "Mostarda", preco: 1 },
-            ]
-
-            var mocked_aperitivos_cafe_da_manha = [
-                { id: 15, nome: "Fatias de frios", preco: 2 },
-                { id: 16, nome: "Croissant", preco: 3 },
-                { id: 17, nome: "Queijo recheado", preco: 2 },
-                { id: 18, nome: "Torrada", preco: 3 }
-            ]
-
-            var mocked_aperitivos_caixa_bar = [
-                { id: 18, nome: "Queijo", preco: 2 },
-                { id: 19, nome: "Salame", preco: 5 },
-                { id: 20, nome: "Amendoim", preco: 3 },
-                { id: 21, nome: "Salgadinho", preco: 5 }
-            ]
-
-            var mocked_bebidas = [
-                { id: 22, nome: "Água", preco: 2 },
-                { id: 23, nome: "Suco", preco: 5 },
-                { id: 24, nome: "Vinho", preco: 3 },
-                { id: 25, nome: "Cerveja", preco: 5 }
-            ]
-
-            var app = new Vue({
-                el: "#app",
-                data: {
-                    tipo_de_caixa: {
-                        nome: "Festa na Caixa",
-                        descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum lobortis lobortis. Phasellus fermentum libero eu velit maximus, commodo dignissim ex tincidunt."
-                    },
-                    acompanhamentos: mocked_acompanhamentos_cafe_da_manha,
-                    aperitivos: mocked_aperitivos_cafe_da_manha,
-                    bebidas: mocked_bebidas,
-                    tamanho: "Pequena",
-                    cor: ""
-                }
-            })
-        </script>
+        <script src="vue/personalizacao.js"></script>
     </body>
 </html>
