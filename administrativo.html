@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Doce Chamego</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/carrinho.css" rel="stylesheet">
+    </head>
+
+    <body>  
+        <div id="container" class="container">
+            <header id="cabecalho" class="session text-right">
+                <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
+                <!--<a class="menu" href="cadastro.html">Cadastre-se</a>-->
+                <a class="menu" href="index.html">Tela inicial</a>
+                <!--<a href="carrinho.html">Carrinho</a>-->
+                <!--<a href="#contato">Sair</a>-->               
+            </header>
+            
+            <div id="conteudo" class="session text-center">
+                <div class="session">
+                    <div class="carrinho inline-block">
+                        <h2 style="margin: 15px;">Lista de produtos</h2>
+                        <div class="itens">
+                            <hr class="linha">
+                            <div class="itemUnico">  
+                                <img class="imgCarrinho inline-block"src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                                <div class="right prodInfo">
+                                    <div class="nomePreco inline-block">
+                                        <h3 class="inline-block">NomeDoProduto</h3>
+                                        <h3 class="inline-block right">R$ 20,00</h3>
+                                    </div>
+                                    <p>InformacoesImportante</p>
+                                    <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir">
+                                    <a href="editar-produto.html"><input class="inline-block right editar" style="margin-right:0.2em;" type="submit" name="editar" value="Editar"></a>
+                                    <p class="">Quantidade: 5</p>
+                                </div>
+                            </div>
+                            <hr class="linha">
+                            <div class="preco inline-block botoes">
+                                <a class="botao botao-texto botao-unico text-center" href="cadastrar-produto.html">Cadastrar Produto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer id="contato" class="session text-center">
+                <div class="img-rodape">
+                    <a href="index.html"></a><img class="imagem-logo inline-block" src="img/logos/logo.jpeg" alt="logo doce chamego"> </a>
+                    <a href="https://www.instagram.com/docechamegooficial/" target="_blank">
+                        <img src="img/logo-instagram.png" alt="Instagram" width="37em" height="37em">
+                    </a>
+                    <a href="https://api.whatsapp.com/message/P7BERJIKVZHXC1 " target="_blank">
+                        <img src="img/logo-whatsapp.png" alt="Whatsapp" width="37em" height="37em">
+                    </a>
+                </div>
+                <br><p class="copyright">© Doce Chamego 2021. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </body>
+</html>
