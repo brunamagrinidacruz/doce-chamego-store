@@ -19,7 +19,7 @@
                     <!--<a href="#contato">Sair</a>-->               
                 </header>
                 
-                <div id="conteudo" class="session text-center">
+                <div id="app" class="session text-center">
                     <div class="session">
                         <div class="carrinho inline-block">
                             <h2 style="margin: 15px;">Carrinho de compras</h2>
@@ -64,18 +64,33 @@
                             </div>
                         </div>
                     </div>
-
                 </div>            
-            </div>
 
-            <rodape></rodape>
+                <rodape></rodape>
+            </div>
         </div>
 
         <script src="https://unpkg.com/vue"></script>
+        <script src="templates/menu.js"></script>
         <script src="templates/rodape.js"></script>
         <script>
-            var conteudo = new Vue({
-                el: '#conteudo',
+            var app = new Vue({
+                el: '#app',
+                
+                beforeCreate() {
+                    valorTotal = 0,
+                    qtdDeProdutos = 0,
+                    presente = false
+                },
+
+                mounted(){   
+                    var _vm = this;
+                    for (let indice = 0; indice < _vm.produto.length; indice++) {
+                        _vm.valorTotal += _vm.produto[indice].preco * _vm.produto[indice].qtdDoProduto;
+                        _vm.qtdDeProdutos += _vm.produto[indice].qtdDoProduto;
+                    }
+                },
+
                 data: {
                     produto: [
                         { 
