@@ -24,23 +24,25 @@
                         <div class="carrinho inline-block">
                             <h2 style="margin: 15px;">Lista de produtos</h2>
                             <div class="itens">
-                                <hr class="linha">
-                                <div class="itemUnico">  
-                                    <img class="imgCarrinho inline-block"src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                                
+                                <div class="itemUnico" v-for="produto, indice in produtos">  
+                                    <hr class="linha">
+                                    <img class="imgCarrinho inline-block" src="img/cone-trufado1.jpeg" alt="cone-trufado1">
                                     <div class="right prodInfo">
                                         <div class="nomePreco inline-block">
-                                            <h3 class="inline-block">NomeDoProduto</h3>
-                                            <h3 class="inline-block right">R$ 20,00</h3>
+                                            <h3 class="inline-block">{{produto.nome}}</h3>
+                                            <h3 class="inline-block right">R$ {{produto.preco}}</h3>
                                         </div>
-                                        <p>InformacoesImportante</p>
-                                        <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir">
+                                        <p>{{produto.descricao}}</p>
+                                        <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir" v-on:click="excluir(indice)">
                                         <a href="produto-editar.html"><input class="inline-block right editar" style="margin-right:0.2em;" type="submit" name="editar" value="Editar"></a>
-                                        <p class="">Quantidade: 5</p>
+                                        <p class="">Quantidade: {{produto.quantidade}}</p>
                                     </div>
                                 </div>
                                 <hr class="linha">
+                                
                                 <div class="preco inline-block botoes">
-                                    <a class="botao botao-texto botao-unico text-center" href="produto-editar.html">Cadastrar Produto</a>
+                                    <a class="botao botao-texto botao-unico text-center" href="produto-cadastrar.html">Cadastrar Produto</a>
                                 </div>
                             </div>
                         </div>

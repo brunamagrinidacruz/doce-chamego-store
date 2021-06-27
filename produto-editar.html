@@ -21,19 +21,19 @@
                     
                     <form method="POST">
                         <p class="nome-campo">Nome do produto</p>
-                        <input type="text" id="nome" name="email" autofocus autocomplete="off" required>
+                        <input type="text" id="nome" name="email" autofocus autocomplete="off" required v-model="nome">
 
                         <p class="nome-campo">Preço</p>
-                        <input type="text" id="preco" placeholder="10.00" autocomplete="off" maxlength="11" required><br>
+                        <input type="text" id="preco" placeholder="10.00" autocomplete="off" maxlength="11" required v-model="preco"><br>
                         
                         <p class="nome-campo">Quantidade</p>
-                        <input type="number" id="quantidade" required><br>
+                        <input type="number" id="quantidade" required v-model="quantidade"><br>
 
                         <p class="nome-campo">Descrição</p>
-                        <input type="text" id="descricao" autocomplete="off" required><br>
+                        <input type="text" id="descricao" autocomplete="off" required v-model="descricao"><br>
                         
                         <div class="botoes">
-                            <a href="administrativo.html" class="botao botao-texto multiplos-botoes">Voltar</a>
+                            <a href="admin.html" class="botao botao-texto multiplos-botoes">Voltar</a>
                             <input class="botao botao-texto multiplos-botoes" type="submit" name="editar" value="Editar">
                         </div> 
                     </form>

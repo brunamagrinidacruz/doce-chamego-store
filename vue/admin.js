@@ -2,7 +2,7 @@ var app = new Vue({
     el: "#app",
     
     data: {
-        produto: [ 
+        produtos: [ 
             {
                 nome: "Cone trufado",
                 descricao: "Uma deliciosa sobremesa",
@@ -13,9 +13,9 @@ var app = new Vue({
             },
             {
                 nome: "Cesta de guloseimas",
-                descricao: "Uma deliciosa sobremesa",
+                descricao: "Hmmmm, mas que gostoso!",
                 preco: "75,00",
-                quantidade: 5,
+                quantidade: 17,
                 prazoMin: 15,
                 prazoMax: 20
             }
@@ -23,8 +23,8 @@ var app = new Vue({
     },
     
     methods: {
-        removerProduto() {
-            
+        excluir: function(indice) {
+            this.produtos.splice(indice, 1);
         }
     }
 
