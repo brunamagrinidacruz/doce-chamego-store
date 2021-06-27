@@ -1,5 +1,5 @@
 var app = new Vue({
-    el: "#container",
+    el: "#app",
     
     data: {
         produto: [ 
@@ -20,7 +20,7 @@ var app = new Vue({
                 prazoMax: 20
             }
         ]
-    }
+    },
     
     methods: {
         removerProduto() {
