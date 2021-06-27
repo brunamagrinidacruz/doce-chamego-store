@@ -11,11 +11,7 @@
     <body>  
         <div id="app">
             <div id="container" class="container">
-                <header id="cabecalho" class="session text-right">
-                    <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
-                    <a class="menu" href="login.html">Login</a>
-                    <a class="menu" href="index.html">Tela inicial</a>    
-                </header>
+                <menu_superior v-bind:paginas='[{nome: "Login", caminho: "login.html"}, {nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
                 
                 <div id="conteudo" class="session text-center">
                     <h2>Cadastre-se</h2>
@@ -51,6 +47,7 @@
         </div>
 
         <script src="https://unpkg.com/vue"></script>
+        <script src="templates/menu.js"></script>
         <script src="templates/rodape.js"></script>
         <script src="vue/cadastro.js"></script>
     </body>
