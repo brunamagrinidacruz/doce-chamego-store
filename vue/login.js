@@ -22,7 +22,6 @@ var app = new Vue({
                   if(this.erros.length !== 0) {
                         console.log(this.erros)
                   } else {
-                        let dataDeExpiracao = new Date((new Date()).getTime() + 1*60000);
                         if(this.usuario === "admin" && this.senha === "admin") {
                               localStorage.setItem("usuario", "admin");
                         } else if(this.usuario === "user" && this.senha === "user") {
