@@ -19,8 +19,4 @@ var app = new Vue({
             }
         ]
    } 
-
-   methods: {
-        removerProduto
-   }
 })
