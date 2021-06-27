@@ -8,7 +8,7 @@ var app = new Vue({
                 quantidade: 5,
                 prazoMin: 15,
                 prazoMax: 20
-            }
+            },
             {
                 nome: "Cesta de guloseimas",
                 descricao: "Uma deliciosa sobremesa",
