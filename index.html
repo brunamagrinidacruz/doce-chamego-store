@@ -12,15 +12,8 @@
         <div id="app">
             
             <div id="container" class="container">
-                <header id="cabecalho" class="session text-right">
-                    <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
-                    <a class="menu" href="cadastro.html">Cadastre-se</a>
-                    <a class="menu" href="login.html">Login</a>
-                    <a class="menu" href="administrativo.html">Administrativo</a>
-                    <!--<a href="carrinho.html">Carrinho</a>-->
-                    <!--<a href="#contato">Sair</a>-->                    
-                </header>
-                
+                <menu_superior v-bind:paginas='[{nome: "Cadastre-se", caminho: "cadastro.html"}, {nome: "Login", caminho: "login.html"}, {nome: "Administrativo", caminho: "administrativo.html"}]'></menu_superior>
+   
                 <div id="conteudo" class="session text-center">
                     <div class="cardapio inline-block">
                         <h2>Cones Trufados</h2>
@@ -242,6 +235,7 @@
         </div>
 
         <script src="https://unpkg.com/vue"></script>
+        <script src="templates/menu.js"></script>
         <script src="vue/login.js"></script>
     </body>
 </html>
