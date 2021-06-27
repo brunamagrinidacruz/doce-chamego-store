@@ -46,6 +46,7 @@
                                 <div class="preco inline-block">
                                     <p style="text-align: end;">Subtotal ({{ qtdDeProdutos }} item): R${{ valorTotal }}</p>
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="valoresESugestoes inline-block">
@@ -74,7 +75,22 @@
         <script src="templates/rodape.js"></script>
         <script>
             var conteudo = new Vue({
-                el: '#app',
+                el: '#conteudo',
+                
+                beforeCreate() {
+                    valorTotal = 0,
+                    qtdDeProdutos = 0,
+                    presente = false
+                },
+
+                mounted(){   
+                    var _vm = this;
+                    for (let indice = 0; indice < _vm.produto.length; indice++) {
+                        _vm.valorTotal += _vm.produto[indice].preco * _vm.produto[indice].qtdDoProduto;
+                        _vm.qtdDeProdutos += _vm.produto[indice].qtdDoProduto;
+                    }
+                },
+
                 data: {
                     produto: [
                         { 
@@ -85,14 +101,6 @@
                             prazoMax: 20,
                             qtdDoProduto: 1
                         },
-                        {
-                            nomeDoProduto: "Headset Logitech GPRO",
-                            preco: 620.00,
-                            informacoesImportantes: "Vendido e entregue por Doce Chamego",
-                            prazoMin: 15,
-                            prazoMax: 20,
-                            qtdDoProduto: 1
-                        },
                         { 
                             nomeDoProduto: "Headset Logitech GPRO",
                             preco: 620.00,
@@ -100,30 +108,22 @@
                             prazoMin: 15,
                             prazoMax: 20,
                             qtdDoProduto: 1
-                        }
+                        },
+                        
                     ],
-                    valorTotal: 1860,
-                    qtdDeProdutos: 3,
+                    valorTotal: 0,
+                    qtdDeProdutos: 0,
                     presente: false
                 },
                 methods: {
                     removerDoCarrinho: function(indice){
                         var _vm = this;
-                        _vm.valorTotal -= _vm.produto[indice].preco;
-                        _vm.qtdDeProdutos --;
+                        _vm.valorTotal -= (_vm.produto[indice].preco * _vm.produto[indice].qtdDoProduto);
+                        _vm.qtdDeProdutos -= _vm.produto[indice].qtdDoProduto;
                         _vm.produto.splice(indice, 1);
                     },
+                    atualizarItem(indice){
 
-                    mudarQtdDeItens: function(indice){
-                        var _vm = this;
-                        _vm.valorTotal += 0;
-                        _vm.valorTotal += _vm.produto.forEach(calcValor());
-                        _vm.qtdDeProdutos --;
-                        _vm.produto.splice(indice, 1);
-                    },
-
-                    calcValor: function(){
-                        return produto.preco * produto.qtdDoProduto;
                     }
                 }
             })
