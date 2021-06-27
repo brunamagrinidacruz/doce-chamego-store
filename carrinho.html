@@ -19,7 +19,7 @@
                     <!--<a href="#contato">Sair</a>-->               
                 </header>
                 
-                <div id="conteudo" class="session text-center">
+                <div id="app" class="session text-center">
                     <div class="session">
                         <div class="carrinho inline-block">
                             <h2 style="margin: 15px;">Carrinho de compras</h2>
@@ -37,8 +37,8 @@
                                         <form>
                                             <label for="name">Quantidade:</label>
                                             <input type="number" id="nProdutos" name="nProdutos" required min="1" v-model="item.qtdDoProduto">
-                                            <button type="button" v-on:click="mudarQtdDeItens(indice)">Adicionar</button>
-                                            <input type="reset" value="remover" v-on:click="removerDoCarrinho(indice)">
+                                            <button type="button">Adicionar</button>
+                                            <input type="button" value="remover" v-on:click="removerDoCarrinho(indice)">
                                         </form>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
         <script src="templates/menu.js"></script>
         <script src="templates/rodape.js"></script>
         <script>
-            var conteudo = new Vue({
+            var app = new Vue({
                 el: '#app',
                 
                 beforeCreate() {
@@ -115,6 +115,19 @@
                     qtdDeProdutos: 0,
                     presente: false
                 },
+                beforeCreate() {
+                    valorTotal = 0,
+                    qtdDeProdutos = 0,
+                    presente = false
+                },
+
+                mounted(){   
+                    var _vm = this;
+                    for (let indice = 0; indice < _vm.produto.length; indice++) {
+                        _vm.valorTotal += _vm.produto[indice].preco * _vm.produto[indice].qtdDoProduto;
+                        _vm.qtdDeProdutos += _vm.produto[indice].qtdDoProduto;
+                    }
+                },
                 methods: {
                     removerDoCarrinho: function(indice){
                         var _vm = this;
@@ -122,9 +135,6 @@
                         _vm.qtdDeProdutos -= _vm.produto[indice].qtdDoProduto;
                         _vm.produto.splice(indice, 1);
                     },
-                    atualizarItem(indice){
-
-                    }
                 }
             })
         </script>
