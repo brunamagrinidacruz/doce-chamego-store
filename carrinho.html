@@ -9,6 +9,7 @@
     </head>
 
     <body>  
+        
         <div id="container" class="container">
             <header id="cabecalho" class="session text-right">
                 <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
@@ -23,42 +24,41 @@
                     <div class="carrinho inline-block">
                         <h2 style="margin: 15px;">Carrinho de compras</h2>
                         <div class="itens">
-                            <hr class="linha">
-                            <div class="itemUnico">
-                                
+                            <div v-for="item, indice in produto" class="itemUnico">
+                                <hr class="linha">
                                 <img class="imgCarrinho inline-block"src="img/cone-trufado1.jpeg" alt="cone-trufado1">
                                 <div class="right prodInfo">
                                     <div class="nomePreco inline-block">
-                                        <h3 class="inline-block">NomeDoProduto</h3>
-                                        <h3 class="inline-block right">R$ 20,00</h3>
+                                        <h3 class="inline-block">{{ item.nomeDoProduto }}</h3>
+                                        <h3 class="inline-block right">R${{ item.preco }}</h3>
                                     </div>
-                                    <p>InformacoesImportante</p>
-                                    <p>Estimativa de Envio</p>
+                                    <p>{{ item.informacoesImportantes }}</p>
+                                    <p>{{ item.prazoMin }} a {{ item.prazoMax }} dias uteis</p>
                                     <form>
                                         <label for="name">Quantidade:</label>
-                                        <input type="text" id="nProdutos" name="nProdutos" required minlength="4" maxlength="8" size="10">
+                                        <input type="number" id="nProdutos" name="nProdutos" required min="1" v-model="item.qtdDoProduto">
+                                        <button type="button" v-on:click="mudarQtdDeItens(indice)">Adicionar</button>
+                                        <input type="reset" value="remover" v-on:click="removerDoCarrinho(indice)">
                                     </form>
                                 </div>
                             </div>
                             <hr class="linha">
                             <div class="preco inline-block">
-                                <p style="text-align: end;">Subtotal (1 item): R$ 20,00</p>
+                                <p style="text-align: end;">Subtotal ({{ qtdDeProdutos }} item): R${{ valorTotal }}</p>
                             </div>
                         </div>
-                        
                     </div>
                     <div class="valoresESugestoes inline-block">
                         <div class="valor">
-                            <h3>Subtotal (1 itens): <b>R$ 20,00</b></h3>
+                            <h3>Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
                             <form>
-                                <input type="checkbox" id="presente" name="presente">
+                                <input type="checkbox" id="presente" name="presente" v-model="presente" >
                                 <label for="presente">Este pedido contem um presente</label>
                             </form>
                             <button class="botao botao-texto botao-unico" type="button">Fechar pedido</button> 
                         </div>
                         <div class="sugestoes">
                             <div>
-                                
                             </div>
                         </div>
                     </div>
@@ -77,5 +77,63 @@
                 <br><p class="copyright">© Doce Chamego 2021. Todos os direitos reservados.</p>
             </footer>
         </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var conteudo = new Vue({
+                el: '#conteudo',
+                data: {
+                    produto: [
+                        { 
+                            nomeDoProduto: "Headset Logitech GPRO",
+                            preco: 620.00,
+                            informacoesImportantes: "Vendido e entregue por Doce Chamego",
+                            prazoMin: 15,
+                            prazoMax: 20,
+                            qtdDoProduto: 1
+                        },
+                        {
+                            nomeDoProduto: "Headset Logitech GPRO",
+                            preco: 620.00,
+                            informacoesImportantes: "Vendido e entregue por Doce Chamego",
+                            prazoMin: 15,
+                            prazoMax: 20,
+                            qtdDoProduto: 1
+                        },
+                        { 
+                            nomeDoProduto: "Headset Logitech GPRO",
+                            preco: 620.00,
+                            informacoesImportantes: "Vendido e entregue por Doce Chamego",
+                            prazoMin: 15,
+                            prazoMax: 20,
+                            qtdDoProduto: 1
+                        }
+                    ],
+                    valorTotal: 1860,
+                    qtdDeProdutos: 3,
+                    presente: false
+                },
+                methods: {
+                    removerDoCarrinho: function(indice){
+                        var _vm = this;
+                        _vm.valorTotal -= _vm.produto[indice].preco;
+                        _vm.qtdDeProdutos --;
+                        _vm.produto.splice(indice, 1);
+                    },
+
+                    mudarQtdDeItens: function(indice){
+                        var _vm = this;
+                        _vm.valorTotal += 0;
+                        _vm.valorTotal += _vm.produto.forEach(calcValor());
+                        _vm.qtdDeProdutos --;
+                        _vm.produto.splice(indice, 1);
+                    },
+
+                    calcValor: function(){
+                        return produto.preco * produto.qtdDoProduto;
+                    }
+                }
+            })
+        </script>
     </body>
 </html>

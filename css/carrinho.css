@@ -11,7 +11,7 @@
 }
 
 .carrinho{
-    height: 32em;   
+    height: 100%;   
     width: 65%; 
     border: solid 1px rgb(182, 176, 176);
     border-radius: 5px;
@@ -72,6 +72,6 @@
 }
 
 hr.linha{
-    margin: 0px 15px 0px 15px;
+    margin-bottom: 15px;
     border: solid 1px rgb(206, 206, 206);
 }
