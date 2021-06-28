@@ -23,7 +23,12 @@
                         <p class="nome-campo">Senha</p>
                         <input type="password" autocomplete="off" required v-model="senha"><br>
 
-                        {{ erros }}
+                        <p class="text-center" v-if="erros.length">
+                            <b>Por favor, corrija os seguintes erro(s):</b>
+                            <ul>
+                            <li v-for="erro in erros">{{ erro }}</li>
+                            </ul>
+                        </p>
                         
                         <div class="botoes">
                             <input class="botao botao-texto botao-unico" type="submit" name="entrar" value="Entrar" v-on:click.prevent.stop="entrar()"/>
