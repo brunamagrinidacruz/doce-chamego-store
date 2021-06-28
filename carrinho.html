@@ -12,54 +12,64 @@
         <div id="app">
             <div id="container" class="container">
                 <menu_superior v-bind:paginas='[{nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
-                
                 <div id="app" class="session text-center">
-                    <div class="session">
-                        <div class="carrinho inline-block">
-                            <h2 style="margin: 15px;">Carrinho de compras</h2>
-                            <div class="itens">
-                                <div v-for="item, indice in produto" class="itemUnico">
-                                    <hr class="linha">
-                                    <img class="imgCarrinho inline-block"src="img/cone-trufado1.jpeg" alt="cone-trufado1">
-                                    <div class="right prodInfo">
-                                        <div class="nomePreco inline-block">
-                                            <h3 class="inline-block">{{ item.nomeDoProduto }}</h3>
-                                            <h3 class="inline-block right">R${{ item.preco }}</h3>
-                                        </div>
-                                        <p>{{ item.informacoesImportantes }}</p>
-                                        <!-- <p>{{ item.prazoMin }} a {{ item.prazoMax }} dias uteis</p> -->
-                                        <form>
-                                            <label for="name">Quantidade:</label>
-                                            <input type="number" id="nProdutos" name="nProdutos" required min="1" v-model="item.qtdDoProduto">
-                                            <button type="button">Adicionar</button>
-                                            <input type="button" value="remover" v-on:click="removerDoCarrinho(indice)">
-                                        </form>
-                                    </div>
-                                </div>
+                    <div class="carrinho inline-block">
+                        <h2 style="margin: 15px;">Carrinho de compras</h2>
+                        <div class="itens">
+                            <div v-for="item, indice in produto" class="itemUnico">
                                 <hr class="linha">
-                                <div class="preco inline-block">
-                                    <p style="text-align: end;">Subtotal ({{ qtdDeProdutos }} item): R${{ valorTotal }}</p>
+                                <img class="imgCarrinho inline-block"src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                                <div class="right prodInfo">
+                                    <div class="nomePreco inline-block">
+                                        <h3 class="inline-block">{{ item.nomeDoProduto }}</h3>
+                                        <h3 class="inline-block right">R${{ item.preco }}</h3>
+                                    </div>
+                                    <p>{{ item.informacoesImportantes }}</p>
+                                    <form>
+                                        <label for="name">Quantidade:</label>
+                                        <input type="number" id="nProdutos" name="nProdutos" required min="1" v-model="item.qtdDoProduto">
+                                        <button type="button">Adicionar</button>
+                                        <input type="button" value="remover" v-on:click="removerDoCarrinho(indice)">
+                                    </form>
                                 </div>
-                                
                             </div>
-                        </div>
-                        <div class="valoresESugestoes inline-block">
-                            <div class="valor">
-                                <h3>Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
-                                <form>
-                                    <input type="checkbox" id="presente" name="presente" v-model="presente" >
-                                    <label for="presente">Este pedido contem um presente</label>
-                                </form>
-                                <button class="botao botao-texto botao-unico" type="button">Fechar pedido</button> 
-                            </div>
-                            <div class="sugestoes">
-                                <div>
-                                </div>
+                            <hr class="linha">
+                            <div class="preco inline-block">
+                                <p style="text-align: end;">Subtotal ({{ qtdDeProdutos }} item): R${{ valorTotal }}</p>
                             </div>
                         </div>
                     </div>
+                    <div class="valoresEPagamento">
+                        <div class="valor">
+                            <h3>Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
+                            <form>
+                                <input type="checkbox" id="presente" name="presente" v-model="presente" >
+                                <label for="presente">Este pedido contem um presente</label>
+                            </form>
+                            <button class="botao botao-texto botao-unico" type="button">Fechar pedido</button> 
+                        </div>
+                        <div class="pagamento">
+                            <h3>Insira os dados do cartao</h3>
+                            <form>
+                                <label for="titutar">Nome do titular do cartao</label><br>
+                                <input type="text" id="titutar" name="titutar" required v-model="formaDePagamento.nomeDoTitular"><br>
+                                <label for="numero">Numero do cartao</label><br>
+                                <input type="number" id="numero" name="numero" minlength="16" placeholder="xxxx.xxxx.xxxx.xxxx" required v-model="formaDePagamento.numeroDoCartao" ><br>
+                                <label cfor="cvv">CVV</label><br>
+                                <input type="number" id="cvv" name="cvv" minlength="3" maxlength="3" placeholder="xxx" required v-model="formaDePagamento.cvv" ><br>
+                                <label for="validade">Validade do cartao</label><br>
+                                <input type="date" id="validade" name="validade" placeholder="dd/mm/aaaa" required v-model="formaDePagamento.validade" ><br>
+                            </form>
+                            <p class="text-center" v-if="erros.length">
+                                <b>Por favor, corrija os seguintes erro(s):</b>
+                                <ul>
+                                <li v-for="erro in erros">{{ erro }}</li>
+                                </ul>
+                            </p>
+                            <button class="botao botao-texto botao-unico" type="button" v-on:click.prevent.stop="entrar()">Gravar informacoes</button> 
+                        </div>
+                    </div>
                 </div>            
-
                 <rodape></rodape>
             </div>
         </div>
