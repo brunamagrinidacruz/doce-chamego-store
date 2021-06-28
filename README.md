@@ -59,26 +59,27 @@ O cadastro na tela de cadastro é realizado por usuários do tipo cliente.
 
 **Tela administrativa**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela administrativa.  
-Nela, é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar um novo produto.
+Na tela administrativa é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar um novo produto.
 
 **Tela de cadastro de produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de produto.  
-Nela, é possível cadastrar um novo produto do tipo cone.
+É possível cadastrar um novo produto do tipo cone.
 
 **Tela de editar produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de editar produto.  
-Nela, é possível editar as informações de um cone.
+É possível editar as informações de um cone.
 
 **Tela de personalização**  
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de personalização.  
-Nela, é possível que o cliente personalize sua própria caixa dentre os três tipos disponibilizados pela loja: festa na caixa, café da manhã e caixa-bar. O cliente pode escolher os componentes e a cor da caixa. O cliente também pode finalizar a personalização.
+É possível que o cliente personalize sua própria caixa dentre os três tipos disponibilizados pela loja: festa na caixa, café da manhã e caixa-bar. O cliente pode escolher os componentes e a cor da caixa. O cliente também pode finalizar a personalização.
 
 **Tela de carrinho**  
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de carrinho.    
-Nela, é listado todos os produtos selecionados para compra. Além disso, é possível aumentar a quantidade de um determinado produto, remover ele da lista ou finalizar o pedido.
+É listado todos os produtos selecionados para compra. Além disso, é possível aumentar a quantidade de um determinado produto, remover ele da lista ou finalizar o pedido.
 
 ### Diagrama de Navegação
 
+No diagrama a seguir, os retangulos representam as telas.  
 ![Diagrama de Navegação](img/documentacao/diagrama-de-navegacao.jpg)
 
 ## Comentários Sobre o Código
