@@ -12,7 +12,7 @@
         <div id="app">
 
             <div id="container" class="container">
-                <menu_superior v-bind:paginas='[{nome: "Cadastre-se", caminho: "cadastro.html"}, {nome: "Login", caminho: "login.html"}]'></menu_superior>
+                <menu_superior v-bind:paginas='[{nome: "Cadastre-se", caminho: "cadastro.html"}, {nome: "Login", caminho: "login.html"}, {nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
                 
                 <div id="conteudo" class="session text-center">
                     <h2>Personalize sua caixa!</h2>
@@ -82,7 +82,7 @@
                         {{ erros }}
 
                         <div class="botoes">
-                            <a href="carrinho.html" v-on:click="comprar($event)"><div class="botao botao-texto botao-unico">Comprar</div></a>
+                            <a class="botao botao-texto botao-unico" href="carrinho.html" v-on:click="comprar($event)">Comprar</a>
                         </div> 
                     </form>
 
