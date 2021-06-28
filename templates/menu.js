@@ -57,5 +57,5 @@ Vue.component('menu_superior', {
                   return false;
             }
       },
-      template: '<div><link href="/css/style.css" rel="stylesheet"><header id="cabecalho" class="session text-right"><a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a><a v-for="(pagina) in paginas" v-if="mostrarAba(pagina)" class="menu" v-bind:href="pagina.caminho">{{ pagina.nome }}</a> <a v-if="usuarioEstaLogado()" class="menu" v-on:click.prevent.stop="sair()">Sair</a> </header></div>'
+      template: '<div><link href="/css/style.css" rel="stylesheet"><header id="cabecalho" class="session text-right"><a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a><a v-for="(pagina) in paginas" v-if="mostrarAba(pagina)" class="menu" v-bind:href="pagina.caminho">{{ pagina.nome }}</a> <a v-if="usuarioEstaLogado()" class="menu" v-on:click.prevent.stop="sair()">Sair</a></header></div>'
 })

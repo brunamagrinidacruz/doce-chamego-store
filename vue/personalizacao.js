@@ -52,17 +52,24 @@ var mocked_tamanho = [
 var app = new Vue({
       el: "#app",
 
+      created() {
+            this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
+            this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
+      },
+
       data: {
             erros: [],
 
             tipo_de_caixa: {
-            nome: "Festa na Caixa",
-            descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum lobortis lobortis. Phasellus fermentum libero eu velit maximus, commodo dignissim ex tincidunt."
+                  nome: "Festa na Caixa",
+                  descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum lobortis lobortis. Phasellus fermentum libero eu velit maximus, commodo dignissim ex tincidunt."
             },
 
             acompanhamentos: mocked_acompanhamentos_festa_na_caixa,
-
-            aperitivos: mocked_aperitivos_cafe_da_manha,
+            acompanhamentosSelecionados: [],
+            
+            aperitivos: [],
+            aperitivosSelecionados: [],
 
             bebidas: mocked_bebidas,
             bebida: mocked_bebidas[0].nome,
@@ -79,76 +86,90 @@ var app = new Vue({
       
       watch: {
             'tipo_de_caixa.nome': function (novoValor, valorAntigo) {
-            if(novoValor === "Festa na Caixa") {
-                  this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
-            } else if(novoValor === "Café da Manhã") {
-                  this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
-                  this.aperitivos = mocked_aperitivos_cafe_da_manha;
-            } else if(novoValor === "Caixa Bar") {
-                  this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
-                  this.aperitivos = mocked_aperitivos_caixa_bar;
-            } else {
-                  console.log("Um erro ocorreu!")
-            }
-            },
+                        if(novoValor === "Festa na Caixa") {
+                              this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
+                              this.aperitivos = [];
+                        } else if(novoValor === "Café da Manhã") {
+                              this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
+                              this.aperitivos = mocked_aperitivos_cafe_da_manha;
+                        } else if(novoValor === "Caixa Bar") {
+                              this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
+                              this.aperitivos = mocked_aperitivos_caixa_bar;
+                        } else {
+                              console.log("Um erro ocorreu!")
+                        }
 
-            quantidadeDeBebida(novoValor, valorAntigo) {
-            if(novoValor < 0 || novoValor > 5 || novoValor === "") {
-                  this.quantidadeDeBebida = mockedQuantidadeDeBebida;
-            }
+                        this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
+                        this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
+                  },
+
+                  quantidadeDeBebida(novoValor, valorAntigo) {
+                  if(novoValor < 0 || novoValor > 5 || novoValor === "") {
+                        this.quantidadeDeBebida = mockedQuantidadeDeBebida;
+                  }
             }
       },
 
       computed: {
             precoAcompanhamento() {
-            return 0;
+                  let precoAcompanhamentoTotal = 0;
+                  for(let i = 0; i < this.acompanhamentosSelecionados.length; i++) {
+                        if(this.acompanhamentosSelecionados[i])
+                              precoAcompanhamentoTotal += this.acompanhamentos[i].preco;
+                  }
+                  return precoAcompanhamentoTotal;
             },
             precoAperitivo() {
-            return 0;
+                  let precoAperitivoTotal = 0;
+                  for(let i = 0; i < this.aperitivosSelecionados.length; i++) {
+                        if(this.aperitivosSelecionados[i])
+                              precoAperitivoTotal += this.aperitivos[i].preco;
+                  }
+                  return precoAperitivoTotal;
             },
             precoBebida() {
-            return this.bebidaData.preco * this.quantidadeDeBebida;
+                  return this.bebidaData.preco * this.quantidadeDeBebida;
             },
             precoTotal() {
-            return this.precoAcompanhamento + this.precoAperitivo + this.precoBebida + this.tamanhoData.preco;
+                  return this.precoAcompanhamento + this.precoAperitivo + this.precoBebida + this.tamanhoData.preco;
             }
       },
 
       methods: {
             selecionarTamanho() {
-            this.tamanhos.map(item => {
-                  if(item.nome === this.tamanho) {
-                        this.tamanhoData = item;
-                  }
-            }) 
+                  this.tamanhos.map(item => {
+                        if(item.nome === this.tamanho) {
+                              this.tamanhoData = item;
+                        }
+                  }) 
             },
 
             selecionarBebida() {
-            this.bebidas.map(item => {
-                  if(item.nome === this.bebida) {
-                        this.bebidaData = item;
-                  }
-            }) 
+                  this.bebidas.map(item => {
+                        if(item.nome === this.bebida) {
+                              this.bebidaData = item;
+                        }
+                  }) 
             },
 
             comprar(e) {
-            this.erros = [];
+                  this.erros = [];
 
-            if(!this.especifiqueBebida) {
-                  this.erros.push("Especifique a bebida.");
-            }
+                  if(!this.especifiqueBebida) {
+                        this.erros.push("Especifique a bebida.");
+                  }
 
-            if(!this.cor) {
-                  this.erros.push("Cor é necessária.");
-            }
+                  if(!this.cor) {
+                        this.erros.push("Cor é necessária.");
+                  }
 
-            if(this.erros.length !== 0) {
-                  e.preventDefault();
-                  console.log(this.erros)
-            } else {
-                  console.log("Comprando...")
-            }
-            
+                  if(this.erros.length !== 0) {
+                        e.preventDefault();
+                        console.log(this.erros)
+                  } else {
+                        alert("Adicionando ao carrinho...");
+                  }
+                        
             }
       }
 
