@@ -84,6 +84,14 @@ No diagrama a seguir, os retangulos representam as telas.
 
 ## Comentários Sobre o Código
 
+### Diretórios
+- css: arquivos CSS;
+- img: imagens utilizadas no código e na documentação;
+- templates: templates criados com VueJS que são reutilizados em várias páginas;
+- vue: código VueJS criado para cada tela.
+
+### Outras informações
+
 O código foi feito utilizando os conhecimentos adquiridos até a aula 23 da playlist de VueJS (https://www.youtube.com/playlist?list=PLcoYAcR89n-qq1vGRbaUiV6Q9puy0qigW) passada em aula pelo professor.
 
 Para a simulação de login, foi utilizado o Local Storage do navegador.
