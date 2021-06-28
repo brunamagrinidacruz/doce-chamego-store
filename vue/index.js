@@ -4,9 +4,9 @@ var app = new Vue({
       data: {
             produtos: [
                   { 
-                        nome: "Cones Trufados", 
-                        descricao: "Esse é o mais forte produto do nosso ramo, está conosco desde o primórdio. Não fique sem saborear esses deliciosos cones trufados.", 
-                        preco: 7.9, 
+                        nome: "Caixa de Cones Trufados", 
+                        descricao: "Este kit é composto por SEIS cones trufados estilo gourmet, todos os cones possuem uma guloseima no topo e você tem 10 opções de recheios disponíveis que podem compor seu presente.", 
+                        preco: 50.0, 
                         listaID: 1,
                         imagens: [
                               {
@@ -80,6 +80,86 @@ var app = new Vue({
                               {
                                     caminho: "img/vinho-e-petiscos3.jpeg",
                                     slide: "slide12"
+                              },
+                        ],
+                  },
+                  { 
+                        nome: "Cone Trufado (Maracuja)", 
+                        descricao: "Esse é o mais forte produto do nosso ramo, está conosco desde o primórdio. Descubra este novo sabor!", 
+                        preco: 7.9, 
+                        listaID: 5,
+                        imagens: [
+                              {
+                                    caminho: "img/cone-trufado1.jpeg",
+                                    slide: "slide1"
+                              },
+                              {
+                                    caminho: "img/cone-trufado2.jpeg",
+                                    slide: "slide2"
+                              },
+                              {
+                                    caminho: "img/cone-trufado3.jpeg",
+                                    slide: "slide3"
+                              },
+                        ],
+                  },
+                  { 
+                        nome: "Cone Trufado (Leite Ninho)", 
+                        descricao: "Esse é o mais forte produto do nosso ramo, está conosco desde o primórdio. Descubra este novo sabor!", 
+                        preco: 7.9, 
+                        listaID: 6,
+                        imagens: [
+                              {
+                                    caminho: "img/cone-trufado1.jpeg",
+                                    slide: "slide1"
+                              },
+                              {
+                                    caminho: "img/cone-trufado2.jpeg",
+                                    slide: "slide2"
+                              },
+                              {
+                                    caminho: "img/cone-trufado3.jpeg",
+                                    slide: "slide3"
+                              },
+                        ],
+                  },
+                  { 
+                        nome: "Cone Trufado (Nutella)", 
+                        descricao: "Esse é o mais forte produto do nosso ramo, está conosco desde o primórdio. Descubra este novo sabor!", 
+                        preco: 7.9, 
+                        listaID: 7,
+                        imagens: [
+                              {
+                                    caminho: "img/cone-trufado1.jpeg",
+                                    slide: "slide1"
+                              },
+                              {
+                                    caminho: "img/cone-trufado2.jpeg",
+                                    slide: "slide2"
+                              },
+                              {
+                                    caminho: "img/cone-trufado3.jpeg",
+                                    slide: "slide3"
+                              },
+                        ],
+                  },
+                  { 
+                        nome: "Cone Trufado (Brigadeiro)", 
+                        descricao: "Esse é o mais forte produto do nosso ramo, está conosco desde o primórdio. Descubra este novo sabor!", 
+                        preco: 7.9, 
+                        listaID: 8,
+                        imagens: [
+                              {
+                                    caminho: "img/cone-trufado1.jpeg",
+                                    slide: "slide1"
+                              },
+                              {
+                                    caminho: "img/cone-trufado2.jpeg",
+                                    slide: "slide2"
+                              },
+                              {
+                                    caminho: "img/cone-trufado3.jpeg",
+                                    slide: "slide3"
                               },
                         ],
                   }
