@@ -11,13 +11,7 @@
     <body>  
         <div id="app">
             <div id="container" class="container">
-                <header id="cabecalho" class="session text-right">
-                    <a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a>
-                    <a class="menu" href="index.html">Continuar comprando</a>
-                    <a class="menu" href="login.html">Sair</a>
-                    <!--<a href="carrinho.html">Carrinho</a>-->
-                    <!--<a href="#contato">Sair</a>-->               
-                </header>
+                <menu_superior v-bind:paginas='[{nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
                 
                 <div id="app" class="session text-center">
                     <div class="session">
