@@ -18,17 +18,17 @@ var app = new Vue({
     data: {
         produto: [
             { 
-                nomeDoProduto: "Headset Logitech GPRO",
-                preco: 620.00,
-                informacoesImportantes: "Vendido e entregue por Doce Chamego",
+                nomeDoProduto: "Caixa com Cone",
+                preco: 45.00,
+                informacoesImportantes: "Cone de ovomaltine, maracuja e limão",
                 prazoMin: 15,
                 prazoMax: 20,
                 qtdDoProduto: 1
             },
             { 
-                nomeDoProduto: "Headset Logitech GPRO",
-                preco: 620.00,
-                informacoesImportantes: "Vendido e entregue por Doce Chamego",
+                nomeDoProduto: "Caixa Bar",
+                preco: 60.00,
+                informacoesImportantes: "Caixa tamanho M",
                 prazoMin: 15,
                 prazoMax: 20,
                 qtdDoProduto: 1
