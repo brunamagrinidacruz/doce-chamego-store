@@ -55,11 +55,11 @@
                         </div>
                     
                         <!-- Café da Manhã e Caixa Bar -->
-                        
+
                         <div v-if="tipo_de_caixa.nome == 'Café da Manhã' || tipo_de_caixa.nome == 'Caixa Bar'">
                             <div class="produto-da-caixa">
                                 <p class="nome-campo">Aperitivos</p>
-                                <div v-for="(item, index) in aperitivos"> <input type="checkbox"> {{ item.nome }} <br/> </div>
+                                <div v-for="(item, index) in aperitivos"> <input type="checkbox" v-model="aperitivosSelecionados[index]"> {{ item.nome }} <br/> </div>
 
                                 <p class="nome-campo">Preço</p>
                                 <input type="text" disabled value="0" v-model="precoAperitivo" v-model=> 
@@ -70,7 +70,7 @@
 
                         <div class="produto-da-caixa">
                             <p class="nome-campo">Acompanhamento</p>
-                            <div v-for="(item, index) in acompanhamentos"> <input type="checkbox"> {{ item.nome }} <br/> </div>
+                            <div v-for="(item, index) in acompanhamentos"> <input type="checkbox" v-model="acompanhamentosSelecionados[index]"> {{ item.nome }} <br/> </div>
 
                             <p class="nome-campo">Preço</p>
                             <input type="text" disabled value="0" v-model="precoAcompanhamento"> 
@@ -78,6 +78,8 @@
 
                         <p class="nome-campo">Preço total</p>
                         <input type="text" disabled value="0" v-model="precoTotal"> 
+
+                        {{ erros }}
 
                         <div class="botoes">
                             <a href="carrinho.html" v-on:click="comprar($event)"><div class="botao botao-texto botao-unico">Comprar</div></a>
