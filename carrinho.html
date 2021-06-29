@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="valoresEPagamento">
+                    <div class="valoresEPagamento inline-block">
                         <div class="valor">
                             <h3>Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
                             <form>
@@ -54,9 +54,9 @@
                                 <label for="titutar">Nome do titular do cartao</label><br>
                                 <input type="text" id="titutar" name="titutar" required v-model="formaDePagamento.nomeDoTitular"><br>
                                 <label for="numero">Numero do cartao</label><br>
-                                <input type="number" id="numero" name="numero" minlength="16" placeholder="xxxx.xxxx.xxxx.xxxx" required v-model="formaDePagamento.numeroDoCartao" ><br>
+                                <input type="number" id="numero" name="numero" placeholder="xxxx.xxxx.xxxx.xxxx" required v-model="formaDePagamento.numeroDoCartao" ><br>
                                 <label cfor="cvv">CVV</label><br>
-                                <input type="number" id="cvv" name="cvv" minlength="3" maxlength="3" placeholder="xxx" required v-model="formaDePagamento.cvv" ><br>
+                                <input type="number" id="cvv" name="cvv"  placeholder="xxx" required v-model="formaDePagamento.cvv" ><br>
                                 <label for="validade">Validade do cartao</label><br>
                                 <input type="date" id="validade" name="validade" placeholder="dd/mm/aaaa" required v-model="formaDePagamento.validade" ><br>
                             </form>

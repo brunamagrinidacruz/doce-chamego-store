@@ -42,9 +42,9 @@ var app = new Vue({
         formaDePagamento: 
             {
                 nomeDoTitular: "",
-                numeroDoCartao: null,
-                cvv: null,
-                validade: "",
+                numeroDoCartao: "",
+                cvv: "",
+                validade: new Date(),
             },
         erros: []
     },
@@ -75,15 +75,17 @@ var app = new Vue({
                   this.erros.push("Digite o nome do titular.");
             }
 
-            if(!this.formaDePagamento.numeroDoCartao) {
+            if(!this.formaDePagamento.numeroDoCartao || this.formaDePagamento.numeroDoCartao.length !== 16) {
                   this.erros.push("Digite o numero do cartao.");
             }
-            if(!this.formaDePagamento.cvv) {
+            if(!this.formaDePagamento.cvv || this.formaDePagamento.cvv.length !== 3) {
                 this.erros.push("Digite o cvv.");
             }
-
+            var data = new Date();
             if(!this.formaDePagamento.validade) {
                 this.erros.push("Digite a validade.");
+            } else if(new Date(this.formaDePagamento.validade) <= data){
+                this.erros.push("Insira uma data valida");
             }
 
             if(this.erros.length !== 0) {

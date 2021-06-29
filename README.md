@@ -61,7 +61,7 @@ O cadastro na tela de cadastro é realizado por usuários do tipo cliente.
 
 **Tela administrativa**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela administrativa.  
-Na tela administrativa é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar um novo produto.
+Na tela administrativa é possível ver uma listagem dos produtos, podendo editá-los e removê-los. Também é possível cadastrar um novo produto.
 
 **Tela de cadastro de produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de produto.  
@@ -69,32 +69,32 @@ Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a
 
 **Tela de editar produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de editar produto.  
-É possível editar as informações de um cone.
+É possível editar as informações de um produto do tipo cone.
 
 **Tela de personalização**  
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de personalização.  
-É possível que o cliente personalize sua própria caixa dentre os três tipos disponibilizados pela loja: festa na caixa, café da manhã e caixa-bar. O cliente pode escolher os componentes e a cor da caixa. O cliente também pode finalizar a personalização.
+É possível que o cliente personalize sua própria caixa dentre os três tipos disponíveis na loja: festa na caixa, café da manhã e caixa-bar. O cliente pode escolher os componentes e a cor da caixa. O cliente deve finalizar a personalização para concluir a montagem da caixa.
 
 **Tela de carrinho**  
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de carrinho.    
-É listado todos os produtos selecionados para compra. Além disso, é possível aumentar a quantidade de um determinado produto, remover ele da lista ou finalizar o pedido.
+É listado todos os produtos selecionados para compra. Além disso, é possível aumentar a quantidade de um determinado produto, removê-lo da lista ou finalizar o pedido.
 
 ### Diagrama de Navegação
 
-No diagrama a seguir, os retangulos representam as telas.  
+No diagrama a seguir, os retângulos representam as telas.  
 ![Diagrama de Navegação](img/documentacao/diagrama-de-navegacao.jpg)
 
 ## Comentários Sobre o Código
 
 ### Diretórios
-- css: arquivos CSS;
+- css: arquivos de estilo (CSS);
 - img: imagens utilizadas no código e na documentação;
 - templates: templates criados com VueJS que são reutilizados em várias páginas;
 - vue: código VueJS criado para cada tela.
 
 ### Outras informações
 
-O código foi feito utilizando os conhecimentos adquiridos até a aula 23 da playlist de VueJS (https://www.youtube.com/playlist?list=PLcoYAcR89n-qq1vGRbaUiV6Q9puy0qigW) passada em aula pelo professor.
+O código foi feito utilizando os conhecimentos adquiridos até a videoaula 23 da playlist de VueJS (https://www.youtube.com/playlist?list=PLcoYAcR89n-qq1vGRbaUiV6Q9puy0qigW) proposta em aula pelo professor.
 
 Para a simulação de login, foi utilizado o Local Storage do navegador.
 
@@ -115,7 +115,7 @@ No front-end foram realizados os seguintes testes manuais:
 Para execução do sistema, é utilizado o `node-static` (https://www.npmjs.com/package/node-static).   
 Para instalá-lo, digite o comando a seguir no terminal:
 ```
-npm install -g node-static 
+npm install -g node-static
 ```
 Em seguida, execute o comando a seguir dentro do diretório raiz do projeto para iniciar o site:
 ```
@@ -130,5 +130,5 @@ Outra forma para executar o sistema é abrindo o arquivo `index.html` no navegad
 ## Comentários
 
 Como para a segunda entrega apenas é exigido que os dados estejam mockados, algumas funcionalidades não foram implementadas:
-- As telas não se comunicam, ou seja, não há a transferência de dados;
+- As telas não se comunicam, portanto, não há a transferência de dados;
 - Não é feita validação de acesso a rota proibida. Por exemplo, caso um usuário não administrador tente entrar na rota "/admin.html", não há uma validação. Também não são feitos redirecionamentos.
