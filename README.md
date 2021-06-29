@@ -11,8 +11,8 @@ O sistema é um site para venda de cones trufados e festas na caixa. Os cones tr
 ## Requisitos
 
 - O sistema deve acomodar dois tipos de usuários: clientes e administradores;
-    - Os administradores são responsáveis por registrar e gerenciar administradores, clientes e produtos. A aplicação deve começar com uma conta *admin* com senha *admin*;
-    - Os clientes são usuários que acessam o sistema para comprar produtos;
+    - Os administradores são responsáveis por registrar e gerenciar administradores e produtos. A aplicação deve começar com uma conta *admin* com senha *admin*;
+    - Os clientes são usuários que se cadastram e acessam o sistema para comprar produtos;
 - O sistema deve permitir que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *telefone*, *e-mail*, *cargo* (podendo ser dono ou vendedor) e *senha*;
 - O sistema deve permitir que um cliente se cadastre no mesmo. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
 - O sistema deve permitir que o administrador cadastre, consulte, atualize e remova produtos. As informações armazenadas sobre um produto são: *id*, *nome*, *foto*, *descrição*, *preço*, *quantidade em estoque* e *quantidade vendida*. O sistema possui dois tipos de produto: cones trufados e festas na caixa;
