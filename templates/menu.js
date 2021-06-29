@@ -30,6 +30,9 @@ Vue.component('menu_superior', {
                         { caminho: "personalizacao.html", tipo: cliente},
                         { caminho: "produto-cadastrar.html", tipo: administrativo},
                         { caminho: "produto-editar.html", tipo: administrativo},
+                        { caminho: "admin-usuarios.html", tipo: administrativo},
+                        { caminho: "admin-cadastro.html", tipo: administrativo},
+                        { caminho: "admin-editar.html", tipo: administrativo},
                   ]
             
                   let mockedTela = {};
