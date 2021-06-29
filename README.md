@@ -48,8 +48,8 @@ O sistema permite a venda de 2 modalidades de produtos: cones e festas na caixa.
 
 **Tela inicial**  
 Ao acessar a plataforma, o usuário é levado para a tela inicial.   
-A partir dessa tela, o usuário consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre o contato da empresa .  
-Utilizando o menu do sistema, o usuário consegue realizar login na plataforma.
+A partir dessa tela, o usuário consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre o contato da empresa.  
+Utilizando o menu do sistema, o usuário consegue acessar a tela de login e cadastro.
 
 **Tela de login**  
 Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *usuario* e *senha* cadastrados.   
