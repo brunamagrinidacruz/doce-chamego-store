@@ -23,7 +23,8 @@
                                 <img v-bind:src="fotos.caminho">
                             </li>
                         </ul>
-                        <p>{{ item.descricao }} R${{ item.preco }}</p>
+                        <p>{{ item.descricao }}</p>
+                        <div class="preco">R${{ item.preco }}</div>
                         <button class="botao botao-unico botao-texto" type="button">Adicionar ao carrinho</button>
                     </div>
                 </div>

@@ -63,6 +63,7 @@
     position: relative;
     padding: 0.9em;
     margin: 0.2em;
+    margin-bottom: 10em;
     width: 15em;
     height: 16em;
    /*background-color: yellow;*/
@@ -70,4 +71,9 @@
 
 .cardapio > p {
     margin-top: 13.5em;
+}
+
+.preco {
+    text-align: right;
+    margin-top: 0.2em;
 }
