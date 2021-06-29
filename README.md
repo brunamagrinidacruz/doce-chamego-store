@@ -38,6 +38,8 @@ O sistema conta com dois tipos de usuários: administrador e cliente.
 <img alt="MER dos Usuarios" src="./img/documentacao/mer-usuario.jpeg" width="300">  
 Além disso, o sistema conta com o "usuário" não cadastrado, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
 
+**Há dois usuários mockados: *admin* com senha *admin* e *user* com senha *user*. O primeiro resulta no site para a versão do administrador e o segundo resulta no site para a versão do cliente.**
+
 **Produtos**
 
 O sistema permite a venda de 2 modalidades de produtos: cones e festas na caixa.
