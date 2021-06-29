@@ -12,7 +12,7 @@ O sistema é um site para venda de cones trufados e festas na caixa. Os cones tr
 
 - O sistema deve acomodar dois tipos de usuários: clientes e administradores;
     - Os administradores são responsáveis por registrar e gerenciar administradores, clientes e produtos. A aplicação deve começar com uma conta *admin* com senha *admin*;
-    - Os clientes são usuários que acessam o sistema para comprar produtos;
+    - Os clientes são usuários que se cadastram e acessam o sistema para comprar produtos;
 - O sistema deve permitir que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *telefone*, *e-mail*, *cargo* (podendo ser dono ou vendedor) e *senha*;
 - O sistema deve permitir que um cliente se cadastre no mesmo. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
 - O sistema deve permitir que o administrador cadastre, consulte, atualize e remova produtos. As informações armazenadas sobre um produto são: *id*, *nome*, *foto*, *descrição*, *preço*, *quantidade em estoque* e *quantidade vendida*. O sistema possui dois tipos de produto: cones trufados e festas na caixa;
@@ -36,7 +36,9 @@ Serão armazenadas na base de dados as informações de usuários e produtos.
 
 O sistema conta com dois tipos de usuários: administrador e cliente.   
 <img alt="MER dos Usuarios" src="./img/documentacao/mer-usuario.jpeg" width="300">  
-Além disso, o sistema conta com o "usuário" não cadastrado, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
+Além disso, o sistema conta com o visitante, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
+
+**Há dois usuários mockados: *admin* com senha *admin* e *user* com senha *user*. O primeiro resulta no site para a versão do administrador e o segundo resulta no site para a versão do cliente.**
 
 **Produtos**
 
@@ -45,9 +47,9 @@ O sistema permite a venda de 2 modalidades de produtos: cones e festas na caixa.
 ### Regiões da Aplicação
 
 **Tela inicial**  
-Ao acessar a plataforma, o usuário é levado para a tela inicial.   
-A partir dessa tela, o usuário consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre o contato da empresa .  
-Utilizando o menu do sistema, o usuário consegue realizar login na plataforma.
+Ao acessar a plataforma, o visitante é levado para a tela inicial.   
+A partir dessa tela, o visitante consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre o contato da empresa .  
+Utilizando o menu do sistema, o visitante consegue realizar login na plataforma.
 
 **Tela de login**  
 Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *usuario* e *senha* cadastrados.   
@@ -59,7 +61,7 @@ O cadastro na tela de cadastro é realizado por usuários do tipo cliente.
 
 **Tela administrativa**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela administrativa.  
-Na tela administrativa é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar um novo produto.
+Na tela administrativa é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar novos produtos.
 
 **Tela de cadastro de produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de produto.  

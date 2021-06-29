@@ -79,7 +79,12 @@
                         <p class="nome-campo">Preço total</p>
                         <input type="text" disabled value="0" v-model="precoTotal"> 
 
-                        {{ erros }}
+                        <p class="text-center" v-if="erros.length">
+                            <b>Por favor, corrija os seguintes erro(s):</b>
+                            <ul>
+                            <li v-for="erro in erros">{{ erro }}</li>
+                            </ul>
+                        </p>
 
                         <div class="botoes">
                             <a class="botao botao-texto botao-unico" href="carrinho.html" v-on:click="comprar($event)">Comprar</a>

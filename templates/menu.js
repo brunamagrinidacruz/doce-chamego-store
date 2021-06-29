@@ -13,7 +13,7 @@ Vue.component('menu_superior', {
                   location.reload();
             },
             usuarioEstaLogado() {
-                  return !(this.usuario === ""  || this.usuario === "undefined")
+                  return !(this.usuario === ""  || this.usuario === "undefined" || this.usuario == null) 
             },
             mostrarAba(pagina) {
                   const administrativo = "administrativo";
@@ -52,7 +52,7 @@ Vue.component('menu_superior', {
                   } else if(this.usuario === "user") {
                         if(mockedTela.tipo === cliente) 
                               return true;
-                  } else if(this.usuario === "" || this.usuario === "undefined") {
+                  } else if(!this.usuarioEstaLogado()) {
                         if(mockedTela.tipo === usuario)
                               return true;
                   }

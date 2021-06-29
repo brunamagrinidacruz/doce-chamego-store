@@ -12,7 +12,7 @@
 
 .carrinho{
     height: 100%;
-    min-height: 20em;
+    min-height: 34em;
     width: 65%;
     border: solid 1px rgb(182, 176, 176);
     border-radius: 5px;
@@ -44,14 +44,13 @@
     padding: 0px 15px;
 }
 
-.valoresESugestoes{
+.valoresEPagamento{
     float: right;
-    box-sizing: border-box;
+    height: 30em;
     width: 30%;
 }
 .valor{
     box-sizing: border-box;
-    height: 9em;
     width: 100%;
     padding: 20px;
     border: solid 1px rgb(182, 176, 176);
@@ -63,13 +62,14 @@
     width: 100%;
 }
 
-.sugestoes{
-    height: 100%;
-    min-height: 9em;
-    margin-top: 2em;
-    background-color: white;
+.pagamento{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    margin-top: 1em;
     border: solid 1px rgb(182, 176, 176);
-    border-radius: 5px;
+    border-radius: 1px;
+    background-color: white;
 }
 
 hr.linha{

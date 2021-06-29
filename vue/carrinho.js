@@ -34,10 +34,19 @@ var app = new Vue({
                 qtdDoProduto: 1
             },
             
+            
         ],
         valorTotal: 0,
         qtdDeProdutos: 0,
-        presente: false
+        presente: false,
+        formaDePagamento: 
+            {
+                nomeDoTitular: "",
+                numeroDoCartao: "",
+                cvv: "",
+                validade: new Date(),
+            },
+        erros: []
     },
     beforeCreate() {
         valorTotal = 0,
@@ -59,5 +68,29 @@ var app = new Vue({
             _vm.qtdDeProdutos -= _vm.produto[indice].qtdDoProduto;
             _vm.produto.splice(indice, 1);
         },
+        entrar() {
+            this.erros = [];
+
+            if(!this.formaDePagamento.nomeDoTitular) {
+                  this.erros.push("Digite o nome do titular.");
+            }
+
+            if(!this.formaDePagamento.numeroDoCartao || this.formaDePagamento.numeroDoCartao.length !== 16) {
+                  this.erros.push("Digite o numero do cartao.");
+            }
+            if(!this.formaDePagamento.cvv || this.formaDePagamento.cvv.length !== 3) {
+                this.erros.push("Digite o cvv.");
+            }
+            var data = new Date();
+            if(!this.formaDePagamento.validade) {
+                this.erros.push("Digite a validade.");
+            } else if(new Date(this.formaDePagamento.validade) <= data){
+                this.erros.push("Insira uma data valida");
+            }
+
+            if(this.erros.length !== 0) {
+                  console.log(this.erros)
+            }
+        }
     }
 })
