@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
         <link href="./css/style.css" rel="stylesheet">
+        <link href="./css/formulario.css" rel="stylesheet">
         <link href="./css/cardapio.css" rel="stylesheet">
     </head>
 
@@ -12,8 +13,12 @@
         <div id="app">
             <div id="container" class="container">
                 <menu_superior v-bind:paginas='[{nome: "Cadastre-se", caminho: "cadastro.html"}, {nome: "Login", caminho: "login.html"}, {nome: "Administrativo", caminho: "admin.html"}, {nome: "Carrinho", caminho: "carrinho.html"}, {nome: "Personalização", caminho: "personalizacao.html"}]'></menu_superior>
+
+                <input type="text" placeholder="Procure um produto pelo nome"  v-model="produto"/>
+
                 <div id="conteudo" class="session text-center">
-                    <div v-for="item, indice in produtos" class="cardapio inline-block">
+                    {{ funcao("q") }}
+                    <div v-for="item in produtos" class="cardapio inline-block">
                         <h2>{{ item.nome }}</h2>
 
                         <ul class="slider" >
@@ -23,6 +28,7 @@
                                 <img v-bind:src="fotos.caminho">
                             </li>
                         </ul>
+
                         <p>{{ item.descricao }}</p>
                         <div class="preco">R${{ item.preco }}</div>
                         <button class="botao botao-unico botao-texto" type="button">Adicionar ao carrinho</button>
