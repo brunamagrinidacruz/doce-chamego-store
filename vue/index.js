@@ -7,15 +7,18 @@ let mockedProdutos = [
             imagens: [
                   {
                         caminho: "img/cone-trufado1.jpeg",
-                        slide: "slide1"
+                        slide: "slide1",
+                        checked: true
                   },
                   {
                         caminho: "img/cone-trufado2.jpeg",
-                        slide: "slide2"
+                        slide: "slide2",
+                        checked: false,
                   },
                   {
                         caminho: "img/cone-trufado3.jpeg",
-                        slide: "slide3"
+                        slide: "slide3",
+                        checked: false
                   },
             ],
       },
@@ -167,13 +170,6 @@ var app = new Vue({
       data: {
             produto: "",
             produtos: mockedProdutos
-      },
-
-
-      methods: {
-            funcao() {
-                  console.log("ola")
-            }
       },
 
       watch: {
