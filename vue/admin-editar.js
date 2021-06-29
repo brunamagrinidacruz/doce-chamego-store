@@ -49,7 +49,7 @@ var app = new Vue({
                 this.erros.push("Telefone inválido")
             
             else
-                alert("Usuário cadastrado!")
+                alert("Usuário editado!")
         }
     }
 })

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Doce Chamego</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/formulario.css" rel="stylesheet">
+    </head>
+
+    <body>  
+        <div id="app">
+            <div id="container" class="container">
+                <menu_superior v-bind:paginas='[{nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
+                
+                <div id="conteudo" class="session text-center">
+                    <h2>Cadastro Usuário</h2>
+                    
+                    <form method="POST">
+                        <p class="nome-campo">Nome</p>
+                        <input type="text" id="nome" name="email" autofocus autocomplete="off" required v-model="nome">
+
+                        <p class="nome-campo">CPF</p>
+                        <input type="text" id="cpf" placeholder="12345678909" autocomplete="off" maxlength="11" required v-model="cpf"><br>
+                        
+                        <p class="nome-campo">Email</p>
+                        <input type="email" id="email" placeholder="seuemail@dominio" autocomplete="off" required v-model="email"><br>
+                        
+                        <p class="nome-campo">Endereço</p>
+                        <input type="text" id="endereco" autocomplete="off" required v-model="endereco"><br>
+
+                        <p class="nome-campo">Telefone</p>
+                        <input type="tel" id="telefone" placeholder="+12 (34) 5678-19101" autocomplete="off" required v-model="telefone"><br>
+
+                        <p class="nome-campo">Cargo</p>
+                        <select name="cargo" id="cargo" v-model="cargo">
+                            <option value="cliente">Cliente</option>
+                            <option value="administrador">Administrador</option>
+                        </select>
+                            
+                        <p class="nome-campo">Senha</p>
+                        <input type="password" id="senha" autocomplete="off" required v-model="senha"><br>
+                        
+                        <p class="text-center" v-if="erros.length">
+                            <b>Por favor, corrija os seguintes erro(s):</b>
+                            <ul>
+                            <li v-for="erro in erros">{{ erro }}</li>
+                            </ul>
+                        </p>
+                        
+                        <div class="botoes">
+                            <input class="botao botao-texto botao-unico" type="submit" name="cadastrar" value="Cadastrar" v-on:click.prevent.stop="cadastrar()">
+                        </div> 
+                    </form>
+
+                </div>
+
+                <rodape></rodape>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="templates/menu.js"></script>
+        <script src="templates/rodape.js"></script>
+        <script src="vue/admin-cadastrar.js"></script>
+    </body>
+</html>

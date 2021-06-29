@@ -35,7 +35,7 @@ var app = new Vue({
                         this.erros.push("Quantidade inválida")
                   
                   else                
-                        alert("Produto cadastrado!")
+                        alert("Produto editado!")
             }
       }
 })
