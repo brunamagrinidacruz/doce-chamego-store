@@ -110,7 +110,7 @@ O código foi feito utilizando os conhecimentos adquiridos até a aula 23 da pla
 
 Para a simulação de login, foi utilizado o Local Storage do navegador.
 
-Foi criado um template de VueJS para o rodapé e o menu. No entanto, como a aplicação não é compilada, o template é apenas um protótipo inicial.
+Foi criado um template de VueJS para o rodapé e o menu. No entanto, a aplicação não utiliza o framework em conjunto com npm, logo, o template é apenas um protótipo inicial.
 
 ## Teste
 
