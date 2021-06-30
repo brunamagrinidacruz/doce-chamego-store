@@ -12,9 +12,9 @@
         <div id="app">
             <div id="container" class="container">
                 <menu_superior v-bind:paginas='[{nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
-                <div id="app" class="session text-center">
+                <div id="conteudo" class="session text-center">
                     <div class="carrinho inline-block">
-                        <h2 style="margin: 15px;">Carrinho de compras</h2>
+                        <h2 id="titulo-carrinho">Carrinho de compras</h2>
                         <div class="itens">
                             <div v-for="item, indice in produto" class="itemUnico">
                                 <hr class="linha">
@@ -52,9 +52,9 @@
                             <h3>Insira os dados do cartao</h3>
                             <form>
                                 <label for="titutar">Nome do titular do cartao</label><br>
-                                <input type="text" id="titutar" name="titutar" required v-model="formaDePagamento.nomeDoTitular"><br>
+                                <input type="text" id="titutar" name="titutar" required style="width: 250px;" v-model="formaDePagamento.nomeDoTitular"><br>
                                 <label for="numero">Numero do cartao</label><br>
-                                <input type="number" id="numero" name="numero" placeholder="xxxx.xxxx.xxxx.xxxx" required v-model="formaDePagamento.numeroDoCartao" ><br>
+                                <input type="number" id="numero" name="numero" placeholder="xxxx.xxxx.xxxx.xxxx" required style="width: 250px;" v-model="formaDePagamento.numeroDoCartao" ><br>
                                 <label cfor="cvv">CVV</label><br>
                                 <input type="number" id="cvv" name="cvv"  placeholder="xxx" required v-model="formaDePagamento.cvv" ><br>
                                 <label for="validade">Validade do cartao</label><br>

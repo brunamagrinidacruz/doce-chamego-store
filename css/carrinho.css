@@ -76,3 +76,87 @@ hr.linha{
     margin-bottom: 15px;
     border: solid 1px rgb(206, 206, 206);
 }
+
+#titulo-carrinho{
+    margin: 15px;
+}
+form {
+    width: 60%;
+    max-width: 500px;
+    min-width: 300px;
+    font-size: 16px;
+}
+
+.nome-campo {
+    font-size: 10px;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=tel],  input[type=number], input[type=radio], select {
+    width: 50px;
+    padding: 5px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .valoresEPagamento{
+        float:none;
+        height: 30em;
+        width: 100%;
+    }
+    .carrinho{
+        width: 100%;
+        margin-bottom: 1em;
+        min-height: 15em;
+    }
+    .itemUnico{
+        width: 100%;
+        margin: 5px;
+        font-size: 12px;
+        height: 100px;
+    }
+    #titulo-carrinho{
+        margin: 10px;
+        height: 30px;
+    }
+    .prodInfo{
+        width: calc(100% - 5em - 5px);
+        padding: 0;
+    }
+    form {
+        max-width: auto;
+        min-width: 100%;
+        font-size: 12px;
+    }
+    
+    .nome-campo {
+        font-size: 10px;
+    }
+    
+    input[type=text], input[type=email], input[type=password], input[type=tel],  input[type=number], input[type=radio], select {
+        width: 50px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+    .nomePreco{
+        width: 95%;
+    }
+    #conteudo{
+        margin: 0;
+        padding: 0;
+    }
+    hr.linha{
+        width: 95%;
+    }
+    .imgCarrinho{
+        margin-right: 5px;
+    }
+}

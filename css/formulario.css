@@ -72,3 +72,17 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
       flex-direction: column;
       align-items: flex-start;
 }
+
+@media screen and (max-width: 500px) {
+      form{
+            width: auto;
+            max-width: auto;
+            min-width: auto;
+      }
+      
+      input[type=text], input[type=email], input[type=password], input[type=tel],  input[type=number], input[type=radio], select {
+            padding: 8px 16px;
+            border-radius: 2px;
+            font-size: 15px;
+      }
+}
