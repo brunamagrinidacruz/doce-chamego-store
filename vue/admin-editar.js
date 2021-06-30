@@ -33,6 +33,9 @@ var app = new Vue({
             if (!this.telefone)
                 this.erros.push("Digite o telefone")
 
+            if (!this.cargo)
+                this.erros.push("Digite o cargo")
+
             if (!this.senha)
                 this.erros.push("Digite a senha")
 
