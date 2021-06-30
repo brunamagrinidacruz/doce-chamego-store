@@ -59,9 +59,9 @@ Além disso, através da tela de login, o usuário consegue acessar a tela de ca
 **Tela de cadastro**   
 O cadastro na tela de cadastro é realizado por usuários do tipo cliente. 
 
-**Tela administrativa**  
-Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela administrativa.  
-Na tela administrativa é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar novos produtos.
+**Tela de produtos**  
+Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de produtos.  
+Na tela de produtos é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar novos produtos.
 
 **Tela de cadastro de produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de produto.  
@@ -70,6 +70,18 @@ Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a
 **Tela de editar produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de editar produto.  
 É possível editar as informações de um cone.
+
+**Tela de usuários**  
+Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de usuários.  
+Na tela de produtos é possível ver uma listagem dos usuários, editá-los e remove-los. Também é possível cadastrar novos usuários.
+
+**Tela de cadastro de usuário**  
+Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de usuário.  
+É possível cadastrar um novo usuário do tipo administrador ou cliente.
+
+**Tela de editar usuário**  
+Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de editar usuário.  
+É possível editar as informações de um usuário.
 
 **Tela de personalização**  
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de personalização.  
