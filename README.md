@@ -135,8 +135,6 @@ static -p 8000
 ```
 Após isso, o site estará disponível em http://localhost:8000/.
 
-Outra forma para executar o sistema é abrindo o arquivo `index.html` no navegador.
-
 ## Problemas
 
 ## Comentários
