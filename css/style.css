@@ -123,7 +123,7 @@ h2 {
 
 .editar, .excluir {
     color: #fff;
-    min-width: 5em;
+    min-width: 4em;
     padding: 5px 0px; 
     margin: 8px 0;
     border: none;
@@ -137,4 +137,30 @@ h2 {
 
 .excluir {
     background-color: #DC143C;
+}
+
+.botao-edicao{
+    float: right; 
+    margin-top: -1em;
+}
+
+@media screen and (max-width: 500px) {
+    .botoes-cabecalho {
+        display: grid;
+        width: 130px;
+    }
+    .menu{
+        margin: 5px;
+        text-align: right;
+        font-size: 15px;
+    }
+    .menu:hover {
+        padding: 0;
+        margin: 0;
+    }
+    .botao-edicao{
+        float: right;
+        margin-top: -5px;
+        margin-right: 10px;
+    }
 }

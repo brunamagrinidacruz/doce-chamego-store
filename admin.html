@@ -27,10 +27,14 @@
                                             <h3 class="inline-block">{{produto.nome}}</h3>
                                             <h3 class="inline-block right">R$ {{produto.preco}}</h3>
                                         </div>
-                                        <p>{{produto.descricao}}</p>
-                                        <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir" v-on:click="excluir(indice)">
-                                        <a href="produto-editar.html"><input class="inline-block right editar" style="margin-right:0.2em;" type="submit" name="editar" value="Editar"></a>
-                                        <p class="">Quantidade: {{produto.quantidade}}</p>
+                                        
+                                            <p>{{produto.descricao}}</p>
+                                        <div class="botao-edicao">
+                                            <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir" v-on:click="excluir(indice)">
+                                            <a href="produto-editar.html"><input class="inline-block right editar" style="margin-right:0.2em;" type="submit" name="editar" value="Editar"></a>
+                                        </div>
+                                            <p class="">Quantidade: {{produto.quantidade}}</p>
+                                        
                                     </div>
                                 </div>
                                 <hr class="linha">
