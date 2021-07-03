@@ -8,6 +8,7 @@ var app = new Vue({
         email: "",
         endereco: "",
         telefone: "",
+        cargo: "",
         senha: "",
         
         /* variável para fazer o teste de validação do email */
@@ -15,7 +16,7 @@ var app = new Vue({
     },
     
     methods: {
-        cadastrar() {
+        editar() {
             this.erros = [];
 
             if (!this.nome)
@@ -39,8 +40,8 @@ var app = new Vue({
             if (!this.senha)
                 this.erros.push("Digite a senha")
 
-            if (this.erros.length > 0)
-                console.log(this.erros)
+            /*if (this.erros.length > 0)
+                console.log(this.erros)*/
             
             else if (String(this.cpf).length !== 11 || !isNumber(this.cpf))
                 this.erros.push("CPF inválido")
@@ -51,8 +52,10 @@ var app = new Vue({
             else if (!isPhone(this.telefone))
                 this.erros.push("Telefone inválido")
             
-            else
+            else {
                 alert("Usuário editado!")
+                window.location.href = 'admin.html'
+            }
         }
     }
 })
