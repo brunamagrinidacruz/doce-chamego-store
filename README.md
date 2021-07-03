@@ -135,11 +135,11 @@ Foram feitos testes nos formulários de:
 
 - Cadastro: Todos os campos são obrigatórios e caso não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de cadastro sem digitar algum dos valores. Além disso, o campo CPF exige 11 valores numéricos, o campo e-mail exige um e-mail com formato válido e o telefone exige DDD e o número. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos;
 
+- Personalização: O campo de cor e bebida são os únicos que são digitáveis pelo usuário e são obrigatórios, se não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de adicionar ao carrinho sem digitar algum dos valores. Além disso, a quantidade de bebida só aceita ser alterada via botão no campo e não aceita valores negativos ou maiores que 5. Para realização do teste, foi feita tentativa de inserir valores negativos ou maiores que 5. Note que a seleção se acompanhamento e/ou aperitivos é opcional.
+
 - Carrinho: 
     - Todos os campos sobre os dados do cartão são obrigatórios e caso não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de cadastro sem digitar algum dos valores. Além disso, o número do cartão exige 16 digitos, o CVV exige 3 digitos e a validade do cartão deve ser maior que a data atual. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos;
-    - O botão de remover exclui um item do carrinho de compras e o botão de adicionar atualiza a quantidade do item na compra.
-
-- Personalização: O campo de cor e bebida são que são digitáveis pelo usuário e são obrigatórios, se não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de login sem digitar algum dos valores. Além disso, a quantidade de bebida só aceita ser alterada via menu contido no campo e não aceita valores negativos ou maiores que 5. Para realização do teste, foi feita tentativa de inserir valores negativos ou maiores que 5. Note que a seleção se acompanhamento e/ou aperitivos é opcional.
+    - O botão de remover exclui um item do carrinho de compras e o botão de adicionar atualiza a quantidade do item na compra.    
 
 #### **Outros**
 
