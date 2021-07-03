@@ -152,7 +152,7 @@ var app = new Vue({
                   }) 
             },
 
-            comprar(e) {
+            adicionarAoCarrinho(e) {
                   this.erros = [];
 
                   if(!this.especifiqueBebida) {
@@ -164,10 +164,10 @@ var app = new Vue({
                   }
 
                   if(this.erros.length !== 0) {
-                        e.preventDefault();
                         console.log(this.erros)
                   } else {
                         alert("Adicionando ao carrinho...");
+                        window.location.href = 'carrinho.html'
                   }
                         
             }
