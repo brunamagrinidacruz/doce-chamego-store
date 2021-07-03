@@ -11,7 +11,7 @@
     <body>  
         <div id="app">
             <div id="container" class="container">
-                <menu_superior v-bind:paginas='[{nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
+                <menu_superior v-bind:paginas='[{nome: "Tela inicial", caminho: "index.html"}, {nome: "Produtos", caminho: "admin.html"}]'></menu_superior>
                 
                 <div id="conteudo" class="session text-center">
                     <div class="session">
@@ -21,8 +21,6 @@
                                 
                                 <div class="itemUnico" v-for="usuario, indice in usuarios">  
                                     <hr class="linha">
-                                    <!--<img class="imgCarrinho inline-block" src="img/cone-trufado1.jpeg" alt="cone-trufado1">-->
-                                    <!--<div class="right prodInfo">-->
                                         <p>Nome: {{usuario.nome}}</p>
                                         <p>CPF: {{usuario.cpf}}</p>
                                         <p>E-mail: {{usuario.email}}</p>
@@ -32,7 +30,6 @@
                                             <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir" v-on:click="excluir(indice)">
                                             <a href="admin-editar.html"><input class="inline-block right editar" style="margin-right:0.2em;" type="submit" name="editar" value="Editar"></a>
                                         </div>
-                                    <!--</div>-->
                                 </div>
                                 <hr class="linha">
                                 

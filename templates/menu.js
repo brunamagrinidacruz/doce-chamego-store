@@ -10,7 +10,7 @@ Vue.component('menu_superior', {
       methods: {
             sair() {
                   localStorage.setItem("usuario", "")
-                  location.reload();
+                  window.location.href = 'index.html'
             },
             usuarioEstaLogado() {
                   return !(this.usuario === ""  || this.usuario === "undefined" || this.usuario == null) 
