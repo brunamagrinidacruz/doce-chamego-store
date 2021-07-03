@@ -121,8 +121,6 @@ Os testes da aplicação back-end serão realizados utilizado `Postman`, `curl` 
 
 #### **Navegação**
 
-A navegação entre páginas foi testada.
-
 - Visitante: No modo visitante, é permitida a navegação entre a tela inicial, cadastro e login. Foi testado os botões dos menus nas telas;
 - Cliente: Com perfil de cliente, é permitida a navegação entre a tela inicial, carrinho e personalização. Foi testado os botões do menu nas telas;
 - Administrador: Com perfil de administrador, é permitida a navegação entre a tela inicial, tela de usuários (listagem, edição e cadastro) e tela de produtos (listagem, edição e cadastro). Foi testado os botões do menu nas telas;
@@ -132,12 +130,13 @@ Além disso, foram testados:
 - O logo da marca Doce Chamego localizado no rodapé que, ao ser clicado, encaminha para a tela inicial;
 - O ícone de Instagram e Whatsapp localizado no rodapé que, ao ser clicado, encaminha para as redes sociais da Doce Chamego.
 
-### 
+#### **Formulários**
 
-No front-end foram realizados os seguintes testes manuais:
 - Verificar se todos os campos obrigatórios requerem o preenchimento para finalização da operação. Como resultado, todos os campos obrigatórios requerem;
-- Verificar se os redirecionamentos de páginas estão corretos. Como resultado, os redirecionamentos estão corretos, incluido os do rodapé;
 - Verificar se os botões que realizam ações de editar e remover estão corretos. Como resultado, eles realizam as operações corretamente em relação aos dados do mock;
+
+#### **Compatibilidade**
+
 - Verificar o funcionamento das telas no Firefox e Chromium. Como resultado, todas as telas funcionam corretamente em ambos navegadores.
 
 ## Processo de Execução
