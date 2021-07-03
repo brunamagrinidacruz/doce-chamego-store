@@ -1,19 +1,5 @@
 var app = new Vue({
     el: '#app',
-    
-    beforeCreate() {
-        valorTotal = 0,
-        qtdDeProdutos = 0,
-        presente = false
-    },
-
-    mounted(){   
-        var _vm = this;
-        for (let indice = 0; indice < _vm.produto.length; indice++) {
-            _vm.valorTotal += _vm.produto[indice].preco * _vm.produto[indice].qtdDoProduto;
-            _vm.qtdDeProdutos += _vm.produto[indice].qtdDoProduto;
-        }
-    },
 
     data: {
         produto: [
@@ -88,10 +74,20 @@ var app = new Vue({
                 this.erros.push("Insira uma data valida");
             }
 
-            if(this.erros.length !== 0) {
-                  console.log(this.erros)
-            }else{
-                alert("Aguarde a aprovacao do pagamento.")
+            if(this.erros.length === 0) {
+                if(this.presente){
+                    alert("Os produtos serao enviados com embalagem para presente! Aguardando a aprovacao do pagamento.")
+                }else{
+                    alert("Aguardando a aprovacao do pagamento.")
+                }
+            }
+        },
+        precoTotal(){
+            this.valorTotal = 0;
+            this.qtdDeProdutos = 0;
+            for (let indice = 0; indice < this.produto.length; indice++) {
+                this.valorTotal += (this.produto[indice].preco * this.produto[indice].qtdDoProduto);
+                this.qtdDeProdutos += parseInt(this.produto[indice].qtdDoProduto, 10);
             }
         }
     }
