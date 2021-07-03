@@ -24,10 +24,10 @@ var app = new Vue({
                   } else {
                         if(this.usuario === "admin" && this.senha === "admin") {
                               localStorage.setItem("usuario", "admin");
-                              alert("Administrador logado com sucesso! Clique em Tela Inicial.")
+                              window.location.href = 'index.html'
                         } else if(this.usuario === "user" && this.senha === "user") {
                               localStorage.setItem("usuario", "user");
-                              alert("Usuario logado com sucesso! Clique em Tela Inicial.")
+                              window.location.href = 'index.html'
                         } else {
                               this.erros.push("Usuário ou senha inválidos.");
                         }
