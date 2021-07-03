@@ -13,7 +13,7 @@ O sistema é um site para venda de cones trufados e festas na caixa. Os cones tr
 - O sistema deve acomodar dois tipos de usuários: clientes e administradores;
     - Os administradores são responsáveis por registrar e gerenciar administradores, clientes e produtos. A aplicação deve começar com uma conta *admin* com senha *admin*;
     - Os clientes são usuários que se cadastram e acessam o sistema para comprar produtos;
-- O sistema deve permitir que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *telefone*, *e-mail*, *cargo* (podendo ser dono ou vendedor) e *senha*;
+- O sistema deve permitir que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
 - O sistema deve permitir que um cliente se cadastre no mesmo. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
 - O sistema deve permitir que o administrador cadastre, consulte, atualize e remova produtos. As informações armazenadas sobre um produto são: *id*, *nome*, *foto*, *descrição*, *preço*, *quantidade em estoque* e *quantidade vendida*. O sistema possui dois tipos de produto: cones trufados e festas na caixa;
     - Cada cone trufado cadastrado possui diferentes sabores associados pré-definidos (leite ninho, nutella, brigadeiro, maracujá, sensação, ovomaltine, limão, paçoca e prestígio);
@@ -149,6 +149,10 @@ Foram feitos testes nos formulários de:
     - Nenhum caractere é ignorado, ou seja, ao digitar espaço ou caracteres especiais, a pesquisa utiliza esse caractere para realizar a busca;
     - Nome de produto que não existe: Não é retornado nenhum produto;
     - Nome de produto que existe: É retornado o produto desejado, sendo o nome de produto digitado procurado em qualquer parte do título do produto.
+- Foi testado o botão "Adicionar ao carrinho" na tela inicial. Para a relização do teste, foram feitas as seguintes verificações:
+    - Caso nenhum usuário esteja logado, o sistema informa uma mensagem de usuário inválido para a operação e retorna para a tela de login;
+    - Caso o usuário esteja logado como administrador, o sistema informa uma mensagem de usuário inválido para a operação e permanece na tela de inicial;
+    - Caso o usuário esteja logado como cliente, o sistema informa uma mensagem de item adicionado ao carrinho e encaminha para a tela de carrinho.
 
 #### **Compatibilidade**
 
