@@ -182,5 +182,11 @@ var app = new Vue({
                         })
                   }
             }
+      },
+
+      methods: {
+            adicionarAoCarrinho() {
+                  window.location.href = 'carrinho.html'
+            }
       }
 })
