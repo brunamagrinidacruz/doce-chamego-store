@@ -28,6 +28,7 @@
                                     <form>
                                         <label for="name">Quantidade:</label>
                                         <input type="number" id="nProdutos" name="nProdutos" required min="1" v-model="item.qtdDoProduto">
+                                        <button class="editar" type="button" v-on:click.prevent.stop="precoTotal()">Adicionar</button>
                                         <input class="excluir" type="button" value="Remover" v-on:click="removerDoCarrinho(indice)">
                                     </form>
                                 </div>
@@ -59,8 +60,8 @@
                             </p>
                             <h3 style="margin: 10px;">Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
                             <form>
-                                <input type="checkbox" id="presente" name="presente" v-model="presente" >
-                                <label for="presente">Este pedido contem um presente</label>
+                                <input type="checkbox" id="checkbox" name="presente" v-model="presente" >
+                                <label for="checkbox">Este pedido contem um presente</label>
                             </form>
                             <button class="botao botao-texto botao-unico" type="button" v-on:click="entrar">Fechar pedido</button> 
                         </div>
