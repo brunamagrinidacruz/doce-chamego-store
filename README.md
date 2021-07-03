@@ -35,7 +35,7 @@ Serão armazenadas na base de dados as informações de usuários e produtos.
 **Usuários**
 
 O sistema conta com dois tipos de usuários: administrador e cliente.   
-<img alt="MER dos Usuarios" src="./img/documentacao/mer-usuario.jpeg" width="300">  
+<img alt="Diagrama dos Usuarios" src="./img/documentacao/diagrama-usuario.png" width="300">  
 Além disso, o sistema conta com o visitante, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
 
 **Há dois usuários mockados: *admin* com senha *admin* e *user* com senha *user*. O primeiro resulta no site para a versão do administrador e o segundo resulta no site para a versão do cliente.** Ao realizar a tentativa de login com qualquer outro usuário e senha, a aplicação retornará um erro.
