@@ -38,7 +38,7 @@ O sistema conta com dois tipos de usuários: administrador e cliente.
 <img alt="MER dos Usuarios" src="./img/documentacao/mer-usuario.jpeg" width="300">  
 Além disso, o sistema conta com o visitante, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
 
-**Há dois usuários mockados: *admin* com senha *admin* e *user* com senha *user*. O primeiro resulta no site para a versão do administrador e o segundo resulta no site para a versão do cliente.**
+**Há dois usuários mockados: *admin* com senha *admin* e *user* com senha *user*. O primeiro resulta no site para a versão do administrador e o segundo resulta no site para a versão do cliente.** Ao realizar a tentativa de login com qualquer outro usuário e senha, a aplicação retornará um erro.
 
 **Produtos**
 
@@ -99,14 +99,12 @@ No diagrama a seguir, os retangulos representam as telas.
 ## Comentários Sobre o Código
 
 ### Diretórios
-- css: arquivos CSS;
-- img: imagens utilizadas no código e na documentação;
-- templates: templates criados com VueJS que são reutilizados em várias páginas;
-- vue: código VueJS criado para cada tela.
+- css: Arquivos CSS;
+- img: Imagens utilizadas no código e na documentação;
+- templates: Templates criados com VueJS que são reutilizados em várias páginas (rodapé e menu);
+- vue: Código VueJS criado para cada tela.
 
 ### Outras informações
-
-O código foi feito utilizando os conhecimentos adquiridos até a aula 23 da playlist de VueJS (https://www.youtube.com/playlist?list=PLcoYAcR89n-qq1vGRbaUiV6Q9puy0qigW) passada em aula pelo professor.
 
 Para a simulação de login, foi utilizado o Local Storage do navegador.
 
@@ -123,7 +121,7 @@ Os testes da aplicação back-end serão realizados utilizado `Postman`, `curl` 
 
 - Visitante: No modo visitante, é permitida a navegação entre a tela inicial, cadastro e login. Foi testado os botões dos menus nas telas;
 - Cliente: Com perfil de cliente, é permitida a navegação entre a tela inicial, carrinho e personalização. Foi testado os botões do menu nas telas;
-- Administrador: Com perfil de administrador, é permitida a navegação entre a tela inicial, tela de usuários (listagem, edição e cadastro) e tela de produtos (listagem, edição e cadastro). Foi testado os botões do menu nas telas;
+- Administrador: Com perfil de administrador, é permitida a navegação entre a tela inicial, tela de usuários (listagem, edição e cadastro) e tela de produtos (listagem, edição e cadastro). Foi testado os botões do menu nas telas.
 
 Além disso, foram testados:
 - O logo da marca Doce Chamego localizado no menu que, ao ser clicado, encaminha para a tela inicial;
