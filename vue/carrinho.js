@@ -47,17 +47,20 @@ var app = new Vue({
             _vm.qtdDeProdutos += _vm.produto[indice].qtdDoProduto;
         }
     },
-    watch: {
-        'produto.qtdDoProduto': function (novoValor, valorAntigo) {
-            if(novoValor > 0 && novoValor < 30){
-                this.produto.qtdDoProduto = novoValor;
-            }
-            else{
-                alert("Insira uma quantidade valida!");
-                this.produto.qtdDoProduto = valorAntigo;
-            }
-        }
-    },
+
+    // watch: {
+    //     'qtdDoProduto': function (novoValor, valorAntigo) {
+    //         console.log('dsad')
+    //         if(novoValor > 0 && novoValor < 30){
+    //             this.produto.qtdDoProduto = novoValor;
+    //         }
+    //         else{
+    //             alert("Insira uma quantidade valida!");
+    //             this.produto.qtdDoProduto = valorAntigo;
+    //         }
+    //     },
+    // },
+    
     methods: {
         removerDoCarrinho: function(indice){
             var _vm = this;
