@@ -91,7 +91,7 @@ var app = new Vue({
             if(this.erros.length !== 0) {
                   console.log(this.erros)
             }else{
-                alert("As informacoes foram gravadas com sucesso.")
+                alert("Aguarde a aprovacao do pagamento.")
             }
         }
     }

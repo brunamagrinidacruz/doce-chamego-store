@@ -51,6 +51,7 @@
 }
 .valor{
     box-sizing: border-box;
+    text-align: center;
     width: 100%;
     padding: 20px;
     border: solid 1px rgb(182, 176, 176);
@@ -62,16 +63,6 @@
     width: 100%;
 }
 
-.pagamento{
-    box-sizing: border-box;
-    width: 100%;
-    padding: 20px;
-    margin-top: 1em;
-    border: solid 1px rgb(182, 176, 176);
-    border-radius: 1px;
-    background-color: white;
-}
-
 hr.linha{
     margin-bottom: 15px;
     border: solid 1px rgb(206, 206, 206);
@@ -81,9 +72,9 @@ hr.linha{
     margin: 15px;
 }
 form {
-    width: 60%;
-    max-width: 500px;
-    min-width: 300px;
+    width: 100%;
+    max-width: none;
+    min-width: none;
     font-size: 16px;
 }
 
@@ -103,10 +94,9 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 900px) {
     .valoresEPagamento{
         float:none;
-        height: 30em;
         width: 100%;
     }
     .carrinho{
