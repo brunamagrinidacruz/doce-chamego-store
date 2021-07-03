@@ -51,13 +51,16 @@ var app = new Vue({
 
     watch: {
         'quantidadeDosProdutos': function (novoValor, valorAntigo) {
+            let erro = false;
             for(let i = 0; i < novoValor.length; i++) {
                 if(novoValor[i] < 0 || novoValor[i] > 30) {
-                    alert("Insira uma quantidade valida para o produto: " + this.produto[i].nomeDoProduto);
+                    erro = true;
                     this.quantidadeDosProdutos[i] = 1;
                 }
             }
-            this.quantidadeDosProdutos = valorAntigo;
+            if(erro) {
+                alert("Insira uma quantidade valida para o(s) produto(s)!");
+            }
         },
     },
     
@@ -106,3 +109,15 @@ var app = new Vue({
         }
     }
 })
+
+function isNumber(numero) {
+    let numerotxt = String(numero)
+    for (let i = 0; i < numerotxt.length; i++) {
+        let code = numerotxt.charCodeAt(i);
+        if (code <= 48 || code >= 57) {          
+            numerotxt.value=""; 
+            return false;
+        }
+    }
+    return true;
+}
