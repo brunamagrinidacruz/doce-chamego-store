@@ -130,8 +130,24 @@ Além disso, foram testados:
 
 #### **Formulários**
 
-- Verificar se todos os campos obrigatórios requerem o preenchimento para finalização da operação. Como resultado, todos os campos obrigatórios requerem;
+Foram feitos testes nos formulários de:
+- Login: Os campos usuário e senha são obrigatórios e caso não forem preenchidos, uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de login sem digitar algum dos valores. Além disso, é feita validação se o usuário é válido;
+- Cadastro: Todos os campos são obrigatórios e caso não forem preenchidos, uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de cadastro sem digitar algum dos valores. Além disso, o campo CPF exige 11 valores numéricos, o campo e-mail exige um e-mail com formato válido e o telefone exige DDD e o número. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos;
+
+
+
+
+
 - Verificar se os botões que realizam ações de editar e remover estão corretos. Como resultado, eles realizam as operações corretamente em relação aos dados do mock;
+
+#### **Outros**
+
+- Foi testado o campo de pesquisa de produtos por nome na tela inicial. Para realização do teste, foram digitados:  
+    - Textos maiusculos e minusculos: Não é feita diferenciação;
+    - Acentos: Letras com acento e sem acento são tratadas como diferentes;
+    - Nenhum caractere é ignorado, ou seja, ao digitar espaço ou caracteres especiais, a pesquisa utiliza esse caractere para realizar a busca;
+    - Nome de produto que não existe: Não é retornado nenhum produto;
+    - Nome de produto que existe: É retornado o produto desejado, sendo o nome de produto digitado procurado em qualquer parte do título do produto.
 
 #### **Compatibilidade**
 
