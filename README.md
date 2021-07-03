@@ -149,6 +149,10 @@ Foram feitos testes nos formulários de:
     - Nenhum caractere é ignorado, ou seja, ao digitar espaço ou caracteres especiais, a pesquisa utiliza esse caractere para realizar a busca;
     - Nome de produto que não existe: Não é retornado nenhum produto;
     - Nome de produto que existe: É retornado o produto desejado, sendo o nome de produto digitado procurado em qualquer parte do título do produto.
+- Foi testado o botão "Adicionar ao carrinho" na tela inicial. Para a relização do teste, foram feitas as seguintes verificações:
+    - Caso nenhum usuário esteja logado, o sistema informa uma mensagem de usuário inválido para a operação e retorna para a tela de login;
+    - Caso o usuário esteja logado como administrador, o sistema informa uma mensagem de usuário inválido para a operação e permanece na tela de inicial;
+    - Caso o usuário esteja logado como cliente, o sistema informa uma mensagem de item adicionado ao carrinho e encaminha para a tela de carrinho.
 
 #### **Compatibilidade**
 
