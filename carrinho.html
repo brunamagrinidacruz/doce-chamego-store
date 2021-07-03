@@ -28,8 +28,7 @@
                                     <form>
                                         <label for="name">Quantidade:</label>
                                         <input type="number" id="nProdutos" name="nProdutos" required min="1" v-model="item.qtdDoProduto">
-                                        <button type="button">Adicionar</button>
-                                        <input type="button" value="Remover" v-on:click="removerDoCarrinho(indice)">
+                                        <input class="excluir" type="button" value="Remover" v-on:click="removerDoCarrinho(indice)">
                                     </form>
                                 </div>
                             </div>
@@ -41,20 +40,12 @@
                     </div>
                     <div class="valoresEPagamento inline-block">
                         <div class="valor">
-                            <h3>Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
-                            <form>
-                                <input type="checkbox" id="presente" name="presente" v-model="presente" >
-                                <label for="presente">Este pedido contem um presente</label>
-                            </form>
-                            <button class="botao botao-texto botao-unico" type="button">Fechar pedido</button> 
-                        </div>
-                        <div class="pagamento">
                             <h3>Insira os dados do cartao</h3>
                             <form>
                                 <label for="titutar">Nome do titular do cartao</label><br>
-                                <input type="text" id="titutar" name="titutar" required style="width: 250px;" v-model="formaDePagamento.nomeDoTitular"><br>
+                                <input type="text" id="titutar" name="titutar" required style="width: 80%" v-model="formaDePagamento.nomeDoTitular"><br>
                                 <label for="numero">Numero do cartao</label><br>
-                                <input type="number" id="numero" name="numero" placeholder="xxxx.xxxx.xxxx.xxxx" required style="width: 250px;" v-model="formaDePagamento.numeroDoCartao" ><br>
+                                <input type="number" id="numero" name="numero" placeholder="xxxx.xxxx.xxxx.xxxx" required style="width: 80%;" v-model="formaDePagamento.numeroDoCartao" ><br>
                                 <label cfor="cvv">CVV</label><br>
                                 <input type="number" id="cvv" name="cvv"  placeholder="xxx" required v-model="formaDePagamento.cvv" ><br>
                                 <label for="validade">Validade do cartao</label><br>
@@ -66,7 +57,12 @@
                                 <li v-for="erro in erros">{{ erro }}</li>
                                 </ul>
                             </p>
-                            <button class="botao botao-texto botao-unico" type="button" v-on:click.prevent.stop="entrar()">Gravar informacoes</button> 
+                            <h3 style="margin: 10px;">Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
+                            <form>
+                                <input type="checkbox" id="presente" name="presente" v-model="presente" >
+                                <label for="presente">Este pedido contem um presente</label>
+                            </form>
+                            <button class="botao botao-texto botao-unico" type="button" v-on:click="entrar">Fechar pedido</button> 
                         </div>
                     </div>
                 </div>            
