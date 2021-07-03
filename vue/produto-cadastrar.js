@@ -25,8 +25,8 @@ var app = new Vue({
                   if (!this.descricao)
                         this.erros.push("Digite a descrição")
 
-                  if(this.erros.length > 0)
-                        console.log(this.erros)
+                  /*if(this.erros.length > 0)
+                        console.log(this.erros)*/
                   
                   else if (!isNumber(this.preco))
                         this.erros.push("Preço inválido")
@@ -34,8 +34,10 @@ var app = new Vue({
                   else if (!isNumber(this.quantidade))
                         this.erros.push("Quantidade inválida")
                   
-                  else                
+                  else  {   
                         alert("Produto cadastrado!")
+                        window.location.href = 'admin.html'
+                  }
             }
       }
 })
