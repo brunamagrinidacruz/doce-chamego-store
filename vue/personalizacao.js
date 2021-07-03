@@ -164,7 +164,7 @@ var app = new Vue({
                   }
 
                   if(this.erros.length !== 0) {
-                        console.log(this.erros)
+                        e.preventDefault();
                   } else {
                         alert("Adicionando ao carrinho...");
                         window.location.href = 'carrinho.html'
