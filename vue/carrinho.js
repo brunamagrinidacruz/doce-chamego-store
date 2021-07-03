@@ -9,7 +9,7 @@ var app = new Vue({
                 informacoesImportantes: "Cone de ovomaltine, maracuja e limão",
                 prazoMin: 15,
                 prazoMax: 20,
-                qtdDoProduto: 1
+                // qtdDoProduto: 1
             },
             { 
                 nomeDoProduto: "Caixa Bar",
@@ -17,11 +17,12 @@ var app = new Vue({
                 informacoesImportantes: "Caixa tamanho M",
                 prazoMin: 15,
                 prazoMax: 20,
-                qtdDoProduto: 1
+                // qtdDoProduto: 1
             },
             
             
         ],
+        quantidadeDosProdutos: [1, 1],
         valorTotal: 0,
         qtdDeProdutos: 0,
         presente: false,
@@ -43,29 +44,28 @@ var app = new Vue({
     mounted(){   
         var _vm = this;
         for (let indice = 0; indice < _vm.produto.length; indice++) {
-            _vm.valorTotal += _vm.produto[indice].preco * _vm.produto[indice].qtdDoProduto;
-            _vm.qtdDeProdutos += _vm.produto[indice].qtdDoProduto;
+            _vm.valorTotal += _vm.produto[indice].preco * this.quantidadeDosProdutos[indice];
+            _vm.qtdDeProdutos += this.quantidadeDosProdutos[indice];
         }
     },
 
-    // watch: {
-    //     'qtdDoProduto': function (novoValor, valorAntigo) {
-    //         console.log('dsad')
-    //         if(novoValor > 0 && novoValor < 30){
-    //             this.produto.qtdDoProduto = novoValor;
-    //         }
-    //         else{
-    //             alert("Insira uma quantidade valida!");
-    //             this.produto.qtdDoProduto = valorAntigo;
-    //         }
-    //     },
-    // },
+    watch: {
+        'quantidadeDosProdutos': function (novoValor, valorAntigo) {
+            for(let i = 0; i < novoValor.length; i++) {
+                if(novoValor[i] < 0 || novoValor[i] > 30) {
+                    alert("Insira uma quantidade valida para o produto: " + this.produto[i].nomeDoProduto);
+                    this.quantidadeDosProdutos[i] = 1;
+                }
+            }
+            this.quantidadeDosProdutos = valorAntigo;
+        },
+    },
     
     methods: {
         removerDoCarrinho: function(indice){
             var _vm = this;
-            _vm.valorTotal -= (_vm.produto[indice].preco * _vm.produto[indice].qtdDoProduto);
-            _vm.qtdDeProdutos -= _vm.produto[indice].qtdDoProduto;
+            _vm.valorTotal -= (_vm.produto[indice].preco * this.quantidadeDosProdutos[indice]);
+            _vm.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
             _vm.produto.splice(indice, 1);
         },
         entrar() {
@@ -100,8 +100,8 @@ var app = new Vue({
             this.valorTotal = 0;
             this.qtdDeProdutos = 0;
             for (let indice = 0; indice < this.produto.length; indice++) {
-                this.valorTotal += (this.produto[indice].preco * this.produto[indice].qtdDoProduto);
-                this.qtdDeProdutos += parseInt(this.produto[indice].qtdDoProduto, 10);
+                this.valorTotal += (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
+                this.qtdDeProdutos += parseInt(this.quantidadeDosProdutos[indice], 10);
             }
         }
     }
