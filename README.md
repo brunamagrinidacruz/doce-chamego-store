@@ -46,48 +46,48 @@ O sistema permite a venda de 2 modalidades de produtos: cones e festas na caixa.
  
 ### Regiões da Aplicação
 
-**Tela inicial**  
+#### **Tela inicial**  
 Ao acessar a plataforma, o visitante é levado para a tela inicial.   
 A partir dessa tela, o visitante consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre o contato da empresa .  
 Utilizando o menu do sistema, o visitante consegue realizar login na plataforma.
 
-**Tela de login**  
+#### **Tela de login**  
 Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *usuario* e *senha* cadastrados.   
 Após o acesso, clientes e administradores possuem acesso a funcionalidades distintas.  
 Além disso, através da tela de login, o usuário consegue acessar a tela de cadastro.
 
-**Tela de cadastro**   
+#### **Tela de cadastro**   
 O cadastro na tela de cadastro é realizado por usuários do tipo cliente. 
 
-**Tela de produtos**  
+#### **Tela de produtos**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de produtos.  
 Na tela de produtos é possível ver uma listagem dos produtos, editá-los e remove-los. Também é possível cadastrar novos produtos.
 
-**Tela de cadastro de produto**  
+#### **Tela de cadastro de produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de produto.  
 É possível cadastrar um novo produto do tipo cone.
 
-**Tela de editar produto**  
+#### **Tela de editar produto**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de editar produto.  
 É possível editar as informações de um cone.
 
-**Tela de usuários**  
+#### **Tela de usuários**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de usuários.  
 Na tela de produtos é possível ver uma listagem dos usuários, editá-los e remove-los. Também é possível cadastrar novos usuários.
 
-**Tela de cadastro de usuário**  
+#### **Tela de cadastro de usuário**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de usuário.  
 É possível cadastrar um novo usuário do tipo administrador ou cliente.
 
-**Tela de editar usuário**  
+#### **Tela de editar usuário**  
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de editar usuário.  
 É possível editar as informações de um usuário.
 
-**Tela de personalização**  
+#### **Tela de personalização**  
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de personalização.  
 É possível que o cliente personalize sua própria caixa dentre os três tipos disponibilizados pela loja: festa na caixa, café da manhã e caixa-bar. O cliente pode escolher os componentes e a cor da caixa. O cliente também pode finalizar a personalização.
 
-**Tela de carrinho**  
+#### **Tela de carrinho**  
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de carrinho.    
 É listado todos os produtos selecionados para compra. Além disso, é possível aumentar a quantidade de um determinado produto, remover ele da lista ou finalizar o pedido.
 
@@ -114,7 +114,25 @@ Foi criado um template de VueJS para o rodapé e o menu. No entanto, a aplicaç�
 
 ## Teste
 
+### Back-end
 Os testes da aplicação back-end serão realizados utilizado `Postman`, `curl` e/ou `REST Client for Visual Studio Code`.
+
+### Front-end
+
+#### **Navegação**
+
+A navegação entre páginas foi testada.
+
+- Visitante: No modo visitante, é permitida a navegação entre a tela inicial, cadastro e login. Foi testado os botões dos menus nas telas;
+- Cliente: Com perfil de cliente, é permitida a navegação entre a tela inicial, carrinho e personalização. Foi testado os botões do menu nas telas;
+- Administrador: Com perfil de administrador, é permitida a navegação entre a tela inicial, tela de usuários (listagem, edição e cadastro) e tela de produtos (listagem, edição e cadastro). Foi testado os botões do menu nas telas;
+
+Além disso, foram testados:
+- O logo da marca Doce Chamego localizado no menu que, ao ser clicado, encaminha para a tela inicial;
+- O logo da marca Doce Chamego localizado no rodapé que, ao ser clicado, encaminha para a tela inicial;
+- O ícone de Instagram e Whatsapp localizado no rodapé que, ao ser clicado, encaminha para as redes sociais da Doce Chamego.
+
+### 
 
 No front-end foram realizados os seguintes testes manuais:
 - Verificar se todos os campos obrigatórios requerem o preenchimento para finalização da operação. Como resultado, todos os campos obrigatórios requerem;
@@ -139,6 +157,4 @@ Após isso, o site estará disponível em http://localhost:8000/.
 
 ## Comentários
 
-Como para a segunda entrega apenas é exigido que os dados estejam mockados, algumas funcionalidades não foram implementadas:
-- As telas não se comunicam, ou seja, não há a transferência de dados;
-- Não é feita validação de acesso a rota proibida. Por exemplo, caso um usuário não administrador tente entrar na rota "/admin.html", não há uma validação. Também não são feitos redirecionamentos.
+- Não é feita validação de acesso a rota proibida. Por exemplo, caso um usuário não administrador tente entrar na rota "/admin.html", não há uma validação. 
