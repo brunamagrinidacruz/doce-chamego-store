@@ -185,8 +185,16 @@ var app = new Vue({
       },
 
       methods: {
-            adicionarAoCarrinho() {
-                  window.location.href = 'carrinho.html'
+            adicionar_carrinho() {
+                  usuario = localStorage.getItem("usuario")
+                  console.log(usuario)
+                  if (usuario !== "user") {
+                        alert("Entre como um usuário para adicionar ao carrinho!")
+                        if (usuario != "admin") window.location.href = 'login.html'
+                  } else {
+                        alert("Adicionado ao carrinho!")
+                        window.location.href = 'carrinho.html'
+                  }
             }
       }
 })

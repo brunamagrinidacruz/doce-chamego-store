@@ -41,15 +41,15 @@
                     </div>
                     <div class="valoresEPagamento inline-block">
                         <div class="valor">
-                            <h3>Insira os dados do cartao</h3>
+                            <h3>Insira os dados do cartão</h3>
                             <form>
-                                <label for="titutar">Nome do titular do cartao</label><br>
+                                <label for="titutar">Nome do titular do cartão</label><br>
                                 <input type="text" id="titutar" name="titutar" required style="width: 80%" v-model="formaDePagamento.nomeDoTitular"><br>
-                                <label for="numero">Numero do cartao</label><br>
+                                <label for="numero">Numero do cartão</label><br>
                                 <input type="number" id="numero" name="numero" placeholder="xxxx.xxxx.xxxx.xxxx" required style="width: 80%;" v-model="formaDePagamento.numeroDoCartao" ><br>
                                 <label cfor="cvv">CVV</label><br>
                                 <input type="number" id="cvv" name="cvv"  placeholder="xxx" required v-model="formaDePagamento.cvv" ><br>
-                                <label for="validade">Validade do cartao</label><br>
+                                <label for="validade">Validade do cartão</label><br>
                                 <input type="date" id="validade" name="validade" placeholder="dd/mm/aaaa" required v-model="formaDePagamento.validade" ><br>
                             </form>
                             <p class="text-center" v-if="erros.length">
