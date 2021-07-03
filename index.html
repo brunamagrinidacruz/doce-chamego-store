@@ -29,7 +29,11 @@
                         </ul>
                         <p>{{ item.descricao }}</p>
                         <div class="preco">R${{ item.preco.toFixed(2).replace(".", ",") }}</div>
+<<<<<<< HEAD
+                        <button class="botao botao-unico botao-texto" type="button" v-on:click.prevent.stop="adicionar_carrinho()">Adicionar ao carrinho</button>
+=======
                         <button class="botao botao-unico botao-texto" type="button"  v-on:click.prevent.stop='adicionarAoCarrinho()'>Adicionar ao carrinho</button>
+>>>>>>> d95c7cc86fde82a6abcaa221eaef811407f24911
                     </div>
                 </div>
 
