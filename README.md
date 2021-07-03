@@ -131,9 +131,10 @@ Além disso, foram testados:
 #### **Formulários**
 
 Foram feitos testes nos formulários de:
-- Login: Os campos usuário e senha são obrigatórios e caso não forem preenchidos, uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de login sem digitar algum dos valores. Além disso, é feita validação se o usuário é válido;
-- Cadastro: Todos os campos são obrigatórios e caso não forem preenchidos, uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de cadastro sem digitar algum dos valores. Além disso, o campo CPF exige 11 valores numéricos, o campo e-mail exige um e-mail com formato válido e o telefone exige DDD e o número. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos;
-
+- Login: Os campos usuário e senha são obrigatórios e caso não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de login sem digitar algum dos valores. Além disso, é feita validação se o usuário é válido;
+- Cadastro: Todos os campos são obrigatórios e caso não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de cadastro sem digitar algum dos valores. Além disso, o campo CPF exige 11 valores numéricos, o campo e-mail exige um e-mail com formato válido e o telefone exige DDD e o número. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos;
+- Carrinho: Todos os campos sobre os dados do cartão são obrigatórios e caso não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi feita a tentativa de cadastro sem digitar algum dos valores. Além disso, o número do cartão exige 16 digitos, o CVV exige 3 digitos e a validade do cartão deve ser maior que a data atual. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos;
+- Personalização: 
 
 
 
