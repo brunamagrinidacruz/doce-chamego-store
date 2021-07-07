@@ -22,7 +22,6 @@ Vue.component('menu_superior', {
                   const usuario_cliente_administrativo = "usuario_cliente_administrativo";
 
                   let mockedTelas = [
-                        { caminho: "admin.html", tipo: administrativo},
                         { caminho: "cadastro.html", tipo: usuario},
                         { caminho: "carrinho.html", tipo: cliente},
                         { caminho: "index.html", tipo: usuario_cliente_administrativo},
@@ -30,9 +29,10 @@ Vue.component('menu_superior', {
                         { caminho: "personalizacao.html", tipo: cliente},
                         { caminho: "produto-cadastrar.html", tipo: administrativo},
                         { caminho: "produto-editar.html", tipo: administrativo},
-                        { caminho: "admin-usuarios.html", tipo: administrativo},
-                        { caminho: "admin-cadastro.html", tipo: administrativo},
-                        { caminho: "admin-editar.html", tipo: administrativo},
+                        { caminho: "produtos.html", tipo: administrativo},
+                        { caminho: "usuario-cadastro.html", tipo: administrativo},
+                        { caminho: "usuario-editar.html", tipo: administrativo},
+                        { caminho: "usuarios.html", tipo: administrativo},
                   ]
             
                   let mockedTela = {};

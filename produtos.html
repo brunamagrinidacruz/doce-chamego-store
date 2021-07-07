@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Doce Chamego</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/jpeg" href="img/logos/logo.jpeg" />
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/carrinho.css" rel="stylesheet">
+    </head>
+
+    <body>  
+        <div id="app">
+            <div id="container" class="container">
+                <menu_superior v-bind:paginas='[{nome: "Usuários", caminho:"usuarios.html"}, {nome: "Tela inicial", caminho: "index.html"}]'></menu_superior>
+                
+                <div id="conteudo" class="session text-center">
+                    <div class="session">
+                        <div class="carrinho inline-block">
+                            <h2 style="margin: 15px;">Lista de produtos</h2>
+                            <div class="itens">
+                                
+                                <div class="itemUnico" v-for="produto, indice in produtos">  
+                                    <hr class="linha">
+                                    <img class="imgCarrinho inline-block" src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                                    <div class="right prodInfo">
+                                        <div class="nomePreco inline-block">
+                                            <h3 class="inline-block">{{produto.nome}}</h3>
+                                            <h3 class="inline-block right">R$ {{produto.preco}}</h3>
+                                        </div>
+                                        
+                                            <p>{{produto.descricao}}</p>
+                                        <div class="botao-edicao">
+                                            <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir" v-on:click="excluir(indice)">
+                                            <a href="produto-editar.html"><input class="inline-block right editar" style="margin-right:0.2em;" type="submit" name="editar" value="Editar"></a>
+                                        </div>
+                                            <p class="">Quantidade: {{produto.quantidade}}</p>
+                                        
+                                    </div>
+                                </div>
+                                <hr class="linha">
+                                
+                                <div class="preco inline-block botoes">
+                                    <a class="botao botao-texto botao-unico text-center" href="produto-cadastrar.html">Cadastrar Produto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <rodape></rodape>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="templates/menu.js"></script>
+        <script src="templates/rodape.js"></script>
+        <script src="vue/produtos.js"></script>
+    </body>
+</html>
