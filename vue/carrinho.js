@@ -50,7 +50,7 @@ var app = new Vue({
     },
 
     watch: {
-        'quantidadeDosProdutos': function (novoValor) {
+        'quantidadeDosProdutos': function(novoValor) {
             let erro = false;
             for(let i = 0; i < novoValor.length; i++) {
                 if(novoValor[i] < 0 || novoValor[i] > 30 || !isNumber(novoValor[i])) {
@@ -60,6 +60,7 @@ var app = new Vue({
             }
             if(erro) {
                 alert("Insira uma quantidade valida para o(s) produto(s)!");
+                this.precoTotal()
             }
         },
     },
@@ -114,12 +115,12 @@ var app = new Vue({
                 this.qtdDeProdutos += parseInt(this.quantidadeDosProdutos[indice], 10);
             }
 
-            //console.log(indice, this.produto.length)
             if (indice < this.produto.length) { // existe produto com o número de quantidade vazio
-                //console.log("erro")
                 this.valorTotal = valorTotalAntigo;
                 this.qtdDeProdutos = qtdDeProdutosAntigo;
+                this.quantidadeDosProdutos[indice] = 1;
                 alert("Insira uma quantidade valida para o(s) produto(s)!");
+                this.precoTotal()
             }
         }
     }
