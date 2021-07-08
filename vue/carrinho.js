@@ -50,10 +50,10 @@ var app = new Vue({
     },
 
     watch: {
-        'quantidadeDosProdutos': function (novoValor, valorAntigo) {
+        'quantidadeDosProdutos': function (novoValor) {
             let erro = false;
             for(let i = 0; i < novoValor.length; i++) {
-                if(novoValor[i] < 0 || novoValor[i] > 30) {
+                if(novoValor[i] < 0 || novoValor[i] > 30 || novoValor[i] == "") {
                     erro = true;
                     this.quantidadeDosProdutos[i] = 1;
                 }
@@ -109,15 +109,3 @@ var app = new Vue({
         }
     }
 })
-
-function isNumber(numero) {
-    let numerotxt = String(numero)
-    for (let i = 0; i < numerotxt.length; i++) {
-        let code = numerotxt.charCodeAt(i);
-        if (code <= 48 || code >= 57) {          
-            numerotxt.value=""; 
-            return false;
-        }
-    }
-    return true;
-}
