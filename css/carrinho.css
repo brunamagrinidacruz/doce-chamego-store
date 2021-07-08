@@ -12,8 +12,8 @@
 
 .carrinho{
     height: 100%;
-    min-height: 34em;
-    width: 65%;
+    min-height: 20em;
+    width: calc(70% - 1em);
     border: solid 1px rgb(182, 176, 176);
     border-radius: 5px;
     background-color: white;  
@@ -44,17 +44,11 @@
     padding: 0px 15px;
 }
 
-.valoresEPagamento{
-    float: right;
-    height: 30em;
-    width: 30%;
-}
 .valor{
     box-sizing: border-box;
     text-align: center;
-    float: right;
     height: 100%;
-    width: 30%;
+    width: calc(30% - 1em);
     padding: 20px;
     border: solid 1px rgb(182, 176, 176);
     border-radius: 5px;
@@ -95,6 +89,11 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
     font-size: 12px;
 }
 
+#conteudo{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
 @media screen and (max-width: 900px) {
     .valor{
