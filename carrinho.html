@@ -27,7 +27,7 @@
                                     <p>{{ item.informacoesImportantes }}</p>
                                     <form>
                                         <label for="name">Quantidade:</label>
-                                        <input type="number" id="nProdutos" name="nProdutos" required min="1" v-model="quantidadeDosProdutos[indice]" >
+                                        <input type="text" id="nProdutos" name="nProdutos" required min="1" v-model="quantidadeDosProdutos[indice]" >
                                         <button class="editar" type="button" v-on:click.prevent.stop="precoTotal()">Adicionar</button>
                                         <input class="excluir" type="button" value="Remover" v-on:click="removerDoCarrinho(indice)">
                                     </form>
