@@ -89,7 +89,7 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
     font-size: 12px;
 }
 
-#conteudo{
+#conteudo-carrinho{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -140,7 +140,7 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
     .nomePreco{
         width: 95%;
     }
-    #conteudo{
+    #conteudo-carrinho{
         margin: 0;
         padding: 0;
     }
