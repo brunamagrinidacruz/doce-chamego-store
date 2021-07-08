@@ -52,7 +52,7 @@ var app = new Vue({
             },
             
         ],
-        quantidadeDosProdutos: [1, 1],
+        quantidadeDosProdutos: [],
         valorTotal: 0,
         qtdDeProdutos: 0,
         presente: false,
@@ -74,6 +74,7 @@ var app = new Vue({
     mounted(){   
         var _vm = this;
         for (let indice = 0; indice < _vm.produto.length; indice++) {
+            this.quantidadeDosProdutos[indice] = 1;
             _vm.valorTotal += _vm.produto[indice].preco * this.quantidadeDosProdutos[indice];
             _vm.qtdDeProdutos += this.quantidadeDosProdutos[indice];
         }
