@@ -13,7 +13,7 @@ exports.get = async() => {
 exports.post = async(data) => {
       console.log("post usuario");
 
-      var usuario = new Usuario(data);
+      let usuario = new Usuario(data);
       await usuario.save();
 }
   

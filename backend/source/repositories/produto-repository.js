@@ -13,7 +13,7 @@ exports.get = async() => {
 exports.post = async(data) => {
       console.log("post produto");
 
-      var produto = new Produto(data);
+      let produto = new Produto(data);
       await produto.save();
 }
   
