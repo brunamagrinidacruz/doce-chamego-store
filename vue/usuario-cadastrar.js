@@ -65,7 +65,7 @@ function isNumber(numero) {
     /*console.log(numero)*/
     for (let i = 0; i < numerotxt.length; i++) {
         let code = numerotxt.charCodeAt(i);
-        console.log(numerotxt[i], numerotxt.charCodeAt(i))
+        /*console.log(numerotxt[i], numerotxt.charCodeAt(i))*/
         if (code < 48 || code > 57) {          
             numerotxt.value=""; 
             return false;
