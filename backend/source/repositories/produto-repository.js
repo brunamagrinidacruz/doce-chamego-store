@@ -4,24 +4,39 @@ const mongoose = require('mongoose');
 const Produto = mongoose.model('Produto');
 
 exports.get = async() => {
-      console.log("get produto");
-
       const res = await Produto.find();
       return res;
 }
 
 exports.post = async(data) => {
-      console.log("post produto");
-
       let produto = new Produto(data);
       await produto.save();
 }
   
-exports.put = async(data) => {
-      console.log("put produto");
+exports.put = async(id, data) => {
+      await Produto
+            .findByIdAndUpdate(id, {
+                  $set: {
+                        nome: data.nome,
+                        foto: data.foto,
+                        descricao: data.descricao,
+                        preco: data.preco,
+                        quantidadeEstoque: data.quantidadeEstoque,
+                        quantidadeVendida: data.quantidadeVendida,
+                  }
+            });
 }
 
-exports.delete = async(data) => {
-      console.log("delete produto");
+exports.delete = async(id) => {
+      await Produto.findOneAndRemove(id);
 }
-  
+
+exports.sell = async(id, data) => {
+      await Produto
+            .findByIdAndUpdate(id, {
+                  $set: {
+                        quantidadeEstoque: data.quantidadeEstoque,
+                        quantidadeVendida: data.quantidadeVendida,
+                  }
+            });
+}
