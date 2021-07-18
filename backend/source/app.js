@@ -1,17 +1,14 @@
 'use strict'
 
 const express = require('express');
-
+const bodyParser = require('body-parser');
 const app = express();
-const router = express.Router();
 
-const route = router.get('/', (req, res, next) => {
-    res.status(200).send({
-        title: "Node Store API",
-        version: "0.0.2"
-    });
-});
+const usuarioRoute = require('./routes/usuario-route.js');
 
-app.use('/', route);
+app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.json({extended: false}));
+
+app.use('/usuario', usuarioRoute);
 
 module.exports = app;
