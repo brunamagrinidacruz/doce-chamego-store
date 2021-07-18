@@ -8,6 +8,11 @@ exports.get = async() => {
       return res;
 }
 
+exports.getById = async(id) => {
+      const res = await Usuario.findById(id);
+      return res;
+}
+
 exports.post = async(data) => {
       let usuario = new Usuario({
             cpf: data.cpf,

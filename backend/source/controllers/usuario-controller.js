@@ -12,13 +12,7 @@
 //       nome: "Wellington Matos Amaral",
 //       endereco: "Rua São Carlos, 5",
 //       telefone: "11963258741",
-//       email: "wellington@usp.br",
-//       senha: "abacate123",
-//       ehAdministrador: false
-// })
-// repository.post({
-//       cpf: "32359315030",
-//       nome: "Heloísa Beltramelo Magrini",
+//       email: "wellington@usp.br",https://www.youtube.com/watch?v=W2MpGCL8-9o
 //       endereco: "Rua Dutra, 550",
 //       telefone: "11968255733",
 //       email: "heloisa@gmail.br",
