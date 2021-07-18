@@ -1,6 +1,7 @@
 'use strict'
 
 const app = require('../source/app');
+const mongodb = require('../mongodb');
 const debug = require('debug')('nodestr:server');
 const http = require('http');
 
