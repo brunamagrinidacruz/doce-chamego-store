@@ -6,8 +6,6 @@ const Produto = mongoose.model('Produto');
 exports.get = async() => {
       console.log("getting")
       const res = await Produto.find();
-      print(res);
-      print("saindo...")
       return res;
 }
 
