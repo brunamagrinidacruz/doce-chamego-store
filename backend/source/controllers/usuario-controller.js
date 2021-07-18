@@ -1,6 +1,6 @@
 'use strict';
 
-// const repository = require('../repositories/usuario-repository.js');
+const repository = require('../repositories/usuario-repository.js');
 
 exports.get = async(req, res, next) => {
     try {
