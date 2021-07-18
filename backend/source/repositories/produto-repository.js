@@ -4,16 +4,24 @@ const mongoose = require('mongoose');
 const Produto = mongoose.model('Produto');
 
 exports.get = async() => {
-      console.log("getting")
+      console.log("get produto");
+
       const res = await Produto.find();
-      print(res);
-      print("saindo...")
       return res;
 }
 
+exports.post = async(data) => {
+      console.log("post produto");
+
+      var produto = new Produto(data);
+      await produto.save();
+}
+  
 exports.put = async(data) => {
-      console.log("putting")
-      var product = new Produto(data);
-      await product.save();
+      console.log("put produto");
+}
+
+exports.delete = async(data) => {
+      console.log("delete produto");
 }
   
