@@ -9,7 +9,15 @@ exports.get = async() => {
 }
 
 exports.post = async(data) => {
-      let usuario = new Usuario(data);
+      let usuario = new Usuario({
+            cpf: data.cpf,
+            nome: data.nome,
+            endereco: data.endereco,
+            telefone: data.telefone,
+            email: data.email,
+            senha: data.senha,
+            ehAdministrador: data.ehAdministrador
+      });
       await usuario.save();
 }
   

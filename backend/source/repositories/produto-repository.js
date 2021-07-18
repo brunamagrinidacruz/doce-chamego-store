@@ -9,7 +9,14 @@ exports.get = async() => {
 }
 
 exports.post = async(data) => {
-      let produto = new Produto(data);
+      let produto = new Produto({
+            nome: data.nome,
+            foto: data.foto,
+            descricao: data.descricao,
+            preco: data.preco,
+            quantidadeEstoque: data.quantidadeEstoque,
+            quantidadeVendida: data.quantidadeVendida,
+      });
       await produto.save();
 }
   
