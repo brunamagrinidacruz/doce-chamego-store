@@ -1,3 +1,12 @@
+// repository.post({
+//       nome: "Cone Trufado (Maracuja)",
+//       foto: "http://",
+//       descricao: "Esse é o mais forte produto do nosso ramo, está conosco desde o primórdio. Descubra este novo sabor!",
+//       preco: 7.90,
+//       quantidadeEstoque: 10,
+//       quantidadeVendida: 5
+// })
+
 'use strict'
 
 const ValidationContract = require('../validators/fluent-validator');
