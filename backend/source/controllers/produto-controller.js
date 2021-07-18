@@ -1,7 +1,7 @@
 'use strict'
 
 const ValidationContract = require('../validators/fluent-validator');
-const repository = require('../repositories/product-repository');
+const repository = require('../repositories/produto-repository');
 const azure = require('azure-storage');
 const guid = require('guid');
 var config = require('../config');
@@ -27,6 +27,8 @@ exports.getById = async(req, res, next) => {
         });
     }
 }
+
+exports.add
 
 exports.put = async(req, res, next) => {
     try {
