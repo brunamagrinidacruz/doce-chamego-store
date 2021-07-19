@@ -3,7 +3,7 @@ var app = new Vue({
     
     data: {
         produtos: [ 
-            {
+           /* {
                 nome: "Cone trufado",
                 descricao: "Uma deliciosa sobremesa",
                 preco: "20,00",
@@ -18,7 +18,7 @@ var app = new Vue({
                 quantidade: 17,
                 prazoMin: 15,
                 prazoMax: 20
-            }
+            }*/
         ]
     },
     
