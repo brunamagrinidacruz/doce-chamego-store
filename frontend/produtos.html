@@ -21,7 +21,7 @@
                                 
                                 <div class="itemUnico" v-for="produto, indice in produtos">  
                                     <hr class="linha">
-                                    <img class="imgCarrinho inline-block" src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                                    <img class="imgCarrinho inline-block" v-bind:src="produto.fotos[0]" alt="cone-trufado1">
                                     <div class="right prodInfo">
                                         <div class="nomePreco inline-block">
                                             <h3 class="inline-block">{{produto.nome}}</h3>
@@ -33,7 +33,7 @@
                                             <input class="inline-block right excluir" type="submit" name="excluir" value="Excluir" v-on:click="excluir(indice)">
                                             <a href="produto-editar.html"><input class="inline-block right editar" style="margin-right:0.2em;" type="submit" name="editar" value="Editar"></a>
                                         </div>
-                                            <p class="">Quantidade: {{produto.quantidade}}</p>
+                                            <p class="">Quantidade disponível: {{produto.quantidadeEstoque-produto.quantidadeVendida}}</p>
                                         
                                     </div>
                                 </div>
