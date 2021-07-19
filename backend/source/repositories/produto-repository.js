@@ -11,7 +11,7 @@ exports.get = async() => {
 exports.post = async(data) => {
       let produto = new Produto({
             nome: data.nome,
-            foto: data.foto,
+            fotos: data.fotos,
             descricao: data.descricao,
             preco: data.preco,
             quantidadeEstoque: data.quantidadeEstoque,
@@ -25,7 +25,7 @@ exports.put = async(id, data) => {
             .findByIdAndUpdate(id, {
                   $set: {
                         nome: data.nome,
-                        foto: data.foto,
+                        fotos: data.fotos,
                         descricao: data.descricao,
                         preco: data.preco,
                         quantidadeEstoque: data.quantidadeEstoque,
