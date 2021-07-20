@@ -27,9 +27,9 @@
                                 </li>
                             </form>
                         </ul>
-                        <p>{{ item.descricao }}</p>
+                        <p style="height: 114px;">{{ item.descricao }}</p>
                         <div class="preco">R${{ item.preco.toFixed(2).replace(".", ",") }}</div>
-                        <button class="botao botao-unico botao-texto" type="button" v-on:click.prevent.stop="adicionar_carrinho()">Adicionar ao carrinho</button>
+                        <button class="botao botao-unico botao-texto" type="button" v-on:click.prevent.stop="adicionar_carrinho(item)">Adicionar ao carrinho</button>
                     </div>
                 </div>
 

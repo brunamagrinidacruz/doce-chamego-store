@@ -20,12 +20,14 @@ var app = new Vue({
       },
 
       methods: {
-            adicionar_carrinho() {
+            adicionar_carrinho(item) {
                   usuario = localStorage.getItem("usuario")
                   if (usuario !== "user") {
                         alert("Entre como um cliente para adicionar ao carrinho!")
                         if (usuario != "admin") window.location.href = 'login.html'
                   } else {
+                        localStorage.setItem('item', JSON.stringify(item))
+                        console.log(item.nome);
                         alert("Adicionado ao carrinho!")
                         window.location.href = 'carrinho.html'
                   }
