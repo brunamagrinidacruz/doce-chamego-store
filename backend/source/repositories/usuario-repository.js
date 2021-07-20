@@ -48,7 +48,7 @@ exports.delete = async(id) => {
 exports.authenticate = async(data) => {
       const res = await Usuario.findOne({
           email: data.email,
-          password: data.password
+          senha: data.senha
       });
       return res;
 }
