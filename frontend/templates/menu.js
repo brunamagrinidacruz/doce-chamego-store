@@ -2,7 +2,9 @@ Vue.component('menu_superior', {
       data: function() {
             return {
                   usuario: localStorage.getItem("usuario"),
-                  ehAdministrador: localStorage.getItem("ehAdministrador") !== null ? localStorage.getItem("ehAdministrador").toUpperCase() === 'TRUE' : false
+                  ehAdministrador: 
+                        localStorage.getItem("ehAdministrador") === null ||  localStorage.getItem("ehAdministrador") === "undefined" || localStorage.getItem("ehAdministrador") === ""
+                              ? false : localStorage.getItem("ehAdministrador").toUpperCase() === 'TRUE'
             }
       },
       props: {
