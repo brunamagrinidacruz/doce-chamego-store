@@ -82,6 +82,8 @@ var app = new Vue({
             tamanhoData: mocked_tamanho[0],
 
             cor: "",
+
+            precoFinal: 0,
       },
       
       watch: {
@@ -131,7 +133,8 @@ var app = new Vue({
                   return this.bebidaData.preco * this.quantidadeDeBebida;
             },
             precoTotal() {
-                  return this.precoAcompanhamento + this.precoAperitivo + this.precoBebida + this.tamanhoData.preco;
+                  this.precoFinal = this.precoAcompanhamento + this.precoAperitivo + this.precoBebida + this.tamanhoData.preco;
+                  return this.precoFinal;
             }
       },
 
@@ -154,6 +157,30 @@ var app = new Vue({
 
             adicionarAoCarrinho(e) {
                   this.erros = [];
+                  let prodFinal = {};
+
+                  prodFinal.tipo_de_caixa = this.tipo_de_caixa;
+      
+                  prodFinal.acompanhamentos = this.acompanhamentos;
+                  prodFinal.acompanhamentosSelecionados = this.acompanhamentosSelecionados;
+                  
+                  prodFinal.aperitivos = this.aperitivos;
+                  prodFinal.aperitivosSelecionados = this.aperitivosSelecionados;
+      
+                  prodFinal.bebidas = this.bebidas;
+                  prodFinal.bebida = this.bebida;
+                  prodFinal.bebidaData = this.bebidaData;
+                  prodFinal.quantidadeDeBebida = this.quantidadeDeBebida;
+                  prodFinal.especifiqueBebida = this.especifiqueBebida;
+      
+                  prodFinal.tamanhos = this.tamanhos;
+                  prodFinal.tamanho = this.tamanho;
+                  prodFinal.tamanhoData = this.tamanhoData;
+      
+                  prodFinal.cor = this.cor;
+
+                  prodFinal.preco = this.precoFinal;
+
                   if(!this.especifiqueBebida) {
                         this.erros.push("Especifique a bebida.");
                   }
@@ -165,6 +192,8 @@ var app = new Vue({
                   if(this.erros.length !== 0) {
                         e.preventDefault();
                   } else {
+                        console.log(prodFinal);
+                        localStorage.setItem('personalizado', JSON.stringify(prodFinal));
                         alert("Adicionando ao carrinho...");
                         window.location.href = 'carrinho.html'
                   }
