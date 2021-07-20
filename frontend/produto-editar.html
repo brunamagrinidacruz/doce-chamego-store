@@ -23,11 +23,23 @@
                         <p class="nome-campo">Preço</p>
                         <input type="text" id="preco" placeholder="10" autocomplete="off" maxlength="11" required v-model="preco"><br>
                         
-                        <p class="nome-campo">Quantidade</p>
-                        <input type="number" id="quantidade" required v-model="quantidade"><br>
+                        <p class="nome-campo">Quantidade em estoque</p>
+                        <input type="number" id="quantidadeEstoque" required v-model="quantidadeEstoque"><br>
+
+                        <p class="nome-campo">Quantidade vendida</p>
+                        <input type="number" id="quantidadeVendida" required disabled v-model="quantidadeVendida"><br>
 
                         <p class="nome-campo">Descrição</p>
                         <input type="text" id="descricao" autocomplete="off" required v-model="descricao"><br>
+
+                        <p class="nome-campo">Imagem 1</p>
+                        <input type="text" id="imagem1" autocomplete="off" required v-model="fotos[0]"><br>
+
+                        <p class="nome-campo">Imagem 2</p>
+                        <input type="text" id="imagem2" autocomplete="off" required v-model="fotos[1]"><br>
+
+                        <p class="nome-campo">Imagem 3</p>
+                        <input type="text" id="imagem3" autocomplete="off" required v-model="fotos[2]"><br>
                         
                         <p class="text-center" v-if="erros.length">
                             <b>Por favor, corrija os seguintes erro(s):</b>

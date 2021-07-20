@@ -33,7 +33,8 @@ exports.post = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição',
+            erro: e
         });
     }
 }
@@ -46,7 +47,7 @@ exports.put = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição'
         });
     }
 }

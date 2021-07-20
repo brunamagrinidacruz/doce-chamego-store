@@ -16,14 +16,14 @@
                 <input type="text" placeholder="Procure um produto pelo nome"  v-model="produto"/>
 
                 <div id="conteudo" class="session text-center">
-                    <div v-for="item in produtos" class="cardapio inline-block">
+                    <div v-for="(item, index_produto) in produtos" class="cardapio inline-block">
                         <h2>{{ item.nome }}</h2>
                         <ul class="slider" >
                             <form style="margin: 0; padding: 0;">
-                                <li v-for="(fotos, index) in item.imagens">
-                                        <input type="radio" v-bind:id="fotos.slide" v-bind:name="item.nome" v-bind:checked="index == 0">
-                                        <label v-bind:for="fotos.slide"></label>
-                                        <img v-bind:src="fotos.caminho">
+                                <li v-for="(foto, index_foto) in item.fotos">
+                                        <input type="radio" v-bind:id="(index_produto*3)+index_foto" v-bind:name="item.nome" v-bind:checked="index_foto == 0">
+                                        <label v-bind:for="(index_produto*3)+index_foto"></label>
+                                        <img v-bind:src="foto">
                                 </li>
                             </form>
                         </ul>

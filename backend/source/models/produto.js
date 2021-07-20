@@ -9,10 +9,10 @@ const schema = new Schema({
             required: true,
             index: true
       },
-      foto: {
+      fotos: [{
             type: String,
             required: true
-      },
+      }],
       descricao: {
             type: String,
             required: true

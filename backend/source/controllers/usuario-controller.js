@@ -1,25 +1,3 @@
-// repository.post({
-//       cpf: "12365498758",
-//       nome: "Marlon José Martins",
-//       endereco: "Rua Antonio de Fagundes, 715",
-//       telefone: "11956875533",
-//       email: "marlonmartins@usp.br",
-//       senha: "estasenhaehforte",
-//       ehAdministrador: false
-// })
-// repository.post({
-//       cpf: "21365478962",
-//       nome: "Wellington Matos Amaral",
-//       endereco: "Rua São Carlos, 5",
-//       telefone: "11963258741",
-//       email: "wellington@usp.br",https://www.youtube.com/watch?v=W2MpGCL8-9o
-//       endereco: "Rua Dutra, 550",
-//       telefone: "11968255733",
-//       email: "heloisa@gmail.br",
-//       senha: "2704heloisa",
-//       ehAdministrador: false
-// })
-
 'use strict';
 
 const repository = require('../repositories/usuario-repository.js');

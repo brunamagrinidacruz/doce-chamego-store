@@ -9,7 +9,6 @@ exports.get = async() => {
 }
 
 exports.getById = async(id) => {
-      console.log("ta aqui");
       const res = await Produto.findById(id);
       return res;
 }
@@ -18,7 +17,7 @@ exports.post = async(data) => {
       console.log(data);
       let produto = new Produto({
             nome: data.nome,
-            foto: data.foto,
+            fotos: data.fotos,
             descricao: data.descricao,
             preco: data.preco,
             quantidadeEstoque: data.quantidadeEstoque,
@@ -32,7 +31,7 @@ exports.put = async(id, data) => {
             .findByIdAndUpdate(id, {
                   $set: {
                         nome: data.nome,
-                        foto: data.foto,
+                        fotos: data.fotos,
                         descricao: data.descricao,
                         preco: data.preco,
                         quantidadeEstoque: data.quantidadeEstoque,

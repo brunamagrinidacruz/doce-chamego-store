@@ -29,6 +29,15 @@
                         <p class="nome-campo">Descrição</p>
                         <input type="text" id="descricao" autocomplete="off" required v-model="descricao"><br>
                         
+                        <p class="nome-campo">Imagem 1</p>
+                        <input type="text" id="imagem1" autocomplete="off" required v-model="fotos[0]"><br>
+
+                        <p class="nome-campo">Imagem 2</p>
+                        <input type="text" id="imagem2" autocomplete="off" required v-model="fotos[1]"><br>
+
+                        <p class="nome-campo">Imagem 3</p>
+                        <input type="text" id="imagem3" autocomplete="off" required v-model="fotos[2]"><br>
+
                         <p class="text-center" v-if="erros.length">
                             <b>Por favor, corrija os seguintes erro(s):</b>
                             <ul>
@@ -38,7 +47,7 @@
 
                         <div class="botoes">
                             <a href="produtos.html" class="botao botao-texto multiplos-botoes">Voltar</a>
-                            <input class="botao botao-texto multiplos-botoes" type="submit" name="cadastrar" value="Cadastrar" v-on:click.prevent.stop="cadastrar()">
+                            <input class="botao botao-texto multiplos-botoes" type="submit" name="cadastrar" value="Cadastrar" v-on:click.prevent.stop="cadastrar">
                         </div> 
                     </form>
 
