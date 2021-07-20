@@ -154,7 +154,6 @@ var app = new Vue({
 
             adicionarAoCarrinho(e) {
                   this.erros = [];
-
                   if(!this.especifiqueBebida) {
                         this.erros.push("Especifique a bebida.");
                   }

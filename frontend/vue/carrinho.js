@@ -41,7 +41,23 @@ var app = new Vue({
     },
 
     mounted(){   
+        let item = JSON.parse(localStorage.getItem('item'));
+        
+        if(item !== null){
+            let itemAux = {}; 
+            console.log(item.nome);
+            itemAux.nomeDoProduto = item.nome;
+            itemAux.preco = item.preco;
+            //itemAux.informacoesImportantes = item.descricao;
+            itemAux.prazoMin = item.prazoMin = 15;
+            itemAux.prazoMax = item.prazoMax = 20;
+
+            this.produto.push(itemAux);
+        }
+        //localStorage.removeItem('item');
+
         var _vm = this;
+
         for (let indice = 0; indice < _vm.produto.length; indice++) {
             this.quantidadeDosProdutos[indice] = 1;
             _vm.valorTotal += _vm.produto[indice].preco * this.quantidadeDosProdutos[indice];
