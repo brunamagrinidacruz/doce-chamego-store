@@ -1,7 +1,10 @@
 Vue.component('menu_superior', {
       data: function() {
             return {
-                  usuario: localStorage.getItem("usuario")
+                  usuario: localStorage.getItem("usuario"),
+                  ehAdministrador: 
+                        localStorage.getItem("ehAdministrador") === null ||  localStorage.getItem("ehAdministrador") === "undefined" || localStorage.getItem("ehAdministrador") === ""
+                              ? false : localStorage.getItem("ehAdministrador").toUpperCase() === 'TRUE'
             }
       },
       props: {
@@ -9,7 +12,8 @@ Vue.component('menu_superior', {
       },
       methods: {
             sair() {
-                  localStorage.setItem("usuario", "")
+                  localStorage.setItem("usuario", "");
+                  localStorage.setItem("ehAdministrador", "");
                   window.location.href = 'index.html'
             },
             usuarioEstaLogado() {
@@ -43,21 +47,19 @@ Vue.component('menu_superior', {
                         }
                   }
 
-                  if(mockedTela.tipo === usuario_cliente_administrativo)
+                  if(mockedTela.tipo === usuario_cliente_administrativo) {
                         return true;
-
-                  if(this.usuario === "admin") {
-                        if(mockedTela.tipo === administrativo )
-                              return true;
-                  } else if(this.usuario === "user") {
-                        if(mockedTela.tipo === cliente) 
-                              return true;
-                  } else if(!this.usuarioEstaLogado()) {
-                        if(mockedTela.tipo === usuario)
-                              return true;
                   }
 
-                  return false;
+                  if(!this.usuarioEstaLogado()) {
+                        return (mockedTela.tipo === usuario);
+                  }
+
+                  if(this.ehAdministrador) {
+                        return (mockedTela.tipo === administrativo);
+                  } else {
+                        return (mockedTela.tipo === cliente);
+                  }
             }
       },
       template: '<div><link href="/css/style.css" rel="stylesheet"><header id="cabecalho" class="session text-right"><a href="index.html"><img id="header-image" class="inline-block" src="img/logos/logo-e-nome.jpeg" alt="Doce Chamego"></a><div class="botoes-cabecalho"><a v-for="(pagina) in paginas" v-if="mostrarAba(pagina)" class="menu" v-bind:href="pagina.caminho">{{ pagina.nome }}</a> <a v-if="usuarioEstaLogado()" class="menu" v-on:click.prevent.stop="sair()">Sair</a></div></header></div>'

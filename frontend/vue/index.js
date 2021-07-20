@@ -20,15 +20,26 @@ var app = new Vue({
       },
 
       methods: {
-            adicionar_carrinho() {
-                  usuario = localStorage.getItem("usuario")
-                  if (usuario !== "user") {
-                        alert("Entre como um cliente para adicionar ao carrinho!")
-                        if (usuario != "admin") window.location.href = 'login.html'
-                  } else {
-                        alert("Adicionado ao carrinho!")
-                        window.location.href = 'carrinho.html'
+            adicionar_carrinho(item) {
+                  let ehAdministrador = localStorage.getItem("ehAdministrador") === null ||  localStorage.getItem("ehAdministrador") === "undefined" || localStorage.getItem("ehAdministrador") === "" ? false : localStorage.getItem("ehAdministrador").toUpperCase() === 'TRUE';
+                  let ehUsuario = (localStorage.getItem("usuario") === null || localStorage.getItem("usuario") === "undefined" || localStorage.getItem("usuario") === "") ? true : false;
+
+                  if(ehUsuario) {
+                        alert("Entre como um cliente para adicionar ao carrinho!");
+                        window.location.href = 'login.html';
+                        return;
                   }
+
+                  if(ehAdministrador) {
+                        alert("Entre como um cliente para adicionar ao carrinho!");
+                        return;
+                  }
+
+                  //É cliente
+                  localStorage.setItem('item', JSON.stringify(item))
+                  console.log(item.nome);
+                  alert("Adicionado ao carrinho!")
+                  window.location.href = 'carrinho.html'
             }
       },
 

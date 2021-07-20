@@ -48,8 +48,38 @@ var app = new Vue({
             else if (!isPhone(this.telefone))
                 this.erros.push("Telefone inválido")
             
-            else
-                alert("Usuário cadastrado!")
+            else {
+                fetch('http://localhost:3000/usuario', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        cpf: this.cpf,
+                        nome: this.nome,
+                        endereco: this.endereco,
+                        telefone: this.telefone,
+                        email: this.email,
+                        senha: this.senha,
+                        ehAdministrador: false
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        this.erros.push("Ocorreu um erro!");
+                        throw new Error("Ocorreu um erro!");
+                    }
+                    return response.json()
+                })
+                .then(data => {
+                    alert("Cadastrado com sucesso!\nBem-vinda(o) :)")
+                    localStorage.setItem("usuario", this.email);
+                    localStorage.setItem("ehAdministrador", false);
+                    window.location.href = 'index.html'
+                })
+                .catch(err => console.log(err.message))  
+            }
         }
     }
 })

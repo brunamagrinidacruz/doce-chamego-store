@@ -19,18 +19,37 @@ var app = new Vue({
                         this.erros.push("Digite a senha.");
                   }
 
-                  if(this.erros.length !== 0) {
-                        console.log(this.erros)
-                  } else {
-                        if(this.usuario === "admin" && this.senha === "admin") {
-                              localStorage.setItem("usuario", "admin");
+                  if(this.erros.length === 0) {
+                        fetch('http://localhost:3000/usuario/authenticate', {
+                              method: 'POST',
+                              headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                              },
+                              body: JSON.stringify({
+                                    email: this.usuario,
+                                    senha: this.senha
+                              })
+                        })
+                        .then(response => {
+                              if(response.status === 403) {
+                                    this.erros.push("Usuário ou senha inválidos.");
+                                    throw new Error("Usuário ou senha inválidos.");
+                              }
+
+                              if (!response.ok) {
+                                    this.erros.push("Ocorreu um erro!");
+                                    throw new Error("Ocorreu um erro!");
+                              }
+
+                              return response.json()
+                        })
+                        .then(data => {
+                              localStorage.setItem("usuario", this.usuario);
+                              localStorage.setItem("ehAdministrador", data.ehAdministrador);
                               window.location.href = 'index.html'
-                        } else if(this.usuario === "user" && this.senha === "user") {
-                              localStorage.setItem("usuario", "user");
-                              window.location.href = 'index.html'
-                        } else {
-                              this.erros.push("Usuário ou senha inválidos.");
-                        }
+                        })
+                        .catch(err => console.log(err.message))  
                   }
 
             }

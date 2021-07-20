@@ -41,7 +41,52 @@ var app = new Vue({
     },
 
     mounted(){   
+        let item = JSON.parse(localStorage.getItem('item'));
+        
+        if(item !== null){
+            let itemAux = {}; 
+            console.log(item.nome);
+            itemAux.nomeDoProduto = item.nome;
+            itemAux.preco = item.preco;
+            //itemAux.informacoesImportantes = item.descricao;
+            itemAux.prazoMin = 15;
+            itemAux.prazoMax = 20;
+
+            this.produto.push(itemAux);
+            localStorage.removeItem('item');
+        }
+        
+
+        let personalizado = JSON.parse(localStorage.getItem('personalizado'));
+        if(personalizado !== null){
+            let personalizadoAux = {}; 
+            console.log(personalizado.tipo_de_caixa.nome);
+            personalizadoAux.nomeDoProduto = personalizado.tipo_de_caixa.nome;
+            personalizadoAux.preco = personalizado.preco;
+            // personalizadoAux.informacoesImportantes = personalizado.descricao;
+
+            if(personalizadoAux.nomeDoProduto === "Festa na Caixa") {
+                this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
+                this.aperitivos = [];
+            } else if(personalizadoAux.nomeDoProduto === "Café da Manhã") {
+                    this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
+                    this.aperitivos = mocked_aperitivos_cafe_da_manha;
+            } else if(personalizadoAux.nomeDoProduto === "Caixa Bar") {
+                    this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
+                    this.aperitivos = mocked_aperitivos_caixa_bar;
+            } else {
+                    console.log("Um erro ocorreu!")
+            }
+
+            personalizadoAux.prazoMin = 15;
+            personalizadoAux.prazoMax = 20;
+
+            this.produto.push(personalizadoAux);
+            localStorage.removeItem('personalizado');
+        }
+
         var _vm = this;
+
         for (let indice = 0; indice < _vm.produto.length; indice++) {
             this.quantidadeDosProdutos[indice] = 1;
             _vm.valorTotal += _vm.produto[indice].preco * this.quantidadeDosProdutos[indice];
