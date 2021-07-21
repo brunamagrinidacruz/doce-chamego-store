@@ -193,7 +193,7 @@ var app = new Vue({
                   if(this.erros.length !== 0) {
                         e.preventDefault();
                   } else {     
-                        let descCaixa = "Caixa tamanho " + this.tamanho + "; " + "Cor: " + this.cor + "; ";             
+                        let descCaixa = "Tamanho: " + this.tamanho + "; " + "Cor: " + this.cor + "; ";             
                         let descBebida = this.quantidadeDeBebida + 'x ' + this.bebida + " (" + this.especifiqueBebida + "); ";
                         
                         prodFinal.descricao = descCaixa + descBebida + this.descricaoAcompanhamento();
@@ -203,6 +203,7 @@ var app = new Vue({
                         prodFinal.fotos = [];
                         prodFinal.fotos[0] = "img/cafe-da-manha3.jpeg";
                         prodFinal.quantidadeEstoque = 30;
+                        prodFinal.personalizacao = true;
 
                         localStorage.setItem('personalizado', JSON.stringify(prodFinal));
                         alert("Adicionado ao carrinho!");

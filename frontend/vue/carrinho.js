@@ -34,7 +34,7 @@ var app = new Vue({
 
     mounted(){   
         this.produto = localStorage.getObject('itensCarrinho');
-        let pers = JSON.parse(localStorage.getItem('personalizado'));
+        let pers = localStorage.getObject('personalizado');
         if(pers !== null)
             this.produto.push(pers);
 
@@ -65,8 +65,14 @@ var app = new Vue({
         removerDoCarrinho: function(indice){
             this.valorTotal -= (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
             this.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
-            this.produto.splice(indice, 1);
-            localStorage.setObject('itensCarrinho', this.produto);
+
+            if (!this.produto[indice].personalizacao) {
+                this.produto.splice(indice, 1);
+                localStorage.setObject('itensCarrinho', this.produto);
+            } else {
+                this.produto.splice(indice, 1);
+                localStorage.setObject('personalizado', null);
+            }
         },
 
         entrar() {
