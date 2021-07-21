@@ -52,9 +52,9 @@ exports.post = async(req, res, next) => {
 
 exports.delete = async(req, res, next) => {
     try {
-        let user = await repository.delete(req.params.id);
-        console.log(user);
-        if(user !== null) {
+        let usuario = await repository.delete(req.params.id);
+        console.log(usuario);
+        if(usuario !== null) {
             res.status(200).send({
                 mensagem: 'Usuário excluido com sucesso!'
             });
