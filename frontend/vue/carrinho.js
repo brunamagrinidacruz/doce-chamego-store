@@ -69,7 +69,7 @@ var app = new Vue({
             localStorage.setObject('itensCarrinho', this.produto);
         },
 
-        entrar() {
+        finalizarCompra() {
             this.erros = [];
 
             if(!this.formaDePagamento.nomeDoTitular) {
@@ -93,11 +93,44 @@ var app = new Vue({
                 if(this.presente){
                     alert("Os produtos serao enviados com embalagem para presente! Aguardando a aprovacao do pagamento.")
                 }else{
-                    alert("Aguardando a aprovacao do pagamento.")
+                    alert("Compra finalizada.");
+                    this.alterarEstoque();
+                    this.esvaziarCarrinho();
                 }
             }
         },
+        alterarEstoque: async function(){
+            for(let indice = 0; indice < this.produto.length; indice++){
+                if(!this.produto[indice].personalizacao){
+                    let diffEstoquePedido = produto[indice].quantidadeEstoque - this.quantidadeDosProdutos[indice];
+                    let quantidadeVendida = produto[indice].quantidadeVendida + this.quantidadeDosProdutos[indice];
 
+                    try {
+                        let resp = await fetch('http://localhost:3000/produto/' + this.produto[indice]._id, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8'
+                            },
+                            body: JSON.stringify({
+                                nome: produto[indice].nome,
+                                preco: produto[indice].preco,
+                                quantidadeEstoque: diffEstoquePedido,
+                                quantidadeVendida: quantidadeVendida,
+                                descricao: produto[indice].descricao,
+                                fotos: produto[indice].fotos,
+                            })
+                        })
+
+                        resp = await resp.json();
+                    } catch (e) {
+                            alert("Error: " + e)
+                    }
+                }
+            }
+        },
+        esvaziarCarrinho(){
+            localStorage.removeItem('itensCarrinho');
+        },
         precoTotal(){
             let valorTotalAntigo = this.valorTotal;
             let qtdDeProdutosAntigo = this.qtdDeProdutos;
@@ -124,11 +157,9 @@ var app = new Vue({
 })
 
 function isNumber(numero) {
-    let numerotxt = String(numero)
-    /*console.log(numero)*/
+    let numerotxt = String(numero);
     for (let i = 0; i < numerotxt.length; i++) {
         let code = numerotxt.charCodeAt(i);
-        /*console.log(numerotxt[i], numerotxt.charCodeAt(i))*/
         if (code < 48 || code > 57) {          
             numerotxt.value=""; 
             return false;
