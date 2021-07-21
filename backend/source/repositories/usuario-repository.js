@@ -26,7 +26,7 @@ exports.post = async(data) => {
       await usuario.save();
 }
   
-exports.put = async(id) => {
+exports.put = async(id, data) => {
       await Usuario
             .findByIdAndUpdate(id, {
                   $set: {
@@ -42,7 +42,9 @@ exports.put = async(id) => {
 }
 
 exports.delete = async(id) => {
-      await Usuario.findOneAndRemove(id);
+      const usuario = await Usuario.findById(id);
+      await Usuario.deleteOne({"_id": mongoose.Types.ObjectId(id) });
+      return usuario;
 }
   
 exports.authenticate = async(data) => {
@@ -50,15 +52,5 @@ exports.authenticate = async(data) => {
           email: data.email,
           senha: data.senha
       });
-      return res;
-}
-
-exports.ehAdministrador = async(data) => {
-      const res = await Usuario.findOne({
-            email: data.email
-      });
-
-      console.log(res);
-
       return res;
 }

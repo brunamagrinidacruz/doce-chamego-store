@@ -1,25 +1,17 @@
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key) {
+    let value = this.getItem(key);
+    return value && JSON.parse(value);
+}
+
 var app = new Vue({
     el: '#app',
 
     data: {
-        produto: [
-            { 
-                nomeDoProduto: "Caixa com Cone",
-                preco: 45.00,
-                informacoesImportantes: "Cone de ovomaltine, maracuja e limão",
-                prazoMin: 15,
-                prazoMax: 20,
-                // qtdDoProduto: 1
-            },
-            { 
-                nomeDoProduto: "Caixa Bar",
-                preco: 60.00,
-                informacoesImportantes: "Caixa tamanho M",
-                prazoMin: 15,
-                prazoMax: 20,
-                // qtdDoProduto: 1
-            },
-        ],
+        produto: [],
         quantidadeDosProdutos: [],
         valorTotal: 0,
         qtdDeProdutos: 0,
@@ -41,28 +33,15 @@ var app = new Vue({
     },
 
     mounted(){   
-        let item = JSON.parse(localStorage.getItem('item'));
-        
-        if(item !== null){
-            let itemAux = {}; 
+        this.produto = localStorage.getObject('itensCarrinho');
+        let pers = JSON.parse(localStorage.getItem('personalizado'));
+        if(pers !== null)
+            this.produto.push(pers);
 
-            console.log(item.nome);
-            itemAux.nomeDoProduto = item.nome;
-            itemAux.preco = item.preco;
-            itemAux.prazoMin = 15;
-            itemAux.prazoMax = 20;
-
-            this.produto.push(itemAux);
-            //localStorage.removeItem('item');
-        }
-        let personalizado = JSON.parse(localStorage.getItem('personalizado'));
-
-        var _vm = this;
-
-        for (let indice = 0; indice < _vm.produto.length; indice++) {
+        for (let indice = 0; indice < this.produto.length; indice++) {
             this.quantidadeDosProdutos[indice] = 1;
-            _vm.valorTotal += _vm.produto[indice].preco * this.quantidadeDosProdutos[indice];
-            _vm.qtdDeProdutos += this.quantidadeDosProdutos[indice];
+            this.valorTotal += this.produto[indice].preco * this.quantidadeDosProdutos[indice];
+            this.qtdDeProdutos += this.quantidadeDosProdutos[indice];
         }
     },
 
@@ -84,10 +63,10 @@ var app = new Vue({
     
     methods: {
         removerDoCarrinho: function(indice){
-            var _vm = this;
-            _vm.valorTotal -= (_vm.produto[indice].preco * this.quantidadeDosProdutos[indice]);
-            _vm.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
-            _vm.produto.splice(indice, 1);
+            this.valorTotal -= (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
+            this.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
+            this.produto.splice(indice, 1);
+            localStorage.setObject('itensCarrinho', this.produto);
         },
 
         entrar() {

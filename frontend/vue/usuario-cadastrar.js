@@ -53,8 +53,40 @@ var app = new Vue({
                 this.erros.push("Telefone inválido")
             
             else {
-                alert("Usuário cadastrado!")
-                window.location.href = 'admin.html'
+                let ehAdministrador = false;
+                if(this.cargo === "administrador") {
+                    ehAdministrador = true;
+                } 
+
+                fetch('http://localhost:3000/usuario/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    },
+                    body: JSON.stringify({
+                        nome: this.nome,
+                        cpf: this.cpf,
+                        email: this.email,
+                        endereco: this.endereco,
+                        telefone: this.telefone,
+                        senha: this.senha,
+                        ehAdministrador: ehAdministrador
+                    })
+                })
+                .then(async (response) => {
+                    const data = await response.json();
+                    if (!response.ok) {
+                        alert(data.mensagem);
+                        throw new Error("Ocorreu um erro!");
+                    }
+                    return data;
+                })
+                .then(data => {
+                    alert(data.mensagem);
+                    window.location.href = 'usuarios.html';
+                })
+                .catch(err => console.log(err.message));
+
             }
         }
     }

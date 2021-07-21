@@ -1,3 +1,12 @@
+Storage.prototype.setObject = function(key, value) {
+      this.setItem(key, JSON.stringify(value));
+}
+  
+Storage.prototype.getObject = function(key) {
+      let value = this.getItem(key);
+      return value && JSON.parse(value);
+}
+
 var app = new Vue({
       el: '#app',
       
@@ -21,25 +30,41 @@ var app = new Vue({
 
       methods: {
             adicionar_carrinho(item) {
-                  let ehAdministrador = localStorage.getItem("ehAdministrador") === null ||  localStorage.getItem("ehAdministrador") === "undefined" || localStorage.getItem("ehAdministrador") === "" ? false : localStorage.getItem("ehAdministrador").toUpperCase() === 'TRUE';
-                  let ehUsuario = (localStorage.getItem("usuario") === null || localStorage.getItem("usuario") === "undefined" || localStorage.getItem("usuario") === "") ? true : false;
-
-                  if(ehUsuario) {
+                  const usuario = localStorage.getObject("usuario");
+                  //Está logado
+                  if(usuario !== null) {
+                        if(usuario.ehAdministrador) {
+                              alert("Entre como um cliente para adicionar ao carrinho!");
+                              return;
+                        }
+                  } else { //Nao está logado
                         alert("Entre como um cliente para adicionar ao carrinho!");
                         window.location.href = 'login.html';
                         return;
                   }
 
-                  if(ehAdministrador) {
-                        alert("Entre como um cliente para adicionar ao carrinho!");
-                        return;
-                  }
-
                   //É cliente
-                  localStorage.setItem('item', JSON.stringify(item))
-                  console.log(item.nome);
-                  alert("Adicionado ao carrinho!")
-                  window.location.href = 'carrinho.html'
+                  let itens = []
+                  let itensCarrinho = localStorage.getObject('itensCarrinho')
+                  
+                  let verificacao = 0
+                  let tamItensCarrinho = 0
+                  if (itensCarrinho !== null)
+                        tamItensCarrinho = itensCarrinho.length
+
+                  while (tamItensCarrinho > verificacao && itensCarrinho[verificacao]._id !== item._id)
+                        verificacao++
+                  
+                  if (verificacao !== tamItensCarrinho) {
+                        alert('Este produto já está no carrinho.')
+                  } else {
+                        if (tamItensCarrinho !== 0)
+                              itens = itensCarrinho
+                        itens.push(item)
+                        localStorage.setObject('itensCarrinho', itens)
+                        alert('Adicionado ao carrinho!')
+                        window.location.href = 'carrinho.html'
+                  }
             }
       },
 

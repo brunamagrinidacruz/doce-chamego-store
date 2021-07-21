@@ -2,6 +2,7 @@ var app = new Vue({
     el: "#app",
     
     data: {
+        usuarioEditar: "",
         erros: [],
         nome: "",
         cpf: "",
@@ -53,10 +54,78 @@ var app = new Vue({
                 this.erros.push("Telefone inválido")
             
             else {
-                alert("Usuário editado!")
-                window.location.href = 'admin.html'
+                let ehAdministrador = false;
+                if(this.cargo === "administrador") {
+                    ehAdministrador = true;
+                } 
+
+                fetch('http://localhost:3000/usuario/' + this.usuarioEditar, {
+                    method: 'PUT',
+                    headers: {
+                            'Content-type': 'application/json; charset=UTF-8'
+                    },
+                    body: JSON.stringify({
+                        nome: this.nome,
+                        cpf: this.cpf,
+                        email: this.email,
+                        endereco: this.endereco,
+                        telefone: this.telefone,
+                        senha: this.senha,
+                        ehAdministrador: ehAdministrador
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Ocorreu um erro!");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    alert(data.mensagem);
+                })
+                .catch(err => console.log(err.message))
+                .finally(() => {
+                    window.location.href = 'usuarios.html';
+                })
+
             }
         }
+    },
+
+    mounted() {
+        this.$nextTick(function () {
+            const idUsuario = localStorage.getItem("usuarioEditar");
+            if(idUsuario === null) {
+                alert("Selecione um usuário para editá-lo.");
+                window.location.href = 'usuarios.html'
+                return;
+            }
+
+            this.usuarioEditar = idUsuario;
+            localStorage.removeItem('usuarioEditar');
+
+            fetch('http://localhost:3000/usuario/' + idUsuario)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Ocorreu um erro!");
+                }
+                return response.json();
+            })
+            .then(data => {
+                this.nome = data.nome;
+                this.cpf = data.cpf;
+                this.email = data.email;
+                this.endereco = data.endereco;
+                this.telefone = data.telefone;
+                this.senha = data.senha;
+                if(data.ehAdministrador) {
+                    this.cargo = "administrador";
+                } else {
+                    this.cargo = "cliente";
+                }
+            })
+            .catch(err => console.log(err.message))
+      })
     }
 })
 

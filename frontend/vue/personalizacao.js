@@ -101,9 +101,9 @@ var app = new Vue({
                               console.log("Um erro ocorreu!");
                         }
 
-                        this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
-                        this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
-                  },
+                  this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
+                  this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
+            },
 
                   quantidadeDeBebida(novoValor, valorAntigo) {
                   if(novoValor < 0 || novoValor > 5 || novoValor === "") {
@@ -159,6 +159,7 @@ var app = new Vue({
                   this.erros = [];
                   let prodFinal = {};
 
+                  prodFinal.nome = this.tipo_de_caixa.nome;
                   prodFinal.tipo_de_caixa = this.tipo_de_caixa;
       
                   prodFinal.acompanhamentos = this.acompanhamentos;
@@ -193,15 +194,18 @@ var app = new Vue({
                         e.preventDefault();
                   } else {     
                         let descCaixa = "Caixa tamanho " + this.tamanho + "; " + "Cor: " + this.cor + "; ";             
-                        let descBebida = this.quantidadeDeBebida + 'x ' + this.bebida + " (" + personalizado.especifiqueBebida + "); ";
+                        let descBebida = this.quantidadeDeBebida + 'x ' + this.bebida + " (" + this.especifiqueBebida + "); ";
                         
                         prodFinal.descricao = descCaixa + descBebida + this.descricaoAcompanhamento();
-                        if(this.nome !== "Festa na Caixa") 
+                        if(this.tipo_de_caixa.nome !== "Festa na Caixa") 
                               prodFinal.descricao += this.descricaoAperitivo();
                         
+                        prodFinal.fotos = [];
+                        prodFinal.fotos[0] = "img/cafe-da-manha3.jpeg";
+
                         localStorage.setItem('personalizado', JSON.stringify(prodFinal));
                         alert("Adicionado ao carrinho!");
-                        window.location.href = 'carrinho.html'
+                        window.location.href = 'carrinho.html';
                   }
                         
             },

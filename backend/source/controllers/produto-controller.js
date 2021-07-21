@@ -9,7 +9,7 @@ exports.get = async(req, res, next) => {
     } catch (e) {
         console.log(e);
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
@@ -20,7 +20,7 @@ exports.getById = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
@@ -33,7 +33,7 @@ exports.post = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição',
+            mensagem: 'Falha ao processar sua requisição.',
             erro: e
         });
     }
@@ -47,20 +47,27 @@ exports.put = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
 
 exports.delete = async(req, res, next) => {
     try {
-        await repository.delete(req.params.id);
-        res.status(200).send({
-            mensagem: 'Produto excluido com sucesso!'
-        });
+        let produto = await repository.delete(req.params.id);
+        console.log(produto);
+        if(produto !== null) {
+            res.status(200).send({
+                mensagem: 'Produto excluido com sucesso!'
+            });
+        } else {
+            res.status(200).send({
+                mensagem: 'Produto não existe.'
+            }); 
+        }
     } catch (e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisicao'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }

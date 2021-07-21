@@ -13,18 +13,21 @@ var app = new Vue({
       
       excluir: async function(id) {
             try {
-                  console.log(id)
+                  if (!confirm("Tem certeza que deseja excluir esse produto?")) {
+                        return;
+                  }
+
                   let resp = await fetch('http://localhost:3000/produto/' + id, {
                         method: 'DELETE',
                         headers: {
                               'Content-type': 'application/json; charset=UTF-8'
                         }
                   })
-
                   resp = await resp.json()
                   alert(resp.mensagem)
             } catch (e) {
-                  alert("Error: " + e)
+                  console.log(e);
+                  alert("Ocorreu um erro!");
             }
             window.location.href = 'produtos.html'
         }
@@ -34,23 +37,18 @@ var app = new Vue({
         this.$nextTick(function () {
               fetch('http://localhost:3000/produto')
               .then(response => {
-                          // valida se a requisição falhou
-                          if (!response.ok) {
-                                return new Error('falhou a requisição') // cairá no catch da promise
-                          }
-
-                          // verificando pelo status
-                          if (response.status === 404) {
-                                return new Error('não encontrou qualquer resultado')
-                          }
-
-                          // retorna uma promise com os dados em JSON
-                          return response.json()
-                    })
+                        if (!response.ok) {
+                              throw new Error("Ocorreu um erro!");
+                        }
+                        return response.json();
+              })
               .then(data => {
                     this.produtos = data;
               })
-              .catch(err => console.log(err.message))
+              .catch(err => {
+                  console.log(err.message)
+                  alert("Ocorreu um erro!");
+              })
         })
   }
 })
