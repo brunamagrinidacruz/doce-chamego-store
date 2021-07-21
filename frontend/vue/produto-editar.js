@@ -74,19 +74,11 @@ var app = new Vue({
             this.$nextTick(function () {
                   fetch('http://localhost:3000/produto/' + localStorage.getItem("produtoEditar"))
                   .then(response => {
-                              // valida se a requisição falhou
-                              if (!response.ok) {
-                                    return new Error('falhou a requisição') // cairá no catch da promise
-                              }
-    
-                              // verificando pelo status
-                              if (response.status === 404) {
-                                    return new Error('não encontrou qualquer resultado')
-                              }
-    
-                              // retorna uma promise com os dados em JSON
-                              return response.json()
-                        })
+                        if (!response.ok) {
+                              throw new Error("Ocorreu um erro!");
+                        }
+                        return response.json();
+                  })
                   .then(data => {
                         this.nome = data.nome
                         this.preco = data.preco

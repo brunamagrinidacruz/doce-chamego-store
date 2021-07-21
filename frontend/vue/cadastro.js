@@ -1,3 +1,7 @@
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
 var app = new Vue({
     el: "#app",
     
@@ -73,10 +77,12 @@ var app = new Vue({
                     return response.json()
                 })
                 .then(data => {
-                    alert("Cadastrado com sucesso!\nBem-vinda(o) :)")
-                    localStorage.setItem("usuario", this.email);
-                    localStorage.setItem("ehAdministrador", false);
-                    window.location.href = 'index.html'
+                    alert("Cadastrado com sucesso!\nBem-vinda(o) :)");
+                    localStorage.setObject("usuario", {
+                        email: this.email,
+                        ehAdministrador: false
+                    });
+                    window.location.href = 'index.html';
                 })
                 .catch(err => console.log(err.message))  
             }
