@@ -71,7 +71,7 @@ var app = new Vue({
                 })
                 .then(response => {
                     if (!response.ok) {
-                        this.erros.push("Ocorreu um erro!");
+                        alert(data.mensagem);
                         throw new Error("Ocorreu um erro!");
                     }
                     return response.json()
