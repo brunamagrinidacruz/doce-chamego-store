@@ -68,7 +68,6 @@ exports.put = async(req, res, next) => {
 exports.delete = async(req, res, next) => {
     try {
         let produto = await repository.delete(req.params.id);
-        console.log(produto);
         if(produto !== null) {
             res.status(200).send({
                 mensagem: 'Produto excluido com sucesso!'

@@ -14,7 +14,6 @@ exports.getById = async(id) => {
 }
 
 exports.post = async(data) => {
-      console.log(data);
       let produto = new Produto({
             nome: data.nome,
             fotos: data.fotos,
