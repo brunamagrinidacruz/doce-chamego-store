@@ -24,7 +24,7 @@
                                         <h3 class="inline-block">{{ item.nomeDoProduto }}</h3>
                                         <h3 class="inline-block right">R${{ item.preco }}</h3>
                                     </div>
-                                    <p>{{ item.informacoesImportantes }}</p>
+                                    <p id="info-importantes">{{ item.informacoesImportantes }}</p>
                                     <form>
                                         <label for="name">Quantidade:</label>
                                         <input type="text" id="nProdutos" name="nProdutos" required min="1" v-model="quantidadeDosProdutos[indice]" >

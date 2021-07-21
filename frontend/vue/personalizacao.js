@@ -98,7 +98,7 @@ var app = new Vue({
                               this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
                               this.aperitivos = mocked_aperitivos_caixa_bar;
                         } else {
-                              console.log("Um erro ocorreu!")
+                              console.log("Um erro ocorreu!");
                         }
 
                         this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
@@ -191,14 +191,41 @@ var app = new Vue({
 
                   if(this.erros.length !== 0) {
                         e.preventDefault();
-                  } else {
-                        console.log(prodFinal);
+                  } else {     
+                        let descCaixa = "Caixa tamanho " + this.tamanho + "; " + "Cor: " + this.cor + "; ";             
+                        let descBebida = this.quantidadeDeBebida + 'x ' + this.bebida + " (" + personalizado.especifiqueBebida + "); ";
+                        
+                        prodFinal.descricao = descCaixa + descBebida + this.descricaoAcompanhamento();
+                        if(this.nome !== "Festa na Caixa") 
+                              prodFinal.descricao += this.descricaoAperitivo();
+                        
                         localStorage.setItem('personalizado', JSON.stringify(prodFinal));
-                        alert("Adicionando ao carrinho...");
+                        alert("Adicionado ao carrinho!");
                         window.location.href = 'carrinho.html'
                   }
                         
-            }
+            },
+            descricaoAcompanhamento() {
+                  let descricaoAcompanhamentoTotal = "";
+                  for(let i = 0; i < this.acompanhamentosSelecionados.length; i++) {
+                      if(this.acompanhamentosSelecionados[i])
+                          descricaoAcompanhamentoTotal += this.acompanhamentos[i].nome + "; ";
+                  }
+                  descricaoAcompanhamentoTotal += '\n';
+      
+                  return descricaoAcompanhamentoTotal;
+            },
+            descricaoAperitivo() {
+                  let descricaoAperitivosTotal = "";
+                  console.log(this.aperitivos);
+                  for(let i = 0; i < this.aperitivosSelecionados.length; i++) {
+                      if(this.aperitivosSelecionados[i])
+                      descricaoAperitivosTotal += this.aperitivos[i].nome + "; ";
+                  }
+                  descricaoAperitivosTotal += '\n';
+      
+                  return descricaoAperitivosTotal;
+            },
       }
 
 })

@@ -42,7 +42,6 @@ var app = new Vue({
 
     mounted(){   
         let item = JSON.parse(localStorage.getItem('item'));
-        console.log(item._id);
         
         if(item !== null){
             let itemAux = {}; 
@@ -50,49 +49,13 @@ var app = new Vue({
             console.log(item.nome);
             itemAux.nomeDoProduto = item.nome;
             itemAux.preco = item.preco;
-            //itemAux.informacoesImportantes = item.descricao;
             itemAux.prazoMin = 15;
             itemAux.prazoMax = 20;
 
             this.produto.push(itemAux);
-            localStorage.removeItem('item');
+            //localStorage.removeItem('item');
         }
-        
-
         let personalizado = JSON.parse(localStorage.getItem('personalizado'));
-        if(personalizado !== null){
-            let personalizadoAux = {}; 
-            console.log(personalizado.tipo_de_caixa.nome);
-            personalizadoAux.nomeDoProduto = personalizado.tipo_de_caixa.nome;
-            personalizadoAux.preco = personalizado.preco;
-            personalizadoAux.informacoesImportantes = personalizado.descricao;
-
-            if(personalizadoAux.nomeDoProduto === "Festa na Caixa") {
-                personalizadoAux.acompanhamentosSelecionados = personalizado.acompanhamentosSelecionados;
-                personalizadoAux.aperitivosSelecionados = personalizado.aperitivosSelecionados;
-                personalizadoAux.bebida = personalizado.bebida;
-                personalizadoAux.quantidadeDeBebida = personalizado.quantidadeDeBebida;
-                personalizadoAux.especifiqueBebida = personalizado.especifiqueBebida;
-
-            } else if(personalizadoAux.nomeDoProduto === "Café da Manhã") {
-                personalizadoAux.acompanhamentosSelecionados = personalizado.acompanhamentosSelecionados;
-                personalizadoAux.acompanhamentosSelecionados = personalizado.aperitivosSelecionados;
-            
-            } else if(personalizadoAux.nomeDoProduto === "Caixa Bar") {
-                    this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
-                    this.aperitivos = mocked_aperitivos_caixa_bar;
-            
-            } else {
-                    console.log("Um erro ocorreu!");
-
-            }
-
-            personalizadoAux.prazoMin = 15;
-            personalizadoAux.prazoMax = 20;
-
-            this.produto.push(personalizadoAux);
-            localStorage.removeItem('personalizado');
-        }
 
         var _vm = this;
 
@@ -176,7 +139,8 @@ var app = new Vue({
                 alert("Insira uma quantidade valida para o(s) produto(s)!");
                 this.precoTotal()
             }
-        }
+        },
+
     }
 })
 
