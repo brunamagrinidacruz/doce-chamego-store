@@ -33,18 +33,31 @@ exports.post = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição.',
-            erro: e
+            mensagem: 'Falha ao processar sua requisição.'
         });
+        console.log(e);
     }
 }
 
 exports.put = async(req, res, next) => {
     try {
-        await repository.put(req.params.id, req.body);
-        res.status(200).send({
-            mensagem: 'Produto atualizado com sucesso!'
-        });
+        if(!req.body.nome || !req.body.fotos || !req.body.descricao || !req.body.preco) {
+            res.status(400).send({
+                mensagem: 'Dados incompletos.'
+            });
+            return;
+        }
+
+        const produto = await repository.put(req.params.id, req.body);
+        if(produto != null) {
+            res.status(200).send({
+                mensagem: 'Produto atualizado com sucesso!'
+            });
+        } else {
+            res.status(404).send({
+                mensagem: 'Produto não encontrado.'
+            });
+        }
     } catch (e) {
         res.status(500).send({
             mensagem: 'Falha ao processar sua requisição.'
