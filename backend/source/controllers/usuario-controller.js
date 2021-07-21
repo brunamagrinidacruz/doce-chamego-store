@@ -8,7 +8,7 @@ exports.get = async(req, res, next) => {
         res.status(200).send(data);
     } catch(e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
@@ -19,7 +19,7 @@ exports.getById = async(req, res, next) => {
         res.status(200).send(data);
     } catch(e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
@@ -32,7 +32,7 @@ exports.put = async(req, res, next) => {
         });
     } catch(e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
@@ -41,24 +41,31 @@ exports.post = async(req, res, next) => {
     try {
         await repository.post(req.body);
         res.status(200).send({
-            mensagem: 'Usuario cadastrado com sucesso!'
+            mensagem: 'Usuário cadastrado com sucesso!'
         });
     } catch(e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
 
 exports.delete = async(req, res, next) => {
     try {
-        await repository.delete(req.params.id);
-        res.status(200).send({
-            mensagem: 'Usuario excluido com sucesso!'
-        });
+        let user = await repository.delete(req.params.id);
+        console.log(user);
+        if(user !== null) {
+            res.status(200).send({
+                mensagem: 'Usuário excluido com sucesso!'
+            });
+        } else {
+            res.status(200).send({
+                mensagem: 'Usuário não existe.'
+            });
+        }
     } catch (e) {
         res.status(500).send({
-            mensagem: 'Usuario ao processar sua requisicao'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
@@ -75,7 +82,7 @@ exports.authenticate = async(req, res, next) => {
         }
     } catch(e) {
         res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição'
+            mensagem: 'Falha ao processar sua requisição.'
         });
     }
 }
