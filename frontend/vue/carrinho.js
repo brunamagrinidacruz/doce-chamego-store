@@ -3,7 +3,7 @@ var app = new Vue({
 
     data: {
         produto: [
-            { 
+           /* { 
                 nomeDoProduto: "Caixa com Cone",
                 preco: 45.00,
                 informacoesImportantes: "Cone de ovomaltine, maracuja e limão",
@@ -18,7 +18,7 @@ var app = new Vue({
                 prazoMin: 15,
                 prazoMax: 20,
                 // qtdDoProduto: 1
-            },
+            },*/
         ],
         quantidadeDosProdutos: [],
         valorTotal: 0,
@@ -40,10 +40,11 @@ var app = new Vue({
         presente = false
     },
 
-    mounted(){   
-        let item = JSON.parse(localStorage.getItem('item'));
-        console.log(item._id);
+    mounted() {   
+        let itens = JSON.parse(localStorage.getItem('itensCarrinho'));
+        console.log(itens);
         
+        /*
         if(item !== null){
             let itemAux = {}; 
 
@@ -55,10 +56,10 @@ var app = new Vue({
             itemAux.prazoMax = 20;
 
             this.produto.push(itemAux);
-            localStorage.removeItem('item');
-        }
+            localStorage.removeItem('itens');
+        }*/
         
-
+        /*
         let personalizado = JSON.parse(localStorage.getItem('personalizado'));
         if(personalizado !== null){
             let personalizadoAux = {}; 
@@ -92,7 +93,8 @@ var app = new Vue({
 
             this.produto.push(personalizadoAux);
             localStorage.removeItem('personalizado');
-        }
+            
+        }*/
 
         var _vm = this;
 

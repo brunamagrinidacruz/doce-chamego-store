@@ -36,10 +36,18 @@ var app = new Vue({
                   }
 
                   //É cliente
-                  localStorage.setItem('item', JSON.stringify(item))
-                  console.log(item.nome);
+                  //localStorage.removeItem('itens');
+                  let itens = []
+                  //itens.push(10)
+                  itensCarrinho = JSON.parse(localStorage.getItem('itensCarrinho'))
+                  if (itensCarrinho !== null)
+                        itens = JSON.parse(localStorage.getItem('itensCarrinho'))
+                  itens.push(item._id)
+                  // itens.push(item)
+                  localStorage.setItem('itensCarrinho', JSON.stringify(itens))
+                  console.log(itens);
                   alert("Adicionado ao carrinho!")
-                  window.location.href = 'carrinho.html'
+                  // window.location.href = 'carrinho.html'
             }
       },
 
