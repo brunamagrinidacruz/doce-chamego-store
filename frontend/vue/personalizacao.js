@@ -62,7 +62,7 @@ var app = new Vue({
 
             tipo_de_caixa: {
                   nome: "Festa na Caixa",
-                  descricao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum lobortis lobortis. Phasellus fermentum libero eu velit maximus, commodo dignissim ex tincidunt."
+                  descricao: "Já imaginou guardar uma festa INTEIRA em uma única caixa?? com a Doce Chamego é possível, conheça a nossa Festa na caixa."
             },
 
             acompanhamentos: mocked_acompanhamentos_festa_na_caixa,
