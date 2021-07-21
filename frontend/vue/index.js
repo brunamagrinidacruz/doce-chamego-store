@@ -58,7 +58,7 @@ var app = new Vue({
                         tamItensCarrinho = itensCarrinho.length
 
                   while (tamItensCarrinho > verificacao && itensCarrinho[verificacao]._id !== item._id)
-                        verificacao++
+                        verificacao++;
                   
                   if (verificacao !== tamItensCarrinho) {
                         alert('Este produto já está no carrinho.')
