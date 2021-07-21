@@ -97,7 +97,7 @@ var app = new Vue({
 
             if(this.erros.length === 0) {
                 if(this.presente){
-                    alert("Os produtos serao enviados com embalagem para presente! Aguardando a aprovacao do pagamento.")
+                    alert("Compra finalizada. Os produtos serao enviados com embalagem para presente! Aguardando a aprovacao do pagamento.")
                 }else{
                     this.alterarEstoque();
                     this.esvaziarCarrinho();
