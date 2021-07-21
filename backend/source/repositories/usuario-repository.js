@@ -42,7 +42,9 @@ exports.put = async(id) => {
 }
 
 exports.delete = async(id) => {
-      await Usuario.findOneAndRemove(id);
+      const usuario = await Usuario.findById(id);
+      await Usuario.deleteOne({"_id": mongoose.Types.ObjectId(id) });
+      return usuario;
 }
   
 exports.authenticate = async(data) => {

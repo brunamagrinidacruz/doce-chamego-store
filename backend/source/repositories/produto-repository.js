@@ -41,7 +41,9 @@ exports.put = async(id, data) => {
 }
 
 exports.delete = async(id) => {
-      await Produto.findOneAndRemove(id);
+      const produto = await Produto.findById(id);
+      await Produto.deleteOne({ "_id": mongoose.Types.ObjectId(id) });
+      return produto;
 }
 
 exports.sell = async(id, data) => {

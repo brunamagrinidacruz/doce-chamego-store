@@ -1,9 +1,13 @@
+Storage.prototype.setObject = function(key, value) {
+      this.setItem(key, JSON.stringify(value));
+}
+
 var app = new Vue({
       el: "#app",
 
       data: {
             erros: [],
-            usuario: "",
+            email: "",
             senha: "",
       },
 
@@ -11,7 +15,7 @@ var app = new Vue({
             entrar() {
                   this.erros = [];
 
-                  if(!this.usuario) {
+                  if(!this.email) {
                         this.erros.push("Digite o usuário.");
                   }
 
@@ -27,7 +31,7 @@ var app = new Vue({
                                     'Content-Type': 'application/json'
                               },
                               body: JSON.stringify({
-                                    email: this.usuario,
+                                    email: this.email,
                                     senha: this.senha
                               })
                         })
@@ -45,11 +49,15 @@ var app = new Vue({
                               return response.json()
                         })
                         .then(data => {
-                              localStorage.setItem("usuario", this.usuario);
-                              localStorage.setItem("ehAdministrador", data.ehAdministrador);
-                              window.location.href = 'index.html'
+                              localStorage.setObject("usuario", {
+                                    email: this.email,
+                                    ehAdministrador: data.ehAdministrador
+                              });
+                              window.location.href = 'index.html';
                         })
-                        .catch(err => console.log(err.message))  
+                        .catch(err => {
+                              console.log(err.message);
+                        })
                   }
 
             }

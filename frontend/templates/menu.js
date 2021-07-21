@@ -1,35 +1,44 @@
+Storage.prototype.setObject = function(key, value) {
+      this.setItem(key, JSON.stringify(value));
+}
+  
+Storage.prototype.getObject = function(key) {
+      let value = this.getItem(key);
+      return value && JSON.parse(value);
+}
+
 Vue.component('menu_superior', {
       data: function() {
             return {
-                  usuario: localStorage.getItem("usuario"),
-                  ehAdministrador: 
-                        localStorage.getItem("ehAdministrador") === null ||  localStorage.getItem("ehAdministrador") === "undefined" || localStorage.getItem("ehAdministrador") === ""
-                              ? false : localStorage.getItem("ehAdministrador").toUpperCase() === 'TRUE'
+                  usuario: localStorage.getObject("usuario")
             }
       },
+
       props: {
             paginas: Array
       },
+
       methods: {
+            usuarioEstaLogado() {
+                  return this.usuario !== null;
+            },
+
             sair() {
-                  localStorage.setItem("usuario", "");
-                  localStorage.setItem("ehAdministrador", "");
+                  localStorage.setObject("usuario", null);
                   window.location.href = 'index.html'
             },
-            usuarioEstaLogado() {
-                  return !(this.usuario === ""  || this.usuario === "undefined" || this.usuario == null) 
-            },
+
             mostrarAba(pagina) {
                   const administrativo = "administrativo";
                   const cliente = "cliente";
-                  const usuario = "usuario"; //Não-logado
-                  const usuario_cliente_administrativo = "usuario_cliente_administrativo";
+                  const visitante = "visitante"; //Não-logado
+                  const visitante_cliente_administrativo = "visitante_cliente_administrativo";
 
                   let mockedTelas = [
-                        { caminho: "cadastro.html", tipo: usuario},
+                        { caminho: "cadastro.html", tipo: visitante},
                         { caminho: "carrinho.html", tipo: cliente},
-                        { caminho: "index.html", tipo: usuario_cliente_administrativo},
-                        { caminho: "login.html", tipo: usuario},
+                        { caminho: "index.html", tipo: visitante_cliente_administrativo},
+                        { caminho: "login.html", tipo: visitante},
                         { caminho: "personalizacao.html", tipo: cliente},
                         { caminho: "produto-cadastrar.html", tipo: administrativo},
                         { caminho: "produto-editar.html", tipo: administrativo},
@@ -39,6 +48,7 @@ Vue.component('menu_superior', {
                         { caminho: "usuarios.html", tipo: administrativo},
                   ]
             
+                  //Buscando na litta de telas qual foi a tela passada como argumento
                   let mockedTela = {};
                   for(let i = 0; i < mockedTelas.length; i++) {
                         if(mockedTelas[i].caminho === pagina.caminho) {
@@ -47,17 +57,22 @@ Vue.component('menu_superior', {
                         }
                   }
 
-                  if(mockedTela.tipo === usuario_cliente_administrativo) {
+                  //Qualquer pessoa possui acesso
+                  if(mockedTela.tipo === visitante_cliente_administrativo) {
                         return true;
                   }
 
+                  //Se o usuário não está logado, retorna a página apenas se for para usuários não logados
                   if(!this.usuarioEstaLogado()) {
-                        return (mockedTela.tipo === usuario);
+                        return (mockedTela.tipo === visitante);
                   }
 
-                  if(this.ehAdministrador) {
+                  //Se o usuario for do tipo administrador
+                  if(this.usuario.ehAdministrador) {
+                        //Retorna a página apenas se ela for para administrador
                         return (mockedTela.tipo === administrativo);
-                  } else {
+                  } else { //Se o usuario não for do tipo administrador, ou seja, for do tipo cliente
+                        //Retorna a página apenas se ela for para cliente
                         return (mockedTela.tipo === cliente);
                   }
             }
