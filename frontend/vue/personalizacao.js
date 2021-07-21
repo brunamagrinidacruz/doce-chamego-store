@@ -202,6 +202,7 @@ var app = new Vue({
                         
                         prodFinal.fotos = [];
                         prodFinal.fotos[0] = "img/cafe-da-manha3.jpeg";
+                        prodFinal.quantidadeEstoque = 30;
 
                         localStorage.setItem('personalizado', JSON.stringify(prodFinal));
                         alert("Adicionado ao carrinho!");

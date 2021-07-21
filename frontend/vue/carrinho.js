@@ -48,14 +48,14 @@ var app = new Vue({
     watch: {
         'quantidadeDosProdutos': function(novoValor) {
             let erro = false;
-            for(let i = 0; i < novoValor.length; i++) {
+            for (let i = 0; i < novoValor.length; i++) {
                 if(novoValor[i] < 0 || novoValor[i] > 30 || !isNumber(novoValor[i])) {
                     erro = true;
                     this.quantidadeDosProdutos[i] = 1;
                 }
             }
             if(erro) {
-                alert("Insira uma quantidade valida para o(s) produto(s)!");
+                alert("Insira uma quantidade válida para o(s) produto(s)!");
                 this.precoTotal()
             }
         },
@@ -106,8 +106,14 @@ var app = new Vue({
             this.qtdDeProdutos = 0;
 
             let indice;
+            let erroEstoque = false;
             for (indice = 0; indice < this.produto.length && this.quantidadeDosProdutos[indice] != ""; indice++) {
                 this.valorTotal += (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
+                if (this.quantidadeDosProdutos[indice] > this.produto[indice].quantidadeEstoque) {
+                    alert("A quantidade inserida é maior do que a em estoque.");
+                    erroEstoque = true;
+                    break;
+                }
                 this.qtdDeProdutos += parseInt(this.quantidadeDosProdutos[indice], 10);
             }
 
@@ -115,11 +121,10 @@ var app = new Vue({
                 this.valorTotal = valorTotalAntigo;
                 this.qtdDeProdutos = qtdDeProdutosAntigo;
                 this.quantidadeDosProdutos[indice] = 1;
-                alert("Insira uma quantidade valida para o(s) produto(s)!");
+                if (!erroEstoque) alert("Insira uma quantidade válida para o(s) produto(s)!");
                 this.precoTotal()
             }
         },
-
     }
 })
 
