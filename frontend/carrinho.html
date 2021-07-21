@@ -18,13 +18,13 @@
                         <div class="itens">
                             <div v-for="item, indice in produto" class="itemUnico">
                                 <hr class="linha">
-                                <img class="imgCarrinho inline-block"src="img/cone-trufado1.jpeg" alt="cone-trufado1">
+                                <img class="imgCarrinho inline-block" v-bind:src="item.fotos[0]" v-bind:alt="item.fotos[0]">
                                 <div class="right prodInfo">
                                     <div class="nomePreco inline-block">
-                                        <h3 class="inline-block">{{ item.nomeDoProduto }}</h3>
-                                        <h3 class="inline-block right">R${{ item.preco }}</h3>
+                                        <h3 class="inline-block">{{ item.nome }}</h3>
+                                        <h3 class="inline-block right">R${{ item.preco.toFixed(2).replace(".", ",") }}</h3>
                                     </div>
-                                    <p>{{ item.informacoesImportantes }}</p>
+                                    <p>{{ item.descricao }}</p>
                                     <form>
                                         <label for="name">Quantidade:</label>
                                         <input type="text" id="nProdutos" name="nProdutos" required min="1" v-model="quantidadeDosProdutos[indice]" >
@@ -35,7 +35,7 @@
                             </div>
                             <hr class="linha">
                             <div class="preco inline-block">
-                                <p style="text-align: end;">Subtotal ({{ qtdDeProdutos }} item): R${{ valorTotal }}</p>
+                                <p style="text-align: end;">Subtotal ({{ qtdDeProdutos }} item): R${{ valorTotal.toFixed(2).replace(".", ",") }}</p>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <li v-for="erro in erros">{{ erro }}</li>
                                 </ul>
                             </p>
-                            <h3 style="margin: 10px;">Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal }}</b></h3>
+                            <h3 style="margin: 10px;">Subtotal ({{ qtdDeProdutos }} itens): <b>R${{ valorTotal.toFixed(2).replace(".", ",") }}</b></h3>
                             <form>
                                 <input type="checkbox" id="presente" name="presente" v-model="presente" >
                                 <label for="presente">Este pedido é um presente</label>

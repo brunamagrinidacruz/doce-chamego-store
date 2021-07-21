@@ -88,22 +88,22 @@ var app = new Vue({
       
       watch: {
             'tipo_de_caixa.nome': function (novoValor, valorAntigo) {
-                        if(novoValor === "Festa na Caixa") {
-                              this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
-                              this.aperitivos = [];
-                        } else if(novoValor === "Café da Manhã") {
-                              this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
-                              this.aperitivos = mocked_aperitivos_cafe_da_manha;
-                        } else if(novoValor === "Caixa Bar") {
-                              this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
-                              this.aperitivos = mocked_aperitivos_caixa_bar;
-                        } else {
-                              console.log("Um erro ocorreu!")
-                        }
+                  if(novoValor === "Festa na Caixa") {
+                        this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
+                        this.aperitivos = [];
+                  } else if(novoValor === "Café da Manhã") {
+                        this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
+                        this.aperitivos = mocked_aperitivos_cafe_da_manha;
+                  } else if(novoValor === "Caixa Bar") {
+                        this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
+                        this.aperitivos = mocked_aperitivos_caixa_bar;
+                  } else {
+                        console.log("Um erro ocorreu!")
+                  }
 
-                        this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
-                        this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
-                  },
+                  this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
+                  this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
+            },
 
                   quantidadeDeBebida(novoValor, valorAntigo) {
                   if(novoValor < 0 || novoValor > 5 || novoValor === "") {
