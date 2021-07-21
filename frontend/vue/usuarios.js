@@ -1,9 +1,5 @@
-Storage.prototype.setObject = function(key, value) {
-      this.setItem(key, JSON.stringify(value));
-}
-  
 Storage.prototype.getObject = function(key) {
-      var value = this.getItem(key);
+      let value = this.getItem(key);
       return value && JSON.parse(value);
 }
 
@@ -33,8 +29,8 @@ var app = new Vue({
             },
 
             excluir: function(id, email) {
-                  const usuarioAtual = localStorage.getItem("usuario");
-                  if(usuarioAtual === email) {
+                  const usuarioAtual = localStorage.getObject("usuario");
+                  if(usuarioAtual.email === email) {
                         alert("Não é possível excluir o próprio usuário.");
                         return;
                   }
