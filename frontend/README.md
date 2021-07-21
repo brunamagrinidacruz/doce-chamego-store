@@ -10,28 +10,30 @@ Projeto para matéria de Introdução ao Desenvolvimento Web (SCC0219) para o cu
  
 ## Requisitos
  
-- O sistema deve acomodar dois tipos de usuários: clientes e administradores;
-   - Os administradores são responsáveis por registrar e gerenciar administradores, clientes e produtos. A aplicação deve começar com uma conta *admin* com senha *admin*;
+- O sistema acomoda dois tipos de usuários: clientes e administradores;
+   - Os administradores são responsáveis por registrar e gerenciar administradores, clientes e produtos. A aplicação possui uma conta *admin* com senha *admin*;
    - Os clientes são usuários que se cadastram e acessam o sistema para comprar produtos;
-- O sistema deve permitir que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
-- O sistema deve permitir que um cliente se cadastre no mesmo. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
-- O sistema deve permitir que o administrador cadastre, consulte, atualize e remova produtos. As informações armazenadas sobre um produto são: *id*, *nome*, *foto*, *descrição*, *preço*, *quantidade em estoque* e *quantidade vendida*. O sistema possui dois tipos de produto: cones trufados e festas na caixa;
-   - Cada cone trufado cadastrado possui diferentes sabores associados pré-definidos (leite ninho, nutella, brigadeiro, maracujá, sensação, ovomaltine, limão, paçoca e prestígio);
-   - Cada festa na caixa possui diferentes itens associados pré-definidos (doces, bolos, salgados, entre outros). Além disso, a festa na caixa possui um *tamanho* (pequeno, médio ou grande).
-   
-- O sistema deve permitir a venda dos produtos. Para cada produto vendido, a *quantidade vendida* deve ser incrementada e *quantidade em estoque* decrementada conforme a quantidade vendida. Uma venda não pode ser realizada caso não haja a quantidade em estoque necessária;
+- O sistema permite que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*.  
+O sistema permite que um administrador cadastre um cliente. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*.  
+O sistema permite que um administrador consulte, atualize e remova clientes/administradores;
+- O sistema permite que um cliente se cadastre no mesmo. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*;
+- O sistema permite que o administrador cadastre, consulte, atualize e remova produtos.   
+As informações armazenadas sobre um produto são: *nome*, *preço*, *descrição*, *quantidade* e *fotos*. Note que obrigatoriamente são armazenadas 3 fotos de cada produto. Além disso, o sistema armazena o caminho onde as fotos estão armazenadas, não as fotos em si, por exemplo: `img/cones.jpeg`;   
+- O sistema permite a venda dos produtos. Para cada produto vendido, a *quantidade vendida* deve ser incrementada e *quantidade em estoque* decrementada conforme a quantidade vendida. Uma venda não pode ser realizada caso não haja a quantidade em estoque necessária.  
+A venda é paga com um cartão de crédito;
 - O sistema deve conter um carrinho, no qual os produtos selecionados estarão listados com as informações de *nome*, *foto*, *descrição*, *preço* e quantidade selecionada. Além disso, deve ser mostrado o preço total associado a todos os itens. Os carrinhos serão limpos apenas no pagamento ou pelos clientes;
-- A venda deve ser paga com um cartão de crédito (qualquer número é aceito pelo sistema);
-- O sistema deve permitir a montagem de uma festa na caixa personalizada. Através desta funcionalidade o cliente pode definir quais serão os itens que compõem a festa na caixa e a sua decoração (cores). Além disso, será possível ver o valor total da festa na caixa customizada;  
-- O sistema deve fornecer requisitos de acessibilidade e fornecer boa usabilidade. O sistema deve ser responsivo.
+- O sistema permite a montagem de uma festa na caixa personalizada. Através desta funcionalidade o cliente pode definir quais serão os itens que compõem a festa na caixa e a sua decoração (cores) com base em um tema: Festa na Caixa, Café da Manhã ou Caixa-Bar. Além disso, é possível ver o valor total da festa na caixa customizada;  
+- O sistema fornece requisitos de acessibilidade e fornecer boa usabilidade. O sistema é responsivo.
  
 ## Descrição
  
-A plataforma foi implementada com HTML5, CSS3, Javascript e VueJS.
+A plataforma foi implementada com HTML5, CSS3, Javascript, VueJS, NodeJS e MongoDB.
  
 ### Armazenamento de Dados
- 
-Serão armazenadas na base de dados as informações de usuários e produtos.
+
+A base de dados utiliza MongoDB e está hospedada na Cloud (cloud.mongodb.com), na organização da Loja Doce Chamego.  
+
+São armazenadas as informações de usuários e produtos.
  
 **Usuários**
  
@@ -40,8 +42,6 @@ O sistema conta com dois tipos de usuários: administrador e cliente.
 
 Além disso, o sistema conta com o visitante, que representa um usuário que não possui associação com a plataforma e apenas pode consultar produtos.
  
-**Há dois usuários mockados: *admin* com senha *admin* e *user* com senha *user*. O primeiro resulta no site para a versão do administrador e o segundo resulta no site para a versão do cliente.** Ao realizar a tentativa de login com qualquer outro usuário e senha, a aplicação retornará um erro.
- 
 **Produtos**
  
 O sistema permite a venda de 2 modalidades de produtos: cones e festas na caixa.
@@ -49,11 +49,11 @@ O sistema permite a venda de 2 modalidades de produtos: cones e festas na caixa.
  
 #### **Tela inicial** 
 Ao acessar a plataforma, o visitante é levado para a tela inicial.  
-A partir dessa tela, o visitante consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre o contato da empresa . 
-Utilizando o menu do sistema, o visitante consegue realizar login na plataforma.
+A partir dessa tela, o visitante consegue visualizar os produtos à venda. Além disso, é possível visualizar informações sobre o contato da empresa. 
+Utilizando o menu do sistema, o visitante consegue realizar login ou cadastro na plataforma.
  
 #### **Tela de login** 
-Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *usuário* e *senha* cadastrados.  
+Na tela de login, o usuário consegue acessar a plataforma. Para acessar a plataforma, o usuário deve informar o *e-mail* e *senha* cadastrados.  
 Após o acesso, clientes e administradores possuem acesso a funcionalidades distintas. 
 Além disso, através da tela de login, o usuário consegue acessar a tela de cadastro.
  
@@ -74,7 +74,7 @@ Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a
  
 #### **Tela de usuários** 
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de usuários. 
-Na tela de produtos é possível ver uma listagem dos usuários, editá-los e removê-los. Também é possível cadastrar novos usuários.
+Na tela de usuários é possível ver uma listagem dos usuários, editá-los e removê-los. Também é possível cadastrar novos usuários.
  
 #### **Tela de cadastro de usuário** 
 Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a tela de cadastro de usuário. 
@@ -86,7 +86,7 @@ Quando um usuário do tipo administrador acessa a plataforma, ele pode acessar a
  
 #### **Tela de personalização** 
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de personalização. 
-É possível que o cliente personalize sua própria caixa dentre os três tipos disponibilizados pela loja: festa na caixa, café da manhã e caixa-bar. O cliente pode escolher os componentes e a cor da caixa. O cliente também pode finalizar a personalização.
+É possível que o cliente personalize sua própria caixa dentre os três tipos disponibilizados pela loja: Festa na Caixa, Café da Manhã e Caixa-Bar. O cliente pode escolher os componentes e a cor da caixa. O cliente também pode finalizar a personalização.
  
 #### **Tela de carrinho** 
 Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela de carrinho.   
@@ -94,28 +94,67 @@ Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela 
  
 ### Diagrama de Navegação
  
-No diagrama a seguir, os retângulos representam as telas. 
+No diagrama a seguir, os retângulos representam as telas.   
 ![Diagrama de Navegação](img/documentacao/diagrama-de-navegacao.jpg)
  
 ## Comentários Sobre o Código
  
-### Diretórios
+### Diretórios do Front-End
 - css: Arquivos CSS;
 - img: Imagens utilizadas no código e na documentação;
 - templates: Templates criados com VueJS que são reutilizados em várias páginas (rodapé e menu);
 - vue: Código VueJS criado para cada tela.
  
+### Diretórios do Back-End
+- bin: Armazena o código do servidor;
+- source: Contém os controllers, models, repositories, routes e configurações do servidor.
+
 ### Outras informações
  
-Para a simulação de login, foi utilizado o Local Storage do navegador.
- 
-Foi criado um template de VueJS para o rodapé e o menu. No entanto, a aplicação não utiliza o framework em conjunto com npm, logo, o template é apenas um protótipo inicial.
+Para o funcionamento do login, foi utilizado o Local Storage do navegador.
  
 ## Teste
  
 ### Back-end
-Os testes da aplicação back-end serão realizados utilizando `Postman`, `curl` e/ou `REST Client for Visual Studio Code`.
- 
+Os testes da aplicação back-end foram realizados utilizando `Postman` e via navegador. 
+
+#### **/usuario** 
+- GET /  
+Retorna a listagem de usuários;
+- GET /:id  
+Retorna as informações do usuário com o id correspondente se existir.  
+Se não existir, retorna informando que o usuário não existe.
+- POST /  
+Armazena o usuário.  
+Caso algum dos campos não tenha sido preenchido, informa erro;
+- PUT /:id  
+Atualiza o usuário com base no id.  
+Caso o usuário não exista, retorna informando que o usuário não existe.  
+Caso algum dos campos não tenha sido preenchido, informa erro;
+- DELETE /:id  
+Remove o usuário com base no id.   
+Caso o usuário não existe, retorna informando que o usuário não existe; 
+- POST /authenticate  
+Autentica o usuário no banco de dados.  
+Caso o usuário não existe ou os dados estejam incorretos, informa acesso negado.
+
+#### **/produto** 
+- GET /  
+Retorna a listagem de produtos;
+- GET /:id  
+Retorna as informações do produto com o id correspondente se existir.  
+Se não existir, retorna informando que o produto não existe.
+- POST /  
+Armazena o produto.  
+Caso algum dos campos não tenha sido preenchido, informa erro;
+- PUT /:id  
+Atualiza o produto com base no id.  
+Caso o produto não exista, retorna informando que o produto não existe.  
+Caso algum dos campos não tenha sido preenchido, informa erro;
+- DELETE /:id  
+Remove o produto com base no id.   
+Caso o produto não existe, retorna informando que o produto não existe; 
+
 ### Front-end
  
 #### **Navegação**
@@ -132,7 +171,7 @@ Além disso, foram testados:
 #### **Formulários**
  
 Foram feitos testes nos formulários de:
-- Login: Os campos usuário e senha são obrigatórios e caso não sejam preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de login sem digitar um ou mais dos campos. Além disso, é feita validação se o usuário é válido, ou seja, esta cadastrado no sistema;
+- Login: Os campos e-mail e senha são obrigatórios e caso não sejam preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de login sem digitar um ou mais dos campos. Além disso, é feita validação se o usuário é válido, ou seja, esta cadastrado no sistema;
 
 - Cadastrar usuário (Visitante): Todos os campos são obrigatórios e caso não sejam preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de cadastro sem digitar um ou mais campos. Além disso, o campo CPF exige 11 valores numéricos, o campo e-mail exige um e-mail com formato válido e o telefone exige DDD e o número telefônico. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos descritos anteriormente;
 - Personalização: O campo de cor e bebida são os únicos que são digitados pelo usuário e são obrigatórios, se não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de adicionar ao carrinho sem digitar algum dos valores. Além disso, a quantidade de bebida só aceita ser alterada via botão no campo e não aceita valores negativos ou maiores que 5. Para realização do teste, foi feita tentativa de inserir valores negativos ou maiores que 5. Note que a seleção se acompanhamento e/ou aperitivos é opcional.
@@ -156,7 +195,7 @@ Foram feitos testes nos formulários de:
    - Nome de produto que não existe: Não é retornado nenhum produto;
    - Nome de produto que existe: É retornado o produto desejado, sendo o nome de produto digitado procurado em qualquer parte do título do produto.
 - Foi testado o botão "Adicionar ao carrinho" na tela inicial. Para a realização do teste, foram feitas as seguintes verificações:
-   - Caso nenhum usuário esteja logado, o sistema informa uma mensagem de usuario inválido para a operação e retorna para a tela de login;
+   - Caso o usuário não esteja logado (visitante), o sistema informa uma mensagem informando que o visitante deve acessar a plataforma e encaminha para a tela de login;
    - Caso o usuário esteja logado como administrador, o sistema informa uma mensagem de usuário inválido para a operação e permanece na tela de inicial;
    - Caso o usuário esteja logado como cliente, o sistema informa uma mensagem de item adicionado ao carrinho e encaminha para a tela de carrinho.
  
@@ -165,20 +204,33 @@ Foram feitos testes nos formulários de:
 - Verificar o funcionamento das telas no Firefox e Chromium. Como resultado, todas as telas funcionam corretamente em ambos navegadores.
  
 ## Processo de Execução
- 
+
+### Back-End
+Para a execução, é utilizado o `npm` (https://www.npmjs.com/) e NodeJS.  
+Para iniciar a aplicação, execute o comando a seguir dentro do diretório `back-end`:
+```
+npm start
+```
+
+### Front-End
 Para execução do sistema, é utilizado o `node-static` (https://www.npmjs.com/package/node-static).  
 Para instalá-lo, digite o comando a seguir no terminal:
 ```
 npm install -g node-static
 ```
-Em seguida, execute o comando a seguir dentro do diretório raiz do projeto para iniciar o site:
+Em seguida, execute o comando a seguir dentro do diretório `front-end` para iniciar o site:
 ```
 static -p 8000
 ```
 Após isso, o site estará disponível em http://localhost:8000/.
+
+### MongoDB
+Como o MongoDB está hospedado na Cloud, não é necessário executá-lo.
  
 ## Problemas
  
+Não há.
+
 ## Comentários
  
 - Não é feita validação de acesso a rota proibida. Por exemplo, caso um usuário não administrador tente entrar na rota "/admin.html", não há uma validação.
