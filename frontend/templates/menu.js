@@ -4,7 +4,12 @@ Storage.prototype.setObject = function(key, value) {
   
 Storage.prototype.getObject = function(key) {
       let value = this.getItem(key);
-      return value && JSON.parse(value);
+      try {
+            return value && JSON.parse(value);      
+      } catch(e) {
+            localStorage.setObject("usuario", null);
+            return null;
+      }
 }
 
 Vue.component('menu_superior', {
