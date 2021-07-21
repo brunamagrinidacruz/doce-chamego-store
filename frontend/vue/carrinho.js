@@ -99,17 +99,18 @@ var app = new Vue({
                 if(this.presente){
                     alert("Os produtos serao enviados com embalagem para presente! Aguardando a aprovacao do pagamento.")
                 }else{
-                    alert("Compra finalizada.");
                     this.alterarEstoque();
                     this.esvaziarCarrinho();
+                    alert("Compra finalizada.");
                 }
             }
+            
         },
         alterarEstoque: async function(){
             for(let indice = 0; indice < this.produto.length; indice++){
                 if(!this.produto[indice].personalizacao){
-                    let diffEstoquePedido = produto[indice].quantidadeEstoque - this.quantidadeDosProdutos[indice];
-                    let quantidadeVendida = produto[indice].quantidadeVendida + this.quantidadeDosProdutos[indice];
+                    this.produto[indice].quantidadeEstoque -= this.quantidadeDosProdutos[indice];
+                    this.produto[indice].quantidadeVendida += this.quantidadeDosProdutos[indice];
 
                     try {
                         let resp = await fetch('http://localhost:3000/produto/' + this.produto[indice]._id, {
@@ -118,12 +119,12 @@ var app = new Vue({
                                 'Content-type': 'application/json; charset=UTF-8'
                             },
                             body: JSON.stringify({
-                                nome: produto[indice].nome,
-                                preco: produto[indice].preco,
-                                quantidadeEstoque: diffEstoquePedido,
-                                quantidadeVendida: quantidadeVendida,
-                                descricao: produto[indice].descricao,
-                                fotos: produto[indice].fotos,
+                                nome: this.produto[indice].nome,
+                                preco: this.produto[indice].preco,
+                                quantidadeEstoque: this.produto[indice].quantidadeEstoque,
+                                quantidadeVendida: this.produto[indice].quantidadeVendida,
+                                descricao: this.produto[indice].descricao,
+                                fotos: this.produto[indice].fotos,
                             })
                         })
 
@@ -135,7 +136,14 @@ var app = new Vue({
             }
         },
         esvaziarCarrinho(){
+            for(let indice = 0; indice < this.produto.length; indice++){
+                this.valorTotal -= (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
+                this.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
+                this.produto.splice(indice, 1);
+            }
+            
             localStorage.removeItem('itensCarrinho');
+            localStorage.removeItem('personalizado');
         },
         precoTotal(){
             let valorTotalAntigo = this.valorTotal;
