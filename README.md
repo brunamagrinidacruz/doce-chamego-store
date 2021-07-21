@@ -240,6 +240,6 @@ Não há.
 ## Comentários
  
 - Não é feita validação de acesso a rota proibida. Por exemplo, caso um usuário não administrador tente entrar na rota "/admin.html", não há uma validação;
-- No Projeto 2, o login era gerenciado via LocalStorage. Como a váriavel "usuario" que armazenava o login teve o formato modificado, pode acontecer de navegadores que executaram a versão 2 do Projeto apresentarem problemas de leitura da mesma. Uma das consequências disto é a não apresentação do menu. Se este for o caso, basta limpar o LocalStorage acessando o console da página e dar F5 ou, para uma solução temporária, abrir em uma página anonima.   
+- No Projeto 2, o login era gerenciado via LocalStorage. Como a váriavel "usuario" que armazenava o login teve o formato modificado (agora sendo um JSON) pode acontecer de navegadores que executaram a versão 2 do Projeto apresentarem problemas de leitura da mesma. Uma das consequências disto é a não apresentação do menu. Se este for o caso, basta limpar o LocalStorage acessando o console da página e dar F5 ou, para uma solução temporária, abrir o sistema em uma página anonima.   
  
 
