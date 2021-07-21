@@ -33,8 +33,12 @@ var app = new Vue({
     },
 
     mounted(){   
-        this.produto = localStorage.getObject('itensCarrinho');
+        let prodCarrinho = localStorage.getObject('itensCarrinho');
         let pers = localStorage.getObject('personalizado');
+        
+        if(prodCarrinho !== null)
+            this.produto = localStorage.getObject('itensCarrinho');
+        
         if(pers !== null)
             this.produto.push(pers);
 

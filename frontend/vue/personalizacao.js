@@ -1,3 +1,12 @@
+Storage.prototype.setObject = function(key, value) {
+      this.setItem(key, JSON.stringify(value));
+}
+  
+Storage.prototype.getObject = function(key) {
+      let value = this.getItem(key);
+      return value && JSON.parse(value);
+}
+
 var mocked_acompanhamentos_festa_na_caixa = [
       { id: 1, nome: "Fini", preco: 3 },
       { id: 2, nome: "Brigadeiro", preco: 4 },
@@ -208,7 +217,14 @@ var app = new Vue({
                         prodFinal.quantidadeEstoque = 30;
                         prodFinal.personalizacao = true;
 
-                        localStorage.setItem('personalizado', JSON.stringify(prodFinal));
+                        let personalizados = []
+                        let personalizadosCarrinho = localStorage.getObject('personalizado');
+
+                        if(personalizadosCarrinho !== null)
+                              personalizados = personalizadosCarrinho;
+                        personalizados.push(prodFinal);
+
+                        localStorage.setObject('personalizado', personalizados);
                         alert("Adicionado ao carrinho!");
                         window.location.href = 'carrinho.html';
                   }
