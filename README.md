@@ -21,7 +21,7 @@ As informações armazenadas sobre um produto são: *nome*, *preço*, *descriç�
 - O sistema permite a venda dos produtos. Para cada produto vendido, a *quantidade vendida* deve ser incrementada e *quantidade em estoque* decrementada conforme a quantidade vendida. Uma venda não pode ser realizada caso não haja a quantidade em estoque necessária.  
 A venda é paga com um cartão de crédito;
 - O sistema deve conter um carrinho, no qual os produtos selecionados estarão listados com as informações de *nome*, *foto*, *descrição*, *preço* e quantidade selecionada. Além disso, deve ser mostrado o preço total associado a todos os itens. Os carrinhos serão limpos apenas no pagamento ou pelos clientes;
-- O sistema permite a montagem de uma festa na caixa personalizada. Através desta funcionalidade o cliente pode definir quais serão os itens que compõem a festa na caixa e a sua decoração (cores) com base em um tema: Festa na Caixa, Café da Manhã ou Caixa-Bar. Além disso, é possível ver o valor total da festa na caixa customizada;  
+- O sistema permite a montagem de uma festa na caixa personalizada. Por meio desta funcionalidade o cliente pode definir quais serão os itens que compõem a festa na caixa e a sua decoração (cores) com base em um tema: Festa na Caixa, Café da Manhã ou Caixa-Bar. Além disso, é possível ver o valor total da festa na caixa customizada;  
 - O sistema fornece requisitos de acessibilidade e fornecer boa usabilidade. O sistema é responsivo.
  
 ## Descrição
@@ -196,7 +196,8 @@ Foram feitos testes nos formulários de:
 - Foi testado o botão "Adicionar ao carrinho" na tela inicial. Para a realização do teste, foram feitas as seguintes verificações:
    - Caso o usuário não esteja logado (visitante), o sistema informa uma mensagem informando que o visitante deve acessar a plataforma e encaminha para a tela de login;
    - Caso o usuário esteja logado como administrador, o sistema informa uma mensagem de usuário inválido para a operação e permanece na tela de inicial;
-   - Caso o usuário esteja logado como cliente, o sistema informa uma mensagem de item adicionado ao carrinho e encaminha para a tela de carrinho.
+   - Caso o usuário esteja logado como cliente, o sistema informa uma mensagem de item adicionado ao carrinho e encaminha para a tela de carrinho;
+   - Caso o usuário cliente tente adicionar um produto que já está no carrinho, uma notificação é retornada.
  
 #### **Compatibilidade**
  
