@@ -27,6 +27,11 @@ exports.post = async(data) => {
 }
   
 exports.put = async(id, data) => {
+      const produto = await Produto.findById(id);
+      if(produto === null) {
+            return produto;
+      }
+      
       await Produto
             .findByIdAndUpdate(id, {
                   $set: {
@@ -38,6 +43,7 @@ exports.put = async(id, data) => {
                         quantidadeVendida: data.quantidadeVendida,
                   }
             });
+      return produto;
 }
 
 exports.delete = async(id) => {

@@ -27,6 +27,10 @@ exports.post = async(data) => {
 }
   
 exports.put = async(id, data) => {
+      const usuario = await Usuario.findById(id);
+      if(usuario === null) {
+            return usuario;
+      }
       await Usuario
             .findByIdAndUpdate(id, {
                   $set: {
@@ -39,6 +43,7 @@ exports.put = async(id, data) => {
                         ehAdministrador: data.ehAdministrador
                   }
             });
+      return usuario;
 }
 
 exports.delete = async(id) => {

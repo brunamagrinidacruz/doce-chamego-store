@@ -60,6 +60,7 @@ var app = new Vue({
                   } else {
                         if (tamItensCarrinho !== 0)
                               itens = itensCarrinho
+                        item.personalizacao = false;
                         itens.push(item)
                         localStorage.setObject('itensCarrinho', itens)
                         alert('Adicionado ao carrinho!')
