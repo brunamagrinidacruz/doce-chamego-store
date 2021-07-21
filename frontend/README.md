@@ -94,7 +94,7 @@ Quando um usuário do tipo cliente acessa a plataforma, ele pode acessar a tela 
  
 ### Diagrama de Navegação
  
-No diagrama a seguir, os retângulos representam as telas. 
+No diagrama a seguir, os retângulos representam as telas.   
 ![Diagrama de Navegação](img/documentacao/diagrama-de-navegacao.jpg)
  
 ## Comentários Sobre o Código
@@ -171,7 +171,7 @@ Além disso, foram testados:
 #### **Formulários**
  
 Foram feitos testes nos formulários de:
-- Login: Os campos usuário e senha são obrigatórios e caso não sejam preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de login sem digitar um ou mais dos campos. Além disso, é feita validação se o usuário é válido, ou seja, esta cadastrado no sistema;
+- Login: Os campos e-mail e senha são obrigatórios e caso não sejam preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de login sem digitar um ou mais dos campos. Além disso, é feita validação se o usuário é válido, ou seja, esta cadastrado no sistema;
 
 - Cadastrar usuário (Visitante): Todos os campos são obrigatórios e caso não sejam preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de cadastro sem digitar um ou mais campos. Além disso, o campo CPF exige 11 valores numéricos, o campo e-mail exige um e-mail com formato válido e o telefone exige DDD e o número telefônico. Para realização do teste, foi feita tentativa de cadastro não cumprindo os requisitos descritos anteriormente;
 - Personalização: O campo de cor e bebida são os únicos que são digitados pelo usuário e são obrigatórios, se não forem preenchidos uma mensagem de erro informa a necessidade de preenchimento. Para realização do teste, foi realizada a tentativa de adicionar ao carrinho sem digitar algum dos valores. Além disso, a quantidade de bebida só aceita ser alterada via botão no campo e não aceita valores negativos ou maiores que 5. Para realização do teste, foi feita tentativa de inserir valores negativos ou maiores que 5. Note que a seleção se acompanhamento e/ou aperitivos é opcional.
