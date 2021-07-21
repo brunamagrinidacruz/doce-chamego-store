@@ -42,9 +42,11 @@ var app = new Vue({
 
     mounted(){   
         let item = JSON.parse(localStorage.getItem('item'));
+        console.log(item._id);
         
         if(item !== null){
             let itemAux = {}; 
+
             console.log(item.nome);
             itemAux.nomeDoProduto = item.nome;
             itemAux.preco = item.preco;
@@ -63,19 +65,26 @@ var app = new Vue({
             console.log(personalizado.tipo_de_caixa.nome);
             personalizadoAux.nomeDoProduto = personalizado.tipo_de_caixa.nome;
             personalizadoAux.preco = personalizado.preco;
-            // personalizadoAux.informacoesImportantes = personalizado.descricao;
+            personalizadoAux.informacoesImportantes = personalizado.descricao;
 
             if(personalizadoAux.nomeDoProduto === "Festa na Caixa") {
-                this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
-                this.aperitivos = [];
+                personalizadoAux.acompanhamentosSelecionados = personalizado.acompanhamentosSelecionados;
+                personalizadoAux.aperitivosSelecionados = personalizado.aperitivosSelecionados;
+                personalizadoAux.bebida = personalizado.bebida;
+                personalizadoAux.quantidadeDeBebida = personalizado.quantidadeDeBebida;
+                personalizadoAux.especifiqueBebida = personalizado.especifiqueBebida;
+
             } else if(personalizadoAux.nomeDoProduto === "Café da Manhã") {
-                    this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
-                    this.aperitivos = mocked_aperitivos_cafe_da_manha;
+                personalizadoAux.acompanhamentosSelecionados = personalizado.acompanhamentosSelecionados;
+                personalizadoAux.acompanhamentosSelecionados = personalizado.aperitivosSelecionados;
+            
             } else if(personalizadoAux.nomeDoProduto === "Caixa Bar") {
                     this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
                     this.aperitivos = mocked_aperitivos_caixa_bar;
+            
             } else {
-                    console.log("Um erro ocorreu!")
+                    console.log("Um erro ocorreu!");
+
             }
 
             personalizadoAux.prazoMin = 15;
