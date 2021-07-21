@@ -70,11 +70,12 @@ var app = new Vue({
                     })
                 })
                 .then(response => {
+                    const data = await response.json();
                     if (!response.ok) {
                         alert(data.mensagem);
                         throw new Error("Ocorreu um erro!");
                     }
-                    return response.json()
+                    return data;
                 })
                 .then(data => {
                     alert("Cadastrado com sucesso!\nBem-vinda(o) :)");
