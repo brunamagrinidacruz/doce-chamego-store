@@ -26,7 +26,7 @@ exports.post = async(data) => {
       await usuario.save();
 }
   
-exports.put = async(id) => {
+exports.put = async(id, data) => {
       await Usuario
             .findByIdAndUpdate(id, {
                   $set: {
@@ -52,15 +52,5 @@ exports.authenticate = async(data) => {
           email: data.email,
           senha: data.senha
       });
-      return res;
-}
-
-exports.ehAdministrador = async(data) => {
-      const res = await Usuario.findOne({
-            email: data.email
-      });
-
-      console.log(res);
-
       return res;
 }

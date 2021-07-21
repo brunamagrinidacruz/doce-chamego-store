@@ -28,6 +28,11 @@ var app = new Vue({
                   })
             },
 
+            editar(id) {
+                  localStorage.setItem("usuarioEditar", id);
+                  window.location.href = 'usuario-editar.html';
+            },
+
             excluir: function(id, email) {
                   const usuarioAtual = localStorage.getObject("usuario");
                   if(usuarioAtual.email === email) {
