@@ -70,14 +70,6 @@ var app = new Vue({
       }
 })
 
-function isNumber(numero) {
-      let numerotxt = String(numero)
-      for (let i = 0; i < numerotxt.length; i++) {
-          let code = numerotxt.charCodeAt(i);
-          if (code < 48 || code > 57) {          
-              numerotxt.value=""; 
-              return false;
-          }
-      }
-      return true;
-  }
+function isNumber(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+}

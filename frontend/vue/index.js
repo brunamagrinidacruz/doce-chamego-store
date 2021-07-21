@@ -44,10 +44,28 @@ var app = new Vue({
                   }
 
                   //É cliente
-                  localStorage.setItem('item', JSON.stringify(item))
-                  console.log(item.nome);
-                  alert("Adicionado ao carrinho!")
-                  window.location.href = 'carrinho.html'
+                  let itens = []
+                  let itensCarrinho = localStorage.getObject('itensCarrinho')
+                  
+                  let verificacao = 0
+                  let tamItensCarrinho = 0
+                  if (itensCarrinho !== null)
+                        tamItensCarrinho = itensCarrinho.length
+
+                  while (tamItensCarrinho > verificacao && itensCarrinho[verificacao]._id !== item._id)
+                        verificacao++
+                  
+                  if (verificacao !== tamItensCarrinho) {
+                        alert('Este produto já está no carrinho.')
+                  } else {
+                        if (tamItensCarrinho !== 0)
+                              itens = itensCarrinho
+                        item.personalizacao = false;
+                        itens.push(item)
+                        localStorage.setObject('itensCarrinho', itens)
+                        alert('Adicionado ao carrinho!')
+                        window.location.href = 'carrinho.html'
+                  }
             }
       },
 

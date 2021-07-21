@@ -1,25 +1,17 @@
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key) {
+    let value = this.getItem(key);
+    return value && JSON.parse(value);
+}
+
 var app = new Vue({
     el: '#app',
 
     data: {
-        produto: [
-            { 
-                nomeDoProduto: "Caixa com Cone",
-                preco: 45.00,
-                informacoesImportantes: "Cone de ovomaltine, maracuja e limão",
-                prazoMin: 15,
-                prazoMax: 20,
-                // qtdDoProduto: 1
-            },
-            { 
-                nomeDoProduto: "Caixa Bar",
-                preco: 60.00,
-                informacoesImportantes: "Caixa tamanho M",
-                prazoMin: 15,
-                prazoMax: 20,
-                // qtdDoProduto: 1
-            },
-        ],
+        produto: [],
         quantidadeDosProdutos: [],
         valorTotal: 0,
         qtdDeProdutos: 0,
@@ -41,79 +33,29 @@ var app = new Vue({
     },
 
     mounted(){   
-        let item = JSON.parse(localStorage.getItem('item'));
-        console.log(item._id);
-        
-        if(item !== null){
-            let itemAux = {}; 
+        this.produto = localStorage.getObject('itensCarrinho');
+        let pers = localStorage.getObject('personalizado');
+        if(pers !== null)
+            this.produto.push(pers);
 
-            console.log(item.nome);
-            itemAux.nomeDoProduto = item.nome;
-            itemAux.preco = item.preco;
-            //itemAux.informacoesImportantes = item.descricao;
-            itemAux.prazoMin = 15;
-            itemAux.prazoMax = 20;
-
-            this.produto.push(itemAux);
-            localStorage.removeItem('item');
-        }
-        
-
-        let personalizado = JSON.parse(localStorage.getItem('personalizado'));
-        if(personalizado !== null){
-            let personalizadoAux = {}; 
-            console.log(personalizado.tipo_de_caixa.nome);
-            personalizadoAux.nomeDoProduto = personalizado.tipo_de_caixa.nome;
-            personalizadoAux.preco = personalizado.preco;
-            personalizadoAux.informacoesImportantes = personalizado.descricao;
-
-            if(personalizadoAux.nomeDoProduto === "Festa na Caixa") {
-                personalizadoAux.acompanhamentosSelecionados = personalizado.acompanhamentosSelecionados;
-                personalizadoAux.aperitivosSelecionados = personalizado.aperitivosSelecionados;
-                personalizadoAux.bebida = personalizado.bebida;
-                personalizadoAux.quantidadeDeBebida = personalizado.quantidadeDeBebida;
-                personalizadoAux.especifiqueBebida = personalizado.especifiqueBebida;
-
-            } else if(personalizadoAux.nomeDoProduto === "Café da Manhã") {
-                personalizadoAux.acompanhamentosSelecionados = personalizado.acompanhamentosSelecionados;
-                personalizadoAux.acompanhamentosSelecionados = personalizado.aperitivosSelecionados;
-            
-            } else if(personalizadoAux.nomeDoProduto === "Caixa Bar") {
-                    this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
-                    this.aperitivos = mocked_aperitivos_caixa_bar;
-            
-            } else {
-                    console.log("Um erro ocorreu!");
-
-            }
-
-            personalizadoAux.prazoMin = 15;
-            personalizadoAux.prazoMax = 20;
-
-            this.produto.push(personalizadoAux);
-            localStorage.removeItem('personalizado');
-        }
-
-        var _vm = this;
-
-        for (let indice = 0; indice < _vm.produto.length; indice++) {
+        for (let indice = 0; indice < this.produto.length; indice++) {
             this.quantidadeDosProdutos[indice] = 1;
-            _vm.valorTotal += _vm.produto[indice].preco * this.quantidadeDosProdutos[indice];
-            _vm.qtdDeProdutos += this.quantidadeDosProdutos[indice];
+            this.valorTotal += this.produto[indice].preco * this.quantidadeDosProdutos[indice];
+            this.qtdDeProdutos += this.quantidadeDosProdutos[indice];
         }
     },
 
     watch: {
         'quantidadeDosProdutos': function(novoValor) {
             let erro = false;
-            for(let i = 0; i < novoValor.length; i++) {
+            for (let i = 0; i < novoValor.length; i++) {
                 if(novoValor[i] < 0 || novoValor[i] > 30 || !isNumber(novoValor[i])) {
                     erro = true;
                     this.quantidadeDosProdutos[i] = 1;
                 }
             }
             if(erro) {
-                alert("Insira uma quantidade valida para o(s) produto(s)!");
+                alert("Insira uma quantidade válida para o(s) produto(s)!");
                 this.precoTotal()
             }
         },
@@ -121,10 +63,16 @@ var app = new Vue({
     
     methods: {
         removerDoCarrinho: function(indice){
-            var _vm = this;
-            _vm.valorTotal -= (_vm.produto[indice].preco * this.quantidadeDosProdutos[indice]);
-            _vm.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
-            _vm.produto.splice(indice, 1);
+            this.valorTotal -= (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
+            this.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
+
+            if (!this.produto[indice].personalizacao) {
+                this.produto.splice(indice, 1);
+                localStorage.setObject('itensCarrinho', this.produto);
+            } else {
+                this.produto.splice(indice, 1);
+                localStorage.setObject('personalizado', null);
+            }
         },
 
         entrar() {
@@ -164,8 +112,14 @@ var app = new Vue({
             this.qtdDeProdutos = 0;
 
             let indice;
+            let erroEstoque = false;
             for (indice = 0; indice < this.produto.length && this.quantidadeDosProdutos[indice] != ""; indice++) {
                 this.valorTotal += (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
+                if (this.quantidadeDosProdutos[indice] > this.produto[indice].quantidadeEstoque) {
+                    alert("A quantidade inserida é maior do que a em estoque.");
+                    erroEstoque = true;
+                    break;
+                }
                 this.qtdDeProdutos += parseInt(this.quantidadeDosProdutos[indice], 10);
             }
 
@@ -173,10 +127,10 @@ var app = new Vue({
                 this.valorTotal = valorTotalAntigo;
                 this.qtdDeProdutos = qtdDeProdutosAntigo;
                 this.quantidadeDosProdutos[indice] = 1;
-                alert("Insira uma quantidade valida para o(s) produto(s)!");
+                if (!erroEstoque) alert("Insira uma quantidade válida para o(s) produto(s)!");
                 this.precoTotal()
             }
-        }
+        },
     }
 })
 

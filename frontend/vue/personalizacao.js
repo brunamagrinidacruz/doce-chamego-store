@@ -98,12 +98,12 @@ var app = new Vue({
                               this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
                               this.aperitivos = mocked_aperitivos_caixa_bar;
                         } else {
-                              console.log("Um erro ocorreu!")
+                              console.log("Um erro ocorreu!");
                         }
 
-                        this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
-                        this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
-                  },
+                  this.acompanhamentosSelecionados = Array(this.acompanhamentos.length).fill(false);
+                  this.aperitivosSelecionados = Array(this.aperitivos.length).fill(false);
+            },
 
                   quantidadeDeBebida(novoValor, valorAntigo) {
                   if(novoValor < 0 || novoValor > 5 || novoValor === "") {
@@ -159,6 +159,7 @@ var app = new Vue({
                   this.erros = [];
                   let prodFinal = {};
 
+                  prodFinal.nome = this.tipo_de_caixa.nome;
                   prodFinal.tipo_de_caixa = this.tipo_de_caixa;
       
                   prodFinal.acompanhamentos = this.acompanhamentos;
@@ -191,14 +192,46 @@ var app = new Vue({
 
                   if(this.erros.length !== 0) {
                         e.preventDefault();
-                  } else {
-                        console.log(prodFinal);
+                  } else {     
+                        let descCaixa = "Tamanho: " + this.tamanho + "; " + "Cor: " + this.cor + "; ";             
+                        let descBebida = this.quantidadeDeBebida + 'x ' + this.bebida + " (" + this.especifiqueBebida + "); ";
+                        
+                        prodFinal.descricao = descCaixa + descBebida + this.descricaoAcompanhamento();
+                        if(this.tipo_de_caixa.nome !== "Festa na Caixa") 
+                              prodFinal.descricao += this.descricaoAperitivo();
+                        
+                        prodFinal.fotos = [];
+                        prodFinal.fotos[0] = "img/cafe-da-manha3.jpeg";
+                        prodFinal.quantidadeEstoque = 30;
+                        prodFinal.personalizacao = true;
+
                         localStorage.setItem('personalizado', JSON.stringify(prodFinal));
-                        alert("Adicionando ao carrinho...");
-                        window.location.href = 'carrinho.html'
+                        alert("Adicionado ao carrinho!");
+                        window.location.href = 'carrinho.html';
                   }
                         
-            }
+            },
+            descricaoAcompanhamento() {
+                  let descricaoAcompanhamentoTotal = "";
+                  for(let i = 0; i < this.acompanhamentosSelecionados.length; i++) {
+                      if(this.acompanhamentosSelecionados[i])
+                          descricaoAcompanhamentoTotal += this.acompanhamentos[i].nome + "; ";
+                  }
+                  descricaoAcompanhamentoTotal += '\n';
+      
+                  return descricaoAcompanhamentoTotal;
+            },
+            descricaoAperitivo() {
+                  let descricaoAperitivosTotal = "";
+                  console.log(this.aperitivos);
+                  for(let i = 0; i < this.aperitivosSelecionados.length; i++) {
+                      if(this.aperitivosSelecionados[i])
+                      descricaoAperitivosTotal += this.aperitivos[i].nome + "; ";
+                  }
+                  descricaoAperitivosTotal += '\n';
+      
+                  return descricaoAperitivosTotal;
+            },
       }
 
 })
