@@ -48,16 +48,21 @@ exports.post = async(req, res, next) => {
         });
     } catch(e) {
         console.log(e);
-        res.status(500).send({
-            mensagem: 'Falha ao processar sua requisição.'
-        });
+        if(e.code === 11000) {
+            res.status(400).send({
+                mensagem: 'CPF e e-mail devem ser únicos.'
+            });
+        } else {
+            res.status(500).send({
+                mensagem: 'Falha ao processar sua requisição.'
+            });
+        }
     }
 }
 
 exports.delete = async(req, res, next) => {
     try {
         let usuario = await repository.delete(req.params.id);
-        console.log(usuario);
         if(usuario !== null) {
             res.status(200).send({
                 mensagem: 'Usuário excluido com sucesso!'
