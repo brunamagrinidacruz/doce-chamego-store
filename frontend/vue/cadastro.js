@@ -69,7 +69,7 @@ var app = new Vue({
                         ehAdministrador: false
                     })
                 })
-                .then(response => {
+                .then(async (response) => {
                     const data = await response.json();
                     if (!response.ok) {
                         alert(data.mensagem);

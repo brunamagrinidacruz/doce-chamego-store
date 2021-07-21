@@ -33,11 +33,11 @@ var app = new Vue({
     },
 
     mounted(){   
-        this.produto = localStorage.getObject('itensCarrinho');
-        let pers = localStorage.getObject('personalizado');
-        if(pers !== null)
-            this.produto.push(pers);
-
+        let prodCarrinho = localStorage.getObject('itensCarrinho');
+        
+        if(prodCarrinho !== null)
+            this.produto = localStorage.getObject('itensCarrinho');
+    
         for (let indice = 0; indice < this.produto.length; indice++) {
             this.quantidadeDosProdutos[indice] = 1;
             this.valorTotal += this.produto[indice].preco * this.quantidadeDosProdutos[indice];
@@ -66,13 +66,8 @@ var app = new Vue({
             this.valorTotal -= (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
             this.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
 
-            if (!this.produto[indice].personalizacao) {
-                this.produto.splice(indice, 1);
-                localStorage.setObject('itensCarrinho', this.produto);
-            } else {
-                this.produto.splice(indice, 1);
-                localStorage.setObject('personalizado', null);
-            }
+            this.produto.splice(indice, 1);
+            localStorage.setObject('itensCarrinho', this.produto);
         },
 
         finalizarCompra() {
@@ -143,7 +138,6 @@ var app = new Vue({
             }
             
             localStorage.removeItem('itensCarrinho');
-            localStorage.removeItem('personalizado');
         },
         precoTotal(){
             let valorTotalAntigo = this.valorTotal;

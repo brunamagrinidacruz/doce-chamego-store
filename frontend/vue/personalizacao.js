@@ -1,3 +1,12 @@
+Storage.prototype.setObject = function(key, value) {
+      this.setItem(key, JSON.stringify(value));
+}
+  
+Storage.prototype.getObject = function(key) {
+      let value = this.getItem(key);
+      return value && JSON.parse(value);
+}
+
 var mocked_acompanhamentos_festa_na_caixa = [
       { id: 1, nome: "Fini", preco: 3 },
       { id: 2, nome: "Brigadeiro", preco: 4 },
@@ -207,8 +216,16 @@ var app = new Vue({
                         prodFinal.fotos[0] = "img/cafe-da-manha3.jpeg";
                         prodFinal.quantidadeEstoque = 30;
                         prodFinal.personalizacao = true;
+                        prodFinal._id = 0;
 
-                        localStorage.setItem('personalizado', JSON.stringify(prodFinal));
+                        let itens = []
+                        let itensCarrinho = localStorage.getObject('itensCarrinho');
+
+                        if(itensCarrinho !== null)
+                              itens = itensCarrinho;
+                        itens.push(prodFinal);
+
+                        localStorage.setObject('itensCarrinho', itens);
                         alert("Adicionado ao carrinho!");
                         window.location.href = 'carrinho.html';
                   }
