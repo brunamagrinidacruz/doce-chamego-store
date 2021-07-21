@@ -216,15 +216,16 @@ var app = new Vue({
                         prodFinal.fotos[0] = "img/cafe-da-manha3.jpeg";
                         prodFinal.quantidadeEstoque = 30;
                         prodFinal.personalizacao = true;
+                        prodFinal._id = 0;
 
-                        let personalizados = []
-                        let personalizadosCarrinho = localStorage.getObject('personalizado');
+                        let itens = []
+                        let itensCarrinho = localStorage.getObject('itensCarrinho');
 
-                        if(personalizadosCarrinho !== null)
-                              personalizados = personalizadosCarrinho;
-                        personalizados.push(prodFinal);
+                        if(itensCarrinho !== null)
+                              itens = itensCarrinho;
+                        itens.push(prodFinal);
 
-                        localStorage.setObject('personalizado', personalizados);
+                        localStorage.setObject('itensCarrinho', itens);
                         alert("Adicionado ao carrinho!");
                         window.location.href = 'carrinho.html';
                   }
