@@ -62,7 +62,7 @@ var app = new Vue({
 
             tipo_de_caixa: {
                   nome: "Festa na Caixa",
-                  descricao: "Já imaginou guardar uma festa INTEIRA em uma única caixa?? com a Doce Chamego é possível, conheça a nossa Festa na caixa."
+                  descricao: "Já imaginou guardar uma festa INTEIRA em uma única caixa? Com a Doce Chamego é possível, conheça a nossa Festa na caixa."
             },
 
             acompanhamentos: mocked_acompanhamentos_festa_na_caixa,
@@ -89,12 +89,15 @@ var app = new Vue({
       watch: {
             'tipo_de_caixa.nome': function (novoValor, valorAntigo) {
                         if(novoValor === "Festa na Caixa") {
+                              this.tipo_de_caixa.descricao = "Já imaginou guardar uma festa INTEIRA em uma única caixa? Com a Doce Chamego é possível, conheça a nossa Festa na caixa.";
                               this.acompanhamentos = mocked_acompanhamentos_festa_na_caixa;
                               this.aperitivos = [];
                         } else if(novoValor === "Café da Manhã") {
+                              this.tipo_de_caixa.descricao = "A refeição mais importante do dia em forma de Chamego.";
                               this.acompanhamentos = mocked_acompanhamentos_cafe_da_manha;
                               this.aperitivos = mocked_aperitivos_cafe_da_manha;
                         } else if(novoValor === "Caixa Bar") {
+                              this.tipo_de_caixa.descricao = "Tenha a experiência de uma mesa de bar sem sair de casa!";
                               this.acompanhamentos = mocked_acompanhamentos_caixa_bar;
                               this.aperitivos = mocked_aperitivos_caixa_bar;
                         } else {
