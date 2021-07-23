@@ -76,7 +76,7 @@ var app = new Vue({
 
       mounted() {
             this.$nextTick(function () {
-                  fetch('http://localhost:3000/produto')
+                  fetch('http://localhost:3000/produto/EstoqueValido')
                   .then(response => {
                               // valida se a requisição falhou
                               if (!response.ok) {

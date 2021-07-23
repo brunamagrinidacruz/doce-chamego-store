@@ -14,6 +14,18 @@ exports.get = async(req, res, next) => {
     }
 }
 
+exports.getEstoqueValido = async(req, res, next) => {
+    try {
+        let data = await repository.getEstoqueValido();
+        res.status(200).send(data);
+    } catch (e) {
+        console.log(e);
+        res.status(500).send({
+            mensagem: 'Falha ao processar sua requisição.'
+        });
+    }
+}
+
 exports.getById = async(req, res, next) => {
     try {
         let data = await repository.getById(req.params.id);
