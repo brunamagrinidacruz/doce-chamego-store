@@ -99,8 +99,8 @@ var app = new Vue({
                 this.alterarEstoque();
                 this.esvaziarCarrinho();
                 alert("Compra finalizada.");
+                window.location.reload();
             }
-            
         },
 
         alterarEstoque: async function(){
@@ -134,12 +134,6 @@ var app = new Vue({
         },
         
         esvaziarCarrinho(){
-            for(let indice = 0; indice < this.produto.length; indice++){
-                this.valorTotal -= (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
-                this.qtdDeProdutos -= this.quantidadeDosProdutos[indice];
-                this.produto.splice(indice, 1);
-            }
-            
             localStorage.removeItem('itensCarrinho');
         },
 
