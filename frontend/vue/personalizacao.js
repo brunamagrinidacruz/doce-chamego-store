@@ -231,6 +231,7 @@ var app = new Vue({
                   }
                         
             },
+
             descricaoAcompanhamento() {
                   let descricaoAcompanhamentoTotal = "";
                   for(let i = 0; i < this.acompanhamentosSelecionados.length; i++) {
@@ -241,6 +242,7 @@ var app = new Vue({
       
                   return descricaoAcompanhamentoTotal;
             },
+            
             descricaoAperitivo() {
                   let descricaoAperitivosTotal = "";
                   console.log(this.aperitivos);

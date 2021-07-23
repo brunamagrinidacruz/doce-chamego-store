@@ -101,6 +101,7 @@ var app = new Vue({
             }
             
         },
+
         alterarEstoque: async function(){
             for(let indice = 0; indice < this.produto.length; indice++){
                 if(!this.produto[indice].personalizacao){
@@ -130,6 +131,7 @@ var app = new Vue({
                 }
             }
         },
+        
         esvaziarCarrinho(){
             for(let indice = 0; indice < this.produto.length; indice++){
                 this.valorTotal -= (this.produto[indice].preco * this.quantidadeDosProdutos[indice]);
@@ -139,6 +141,7 @@ var app = new Vue({
             
             localStorage.removeItem('itensCarrinho');
         },
+        
         precoTotal(){
             let valorTotalAntigo = this.valorTotal;
             let qtdDeProdutosAntigo = this.qtdDeProdutos;
