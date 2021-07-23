@@ -91,13 +91,12 @@ var app = new Vue({
             }
 
             if(this.erros.length === 0) {
-                if(this.presente){
-                    alert("Compra finalizada. Os produtos serao enviados com embalagem para presente! Aguardando a aprovacao do pagamento.")
-                }else{
-                    this.alterarEstoque();
-                    this.esvaziarCarrinho();
-                    alert("Compra finalizada.");
-                }
+                if(this.presente)
+                    alert("Os produtos serao enviados com embalagem para presente!")
+            
+                this.alterarEstoque();
+                this.esvaziarCarrinho();
+                alert("Compra finalizada.");
             }
             
         },
@@ -141,7 +140,7 @@ var app = new Vue({
             
             localStorage.removeItem('itensCarrinho');
         },
-        
+
         precoTotal(){
             let valorTotalAntigo = this.valorTotal;
             let qtdDeProdutosAntigo = this.qtdDeProdutos;
