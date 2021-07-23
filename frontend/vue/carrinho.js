@@ -126,7 +126,7 @@ var app = new Vue({
                         })
 
                         resp = await resp.json();
-                    } catch (e) {
+                    } catch(e) {
                         alert("Error: " + e)
                     }
                 }
