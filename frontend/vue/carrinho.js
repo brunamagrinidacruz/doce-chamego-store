@@ -99,15 +99,17 @@ var app = new Vue({
                 this.alterarEstoque();
                 this.esvaziarCarrinho();
                 alert("Compra finalizada.");
-                window.location.reload();
+                //window.location.reload();
             }
         },
 
-        alterarEstoque: async function(){
+        alterarEstoque: async function(event){
+            event.preventDefault();
+            console.log(event);
             for(let indice = 0; indice < this.produto.length; indice++){
                 if(!this.produto[indice].personalizacao){
-                    this.produto[indice].quantidadeEstoque -= this.quantidadeDosProdutos[indice];
-                    this.produto[indice].quantidadeVendida += this.quantidadeDosProdutos[indice];
+                    this.produto[indice].quantidadeEstoque = parseInt(this.produto[indice].quantidadeEstoque) - parseInt(this.quantidadeDosProdutos[indice]);
+                    this.produto[indice].quantidadeVendida = parseInt(this.produto[indice].quantidadeVendida) + parseInt(this.quantidadeDosProdutos[indice]);
 
                     try {
                         let resp = await fetch('http://localhost:3000/produto/' + this.produto[indice]._id, {
@@ -126,8 +128,9 @@ var app = new Vue({
                         })
 
                         resp = await resp.json();
+                        alert(resp.mensagem);
                     } catch (e) {
-                        alert("Error: " + e)
+                        alert("Error: " + e);
                     }
                 }
             }
