@@ -10,8 +10,8 @@ Projeto para matéria de Introdução ao Desenvolvimento Web (SCC0219) para o cu
 ## Requisitos
  
 - O sistema acomoda dois tipos de usuários: clientes e administradores;
-   - Os administradores são responsáveis por registrar e gerenciar administradores, clientes e produtos. A aplicação possui uma conta *admin* com senha *admin*;
-   - Os clientes são usuários que se cadastram e acessam o sistema para comprar produtos;
+   - Os administradores são responsáveis por registrar e gerenciar administradores, clientes e produtos. A aplicação possui uma conta *admin* com senha *admin*; 
+   - Os clientes são usuários que se cadastram e acessam o sistema para comprar produtos. A aplicação possui uma conta *breno@usp.br* com senha *breno*;  
 - O sistema permite que um administrador cadastre outro. As informações armazenadas sobre um administrador são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*.  
 O sistema permite que um administrador cadastre um cliente. As informações armazenadas sobre um cliente são: *CPF*, *nome*, *endereço*, *telefone*, *e-mail* e *senha*.  
 O sistema permite que um administrador consulte, atualize e remova clientes/administradores;
