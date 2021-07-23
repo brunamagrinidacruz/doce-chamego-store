@@ -23,7 +23,8 @@ var app = new Vue({
                 cvv: "",
                 validade: new Date(),
             },
-        erros: []
+        erros: [],
+        promessaConcluida: false
     },
 
     beforeCreate() {
@@ -97,15 +98,17 @@ var app = new Vue({
                     alert("Os produtos serao enviados com embalagem para presente!");
                 }
                 this.alterarEstoque();
+                while(this.promessaConcluida != true){
+                    console.log("esperando promessa");
+                }
                 this.esvaziarCarrinho();
                 alert("Compra finalizada.");
-                //window.location.reload();
+                window.location.reload();
             }
         },
 
-        alterarEstoque: async function(event){
-            event.preventDefault();
-            console.log(event);
+        alterarEstoque: async function(){
+            let contadorPromessa = 0;
             for(let indice = 0; indice < this.produto.length; indice++){
                 if(!this.produto[indice].personalizacao){
                     this.produto[indice].quantidadeEstoque = parseInt(this.produto[indice].quantidadeEstoque) - parseInt(this.quantidadeDosProdutos[indice]);
@@ -128,7 +131,12 @@ var app = new Vue({
                         })
 
                         resp = await resp.json();
-                        alert(resp.mensagem);
+                        contadorPromessa++;
+                        if(contadorPromessa == this.produto.length)
+                            this.promessaConcluida = true;
+                        alert(contadorPromessa);
+                        alert(this.produto.length);
+                        //alert(resp.mensagem);
                     } catch (e) {
                         alert("Error: " + e);
                     }
@@ -137,6 +145,9 @@ var app = new Vue({
         },
         
         esvaziarCarrinho(){
+            // for(let indice = 0; indice < this.produto.length; indice++){
+            //     this.removerDoCarrinho(this.produto[indice]);
+            // }
             localStorage.removeItem('itensCarrinho');
         },
 
