@@ -43,7 +43,10 @@
     width: calc(100% - 5em - 30px);
     padding: 0px 15px;
 }
-
+.prodDescript{
+    width: calc(100% - 5em - 15px);
+    padding: 0px 15px;
+}
 .valor{
     box-sizing: border-box;
     text-align: center;
@@ -62,6 +65,7 @@
 hr.linha{
     margin-bottom: 15px;
     border: solid 1px rgb(206, 206, 206);
+    width: 100%;
 }
 
 #titulo-carrinho{
@@ -96,7 +100,7 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
     background-color: #ffd5d6;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1213px) {
     .valor{
         float:none;
         width: 100%;
@@ -117,6 +121,10 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
         height: 30px;
     }
     .prodInfo{
+        width: calc(100% - 5em - 5px);
+        padding: 0;
+    }
+    .prodDescript{
         width: calc(100% - 5em - 5px);
         padding: 0;
     }
@@ -146,7 +154,7 @@ input[type=text], input[type=email], input[type=password], input[type=tel],  inp
         padding: 0;
     }
     hr.linha{
-        width: 95%;
+        width: 98%;
     }
     .imgCarrinho{
         margin-right: 5px;

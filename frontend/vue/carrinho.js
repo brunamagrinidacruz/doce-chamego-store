@@ -23,7 +23,8 @@ var app = new Vue({
                 cvv: "",
                 validade: new Date(),
             },
-        erros: []
+        erros: [],
+        promessaConcluida: false
     },
 
     beforeCreate() {
@@ -96,48 +97,67 @@ var app = new Vue({
                 if(this.presente) {
                     alert("Os produtos serao enviados com embalagem para presente!");
                 }
-                this.alterarEstoque();
-                this.esvaziarCarrinho();
-                alert("Compra finalizada.");
-                window.location.reload();
+                this.concluirCompra();
             }
         },
 
-        alterarEstoque: async function(){
-            for(let indice = 0; indice < this.produto.length; indice++){
-                if(!this.produto[indice].personalizacao){
-                    this.produto[indice].quantidadeEstoque -= this.quantidadeDosProdutos[indice];
-                    this.produto[indice].quantidadeVendida += this.quantidadeDosProdutos[indice];
+        concluirCompra: async function(){
+            let contadorPromessa = 0;
 
-                    try {
-                        let resp = await fetch('http://localhost:3000/produto/' + this.produto[indice]._id, {
-                            method: 'PUT',
-                            headers: {
-                                'Content-type': 'application/json; charset=UTF-8'
-                            },
-                            body: JSON.stringify({
-                                nome: this.produto[indice].nome,
-                                preco: this.produto[indice].preco,
-                                quantidadeEstoque: this.produto[indice].quantidadeEstoque,
-                                quantidadeVendida: this.produto[indice].quantidadeVendida,
-                                descricao: this.produto[indice].descricao,
-                                fotos: this.produto[indice].fotos,
+            if (this.quatidadeProdutoNaoPersonalizado() == 0) {
+                this.esvaziarCarrinho();
+                alert("Compra finalizada.");
+                window.location.reload();
+            } else {
+                for(let indice = 0; indice < this.produto.length; indice++){
+                    if(!this.produto[indice].personalizacao){
+                        this.produto[indice].quantidadeEstoque = parseInt(this.produto[indice].quantidadeEstoque) - parseInt(this.quantidadeDosProdutos[indice]);
+                        this.produto[indice].quantidadeVendida = parseInt(this.produto[indice].quantidadeVendida) + parseInt(this.quantidadeDosProdutos[indice]);
+
+                        try {
+                            let resp = await fetch('http://localhost:3000/produto/' + this.produto[indice]._id, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-type': 'application/json; charset=UTF-8'
+                                },
+                                body: JSON.stringify({
+                                    nome: this.produto[indice].nome,
+                                    preco: this.produto[indice].preco,
+                                    quantidadeEstoque: this.produto[indice].quantidadeEstoque,
+                                    quantidadeVendida: this.produto[indice].quantidadeVendida,
+                                    descricao: this.produto[indice].descricao,
+                                    fotos: this.produto[indice].fotos,
+                                })
                             })
-                        })
 
-                        resp = await resp.json();
-                    } catch(e) {
-                        alert("Error: " + e)
+                            resp = await resp.json();
+                            contadorPromessa++;
+                            if (contadorPromessa == this.quatidadeProdutoNaoPersonalizado()) {
+                                this.esvaziarCarrinho();
+                                alert("Compra finalizada.");
+                                window.location.reload();
+                            }
+                        } catch (e) {
+                            alert("Error: " + e);
+                        }
                     }
                 }
             }
         },
         
-        esvaziarCarrinho(){
+        esvaziarCarrinho() {
             localStorage.removeItem('itensCarrinho');
         },
 
-        precoTotal(){
+        quatidadeProdutoNaoPersonalizado() {
+            let quantidadePersonalizado = 0;
+            for (let i = 0; i < this.produto.length; i++)
+                if (this.produto[i].personalizacao)
+                    quantidadePersonalizado++;
+            return this.produto.length - quantidadePersonalizado;
+        },
+
+        precoTotal() {
             let valorTotalAntigo = this.valorTotal;
             let qtdDeProdutosAntigo = this.qtdDeProdutos;
 

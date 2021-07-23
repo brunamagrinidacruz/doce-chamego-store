@@ -21,7 +21,8 @@ As informações armazenadas sobre um produto são: *nome*, *preço*, *descriç�
 - O sistema permite a venda dos produtos. Para cada produto vendido, a *quantidade vendida* deve ser incrementada e *quantidade em estoque* decrementada conforme a quantidade vendida. Uma venda não pode ser realizada caso não haja a quantidade em estoque necessária.  
 A venda é paga com um cartão de crédito;
 - O sistema deve conter um carrinho, no qual os produtos selecionados estarão listados com as informações de *nome*, *foto*, *descrição*, *preço* e quantidade selecionada. Além disso, deve ser mostrado o preço total associado a todos os itens. Os carrinhos serão limpos apenas no pagamento ou pelos clientes;
-- O sistema permite a montagem de uma festa na caixa personalizada. Por meio desta funcionalidade o cliente pode definir quais serão os itens que compõem a festa na caixa e a sua decoração (cores) com base em um tema: Festa na Caixa, Café da Manhã ou Caixa-Bar. Além disso, é possível ver o valor total da festa na caixa customizada;  
+- O sistema permite a montagem de uma festa na caixa personalizada. Por meio desta funcionalidade o cliente pode definir quais serão os itens que compõem a festa na caixa e a sua decoração (cores) com base em um tema: Festa na Caixa, Café da Manhã ou Caixa-Bar. Além disso, é possível ver o valor total da festa na caixa customizada.  
+Note que como a festa na caixa personalizada é feita sob demanda, não há um limite no estoque;  
 - O sistema fornece requisitos de acessibilidade e fornecer boa usabilidade. O sistema é responsivo.
  
 ## Descrição

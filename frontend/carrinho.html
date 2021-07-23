@@ -18,23 +18,25 @@
                         <div class="itens">
                             <div v-for="item, indice in produto" class="itemUnico">
                                 <hr class="linha">
-                                <img class="imgCarrinho inline-block" v-bind:src="item.fotos[0]" v-bind:alt="item.fotos[0]">
-                                <div class="right prodInfo">
-                                    <div class="nomePreco inline-block">
-                                        <h3 class="inline-block">{{ item.nome }}</h3>
-                                        <h3 class="inline-block right">R${{ item.preco.toFixed(2).replace(".", ",") }}</h3>
+                                <div>
+                                    <img class="imgCarrinho inline-block" v-bind:src="item.fotos[0]" v-bind:alt="item.fotos[0]">
+                                    <div class="right prodInfo">
+                                        <div class="nomePreco inline-block">
+                                            <h3 class="inline-block">{{ item.nome }}</h3>
+                                            <h3 class="inline-block right">R${{ item.preco.toFixed(2).replace(".", ",") }}</h3>
+                                        </div>
+                                        <p class="prodDescript">{{ item.descricao }}</p>
+                                        <form>
+                                            <label for="name">Quantidade:</label>
+                                            <input type="text" id="nProdutos" name="nProdutos" required min="1" v-model="quantidadeDosProdutos[indice]" >
+                                            <button class="editar" type="button" v-on:click.prevent.stop="precoTotal()">Adicionar</button>
+                                            <input class="excluir" type="button" value="Remover" v-on:click="removerDoCarrinho(indice)">
+                                        </form>
                                     </div>
-                                    <p>{{ item.descricao }}</p>
-                                    <form>
-                                        <label for="name">Quantidade:</label>
-                                        <input type="text" id="nProdutos" name="nProdutos" required min="1" v-model="quantidadeDosProdutos[indice]" >
-                                        <button class="editar" type="button" v-on:click.prevent.stop="precoTotal()">Adicionar</button>
-                                        <input class="excluir" type="button" value="Remover" v-on:click="removerDoCarrinho(indice)">
-                                    </form>
                                 </div>
                             </div>
-                            <hr class="linha">
                             <div class="preco inline-block">
+                                <hr class="linha">
                                 <p style="text-align: end;">Subtotal ({{ qtdDeProdutos }} item): R${{ valorTotal.toFixed(2).replace(".", ",") }}</p>
                             </div>
                         </div>

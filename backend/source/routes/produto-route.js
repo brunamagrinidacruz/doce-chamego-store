@@ -5,6 +5,7 @@ const router = express.Router();
 const controller = require('../controllers/produto-controller.js');
 
 router.get('/', controller.get);
+router.get('/EstoqueValido', controller.getEstoqueValido);
 router.get('/:id', controller.getById);
 router.post('/', controller.post);
 router.put('/:id', controller.put);

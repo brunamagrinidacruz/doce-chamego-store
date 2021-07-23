@@ -8,6 +8,13 @@ exports.get = async() => {
       return res;
 }
 
+exports.getEstoqueValido = async() => {
+      const res = await Produto.find({
+            quantidadeEstoque: { $gt: 0 }      
+      });
+      return res;
+}
+
 exports.getById = async(id) => {
       const res = await Produto.findById(id);
       return res;
