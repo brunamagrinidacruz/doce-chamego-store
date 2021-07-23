@@ -80,9 +80,11 @@ var app = new Vue({
             if(!this.formaDePagamento.numeroDoCartao || this.formaDePagamento.numeroDoCartao.length !== 16) {
                 this.erros.push("Digite o numero do cartao.");
             }
+
             if(!this.formaDePagamento.cvv || this.formaDePagamento.cvv.length !== 3) {
                 this.erros.push("Digite o cvv.");
             }
+
             var data = new Date();
             if(!this.formaDePagamento.validade) {
                 this.erros.push("Digite a validade.");
@@ -91,9 +93,9 @@ var app = new Vue({
             }
 
             if(this.erros.length === 0) {
-                if(this.presente)
-                    alert("Os produtos serao enviados com embalagem para presente!")
-            
+                if(this.presente) {
+                    alert("Os produtos serao enviados com embalagem para presente!");
+                }
                 this.alterarEstoque();
                 this.esvaziarCarrinho();
                 alert("Compra finalizada.");
@@ -125,7 +127,7 @@ var app = new Vue({
 
                         resp = await resp.json();
                     } catch (e) {
-                            alert("Error: " + e)
+                        alert("Error: " + e)
                     }
                 }
             }
