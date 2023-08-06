@@ -1,9 +1,3 @@
-Bruna Magrini da Cruz, 11218813  
-Marlon José Martins, 10249010  
-Wellington Matos Amaral, 11315054 
- 
-Projeto para matéria de Introdução ao Desenvolvimento Web (SCC0219) para o curso de Ciências de Computação da USP São Carlos.
- 
 # Loja da Doce Chamego
  O sistema é um site para venda de cones trufados e festas na caixa. Os cones trufados são vendidos em diferentes formatos: cone simples, cone cascão, cone na caixa e cone comemorativo (páscoa, natal, dia das crianças, entre outros). As festas na caixa são produtos com  tema pré-definido (café da manhã, quitutes, caixa bar, vinho, petiscos, entre outros) ou podem ser montadas pelo cliente, escolhendo assim seus itens e decoração. 
  
@@ -241,4 +235,12 @@ Não há.
 ## Comentários
  
 - Não é feita validação de acesso a rota proibida. Por exemplo, caso um usuário não administrador tente entrar na rota "/admin.html", não há uma validação.
+
+---
+
+Project for Web Development (SCC0219) - Computer Science @ Instituto de Ciências Matemáticas e de Computação (ICMC) - Universidade de São Paulo (USP). São Carlos, Brazil, 2021.
+
+Bruna Magrini da Cruz, 11218813  
+Marlon José Martins, 10249010  
+Wellington Matos Amaral, 11315054 
 
